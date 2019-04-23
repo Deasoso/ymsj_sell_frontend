@@ -1,4 +1,4 @@
-# fubicai
+# study
 
 ## Project setup
 ```
