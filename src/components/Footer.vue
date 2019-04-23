@@ -6,11 +6,11 @@
         <img slot="icon" src="../assets/logo.png">
         页面1
       </mt-tab-item>
-      <mt-tab-item id="资产公告"  @click.native="menuTab('')">
+      <mt-tab-item id="资产公告"  @click.native="menuTab('/page1')">
         <img slot="icon" src="../assets/logo.png">
         页面2
       </mt-tab-item>
-      <mt-tab-item id="路线图" @click.native="menuTab('')">
+      <mt-tab-item id="路线图" @click.native="menuTab('/page2')">
         <img slot="icon" src="../assets/logo.png">
         页面3
       </mt-tab-item>

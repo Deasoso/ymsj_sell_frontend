@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <img alt="Vue logo" src="./assets/logo.png">
+      <router-view />
     <Footer />
   </div>
 </template>
@@ -17,6 +17,16 @@ export default {
   components: {
     Header,
     Footer
+  },
+  data: () =>{
+     return{
+       amount: 1000
+     }
+  },
+  methods:{
+    addbutton(ssss){
+      this.amount += ssss;
+    }
   }
 }
 </script>
