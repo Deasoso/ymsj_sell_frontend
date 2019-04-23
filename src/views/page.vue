@@ -1,11 +1,16 @@
 <template>
   <div id="app">
-    <mt-cell
-  title="标题文字"
-  is-link
-  value="带链接">
-</mt-cell>
-    我是page1
+    
+    <div class="juli1">我是page1</div>
+    <div v-for="index in list" :key="index"> 
+      <mt-cell
+      :title="index.name"
+      is-link
+      value="带链接">
+    </mt-cell>
+      
+      <!-- {{index.price}} -->
+    </div>
   </div>
 </template>
 
@@ -14,7 +19,17 @@ export default {
   name: 'app',
   data: () =>{
      return{
-       amount: 1000
+       amount: 1000,
+       list:[
+         {
+           name: "tushu1",
+           price: 100
+         },
+         {
+           name: "tushu2",
+           price: 200
+         }
+       ]
      }
   },
   methods:{
@@ -26,5 +41,8 @@ export default {
 </script>
 
 <style>
-
+.juli1{
+  margin-top: 100px;
+  float: left;
+}
 </style>
