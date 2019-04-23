@@ -1,5 +1,5 @@
 <template>
   <div class="header">
-    <img alt="Vue logo" src="../assets/logo.png">
+    我是页头
   </div>
 </template>

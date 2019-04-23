@@ -4,23 +4,15 @@
     :fixed="true">
       <mt-tab-item id="主页" @click.native="menuTab('/Home')">
         <img slot="icon" src="../assets/logo.png">
-        主页
+        页面1
       </mt-tab-item>
       <mt-tab-item id="资产公告"  @click.native="menuTab('')">
         <img slot="icon" src="../assets/logo.png">
-        资产公告
+        页面2
       </mt-tab-item>
       <mt-tab-item id="路线图" @click.native="menuTab('')">
         <img slot="icon" src="../assets/logo.png">
-        路线图
-      </mt-tab-item>
-      <mt-tab-item id="客服" @click.native="menuTab('')">
-        <img slot="icon" src="../assets/logo.png">
-        客服
-      </mt-tab-item>
-      <mt-tab-item id="我的" @click.native="menuTab('/User')">
-        <img slot="icon" src="../assets/logo.png">
-        我的
+        页面3
       </mt-tab-item>
     </mt-tabbar>
   </div>
