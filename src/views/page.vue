@@ -15,9 +15,9 @@
       primary
     </mt-button>
     {{amount}}
-    <div v-for="index in list" :key="index"> 
+    <!-- <div v-for="index in list" :key="index"> 
       {{index.name}}/{{index.price}}
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -41,8 +41,9 @@ export default {
   },
   methods:{
     addamount(ssss){
-      this.$router.push("/newpage");
-      // this.amount += ssss;
+      console.log(this.amount);
+      // this.$router.push("/newpage");
+      this.amount += ssss;
     }
   }
 }
