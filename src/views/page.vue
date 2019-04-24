@@ -2,14 +2,21 @@
   <div id="app">
     
     <div class="juli1">我是page1</div>
-    <div v-for="index in list" :key="index"> 
-      <mt-cell
-      :title="index.name"
+    <img class="kuandu25" src="../assets/logo.png"  alt="imggg" />
+    <img class="kuandu25" src="../assets/logo.png"  alt="imggg" />
+    <img class="kuandu25" src="../assets/logo.png"  alt="imggg" />
+    <img class="kuandu25" src="../assets/logo.png"  alt="imggg" />
+    <mt-cell
+      title="标题文字"
       is-link
       value="带链接">
     </mt-cell>
-      
-      <!-- {{index.price}} -->
+    <mt-button type="primary" @click="addamount(2)" class="kaozuo">
+      primary
+    </mt-button>
+    {{amount}}
+    <div v-for="index in list" :key="index"> 
+      {{index.name}}/{{index.price}}
     </div>
   </div>
 </template>
@@ -33,8 +40,9 @@ export default {
      }
   },
   methods:{
-    addbutton(ssss){
-      this.amount += ssss;
+    addamount(ssss){
+      this.$router.push("/newpage");
+      // this.amount += ssss;
     }
   }
 }
@@ -43,6 +51,13 @@ export default {
 <style>
 .juli1{
   margin-top: 100px;
+  float: left;
+}
+.kaozuo{
+  float: left;
+}
+.kuandu25{
+  width: 25%;
   float: left;
 }
 </style>
