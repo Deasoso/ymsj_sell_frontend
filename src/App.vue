@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import "bulma";
-import "../node_modules/mint-ui/lib/style.css";
+import 'animate.css'
+import {WOW} from 'wowjs'    
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -18,15 +18,18 @@ export default {
     Header,
     Footer
   },
-  data: () =>{
-     return{
+  data: () => {
+     return {
        amount: 1000
      }
   },
-  methods:{
+  methods: {
     addbutton(ssss){
       this.amount += ssss;
     }
+  },
+  mounted() {
+    new WOW().init() 
   }
 }
 </script>

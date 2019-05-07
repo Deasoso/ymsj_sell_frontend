@@ -20,15 +20,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import {Toast} from "mint-ui"
+
 export default {
   name: "NavigateTabBar",
   data: () => ({
     selected: 0
   }),
-  component:{
-      Toast
-  },
   methods: {
     menuTab(name) {
       this.$router.push(name);
