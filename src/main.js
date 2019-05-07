@@ -6,9 +6,9 @@ import MintUI from "mint-ui";
 import "mint-ui/lib/style.css";
 Vue.use(MintUI);
 
-import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
-Vue.use(Buefy)
+import Bulma from 'bulma'
+import 'bulma/css/bulma.css'
+Vue.use(Bulma)
 
 Vue.config.productionTip = false
 
