@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <mt-tabbar v-model="selected"
+    <!-- <mt-tabbar v-model="selected"
     :fixed="true">
       <mt-tab-item id="主页" @click.native="menuTab('/Home')">
         <img slot="icon" src="../assets/logo.png">
@@ -14,7 +14,7 @@
         <img slot="icon" src="../assets/logo.png">
         页面3
       </mt-tab-item>
-    </mt-tabbar>
+    </mt-tabbar> -->
   </div>
 </template>
 
