@@ -13,6 +13,7 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.21",
+    "vue-easy-slider": "^5.2.10",
     "vue-router": "^3.0.2",
     "vuex": "^3.1.0"
   },

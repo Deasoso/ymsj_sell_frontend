@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
@@ -129,17 +129,29 @@ export default {
   },
   computed: {
     tweenedCSSColor: function () {
-      return new Color({
-        red: this.tweenedColor.red,
-        green: this.tweenedColor.green,
-        blue: this.tweenedColor.blue,
-        alpha: this.tweenedColor.alpha
-      }).toCSS()
+      // console.log(new Color({
+      //   red: this.tweenedColor.red,
+      //   green: this.tweenedColor.green,
+      //   blue: this.tweenedColor.blue,
+      //   alpha: this.tweenedColor.alpha
+      // }).toCSS());
+      if(this.tweenedColor.alpha == 1){
+        return "rgba(255,255,255,1)";
+      }else{
+        return new Color({
+          red: this.tweenedColor.red,
+          green: this.tweenedColor.green,
+          blue: this.tweenedColor.blue,
+          alpha: this.tweenedColor.alpha
+        }).toCSS()
+      }
     }
   },
 }
 </script>
 <style>
-
+.header{
+  z-index: 1000;
+}
 </style>
 
