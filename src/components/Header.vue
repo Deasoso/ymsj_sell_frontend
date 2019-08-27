@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
+    <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          <img style="filter:Invert();" src="http://47.106.69.165/deasologo/deasosmallblack.png" width="112" height="28">
         </a>
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
@@ -16,31 +16,31 @@
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
           <a class="navbar-item">
-            Home
+            技术
           </a>
 
           <a class="navbar-item">
-            Documentation
+            团队
           </a>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
-              More
+              产品
             </a>
 
             <div class="navbar-dropdown">
               <a class="navbar-item">
-                About
+                茶油
               </a>
               <a class="navbar-item">
-                Jobs
+                有机盆栽蔬菜
               </a>
               <a class="navbar-item">
-                Contact
+                各种中药材
               </a>
               <hr class="navbar-divider">
               <a class="navbar-item">
-                Report an issue
+                技术提供信息
               </a>
             </div>
           </div>
@@ -50,10 +50,10 @@
           <div class="navbar-item">
             <div class="buttons">
               <a class="button is-primary">
-                <strong>Sign up</strong>
+                <strong>进入交易市场</strong>
               </a>
               <a class="button is-light">
-                Log in
+                联系我们
               </a>
             </div>
           </div>
@@ -152,6 +152,12 @@ export default {
 <style>
 .header{
   z-index: 1000;
+}
+/*
+
+*/
+.nav_shadow{
+  box-shadow: 0px 0px 10px 0px #acacac
 }
 </style>
 

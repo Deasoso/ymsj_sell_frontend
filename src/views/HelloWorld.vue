@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
-    <section class="hero is-cover is-success is-fullheight">
-      <slider class="sliderContainer" animation="normal" height="none" style="position: unset">
+    <section class="hero is-cover is-fullheight">
+      <slider class="sliderContainer" animation="normal" height="none" style="position: inherit">
         <slider-item>
           <div class="slide slide1">
             <div class="slideContainer">
-              <span class="slidetext slidetitle">标题</span>
-              <p class="slidetext">副标题</p>
+              <span class="slidetext slidetitle">有机盆栽蔬菜基地</span>
+              <p class="slidetext">基地地点位于娄底市娄星区水洞底镇西溪村和慕隆村，孙水河畔，无工业污染，占地500亩。项目已经在水洞底镇西溪村和慕隆村流转土地500亩，主要做好500亩有机盆栽蔬菜种植基地建设、包括土地流转、土地整理、土壤改良、种苗订购、规划设计、技术培训、连栋大棚建设和机耕道、灌溉系统、供电等基础设施建设。</p>
               <br>
               <div class="btndiv">
                 <router-link class="button is-medium gotoDetail" :to="{ name: 'PreSale' }">了解详情</router-link>
@@ -17,8 +17,8 @@
         <slider-item>
           <div class="slide slide2">
             <div class="slideContainer">
-              <span class="slidetext slidetitle">标题</span>
-              <p class="slidetext">副标题</p>
+              <span class="slidetext slidetitle">茶油种植基地</span>
+              <p class="slidetext">基地位于湖南省涟源市，涟源属大陆性中亚热带大陆性季风湿润气候区，热量丰富，温度适宜，冬季少严寒，而恰好油茶的生长习性是喜温暖，怕寒冷，所以在涟源种植油茶有着得天独厚的地理优势。目前我们的茶油种植基地有三百多亩的生产规模，将近四万颗茶油树。按照一棵树产一斤茶油来算，我们的基地一年可以生产四万斤的茶油。与目前市场上的众多调和油相比，在制作工艺方面，我们采取传统的生产方式，是纯天然的茶油，成分达到100%，无任何其他掺杂成分，保质期长达10年之久。</p>
               <br>
               <div class="btndiv">
                 <router-link class="button is-medium gotoDetail" :to="{ name: 'Game' }">了解详情</router-link>
@@ -29,8 +29,8 @@
         <slider-item>
           <div class="slide slide3">
             <div class="slideContainer">
-              <span class="slidetext slidetitle">更多内容</span>
-              <p class="slidetext">敬请期待。</p>
+              <span class="slidetext slidetitle">中药材种植基地</span>
+              <p class="slidetext">基地位于湖南省涟源市，地属大陆性中亚热带季风湿润气候，温度适宜、降水量较多，低温冻害和连阴雨影响偏轻、干旱范围小，地形以山地丘陵为主，有较多开阔的缓坡，土壤条件较好。中药材如玉竹等的生长习性为喜阴湿环境，较耐寒，适宜在湿润疏松、富含腐殖质的黄沙土或棕壤土中生长，所以涟源市的气候土壤环境很适合如玉竹等中药材的生长。目前我们的中药材种植基地占地300多亩，主要种植****，具有较高的药用价值，与市场上其他中药材种植基地相比，我们采取下单实地采摘的模式，保证中药材的新鲜度，一年四季我们都将会有中药材的提供以满足客户的需求。</p>
             </div>
           </div>
         </slider-item>
@@ -38,7 +38,6 @@
     </section>
     <projects />
     <students />
-    <div class="wow slideInLeft">1<br/></div>
   </div>
 </template>
 
@@ -62,7 +61,12 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+.hello{
+  margin: 10%;
+  width: 80%;
+}
+
 h3 {
   margin: 40px 0 0;
 }
