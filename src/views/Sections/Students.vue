@@ -1,109 +1,34 @@
 <template>
-  <div class="cardcontainer">
-    <p class="title">技术</p>
-    <div class="columns">
-      <div class="column onecard wow slideInUp">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <p class="title">富硒肥</p>
-            <div class="content">
-              介绍
-            </div>
-            <a class="button is-success is-rounded">查看详情</a>
+  <div>
+    <div class="cardcontainer">
+      <div class="columns is-gapless">
+        <div class="column fullheight">
+          <div class="vermiddle">
+            <img class="avatar" src="../../assets/touxiang2.jpg"/>
+            <h1 class="title whiteborder">
+              司令死灵法师
+            </h1>
+            <h2 class="subtitle whiteborder">
+              建站小记 2020.8.20
+            </h2>
           </div>
         </div>
-      </div>
-      <div class="column twocard wow slideInUp" data-wow-delay="0.3s">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a> <a href="#">#responsive</a>
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column threecard wow slideInUp" data-wow-delay="0.6s">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a> <a href="#">#responsive</a>
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column fourcard wow slideInUp" data-wow-delay="0.9s">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a> <a href="#">#responsive</a>
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <div class="column fullheight">
+          <div class="vermiddle">
+            <div class="whiteback">
+              <h2 class="subtitle blackfont">
+                大家好，我是司令死灵法师。<br>
+                从挺久以前就想建个个人网站，现在终于有一些时间了。<br>
+                大概会收集以前的个人作品。<br>
+                然后分享一些个人的想法什么的。<br>
+                如果有话想说，可以去留言板留言。<br>
+                总之祝大家玩的开心啦。<br>
+                <br>
+                -> 个人介绍<br>
+                -> 过往作品补档<br>
+                -> 日志<br>
+                -> 留言板<br>
+              </h2>
             </div>
           </div>
         </div>
@@ -111,23 +36,43 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 /*
   section 2
 */
+.avatar{
+  height: 132px;
+  width: 132px;
+  border-radius:50%;
+  border: 3px solid white;
+  vertical-align: top;
+  display:inline-block;
+  margin-bottom: 20px;
+}
 .cardcontainer{
-  margin: 20px;
+  background-image: url("../../assets/manread.jpg");
 }
-.onecard{
-  margin-top: 0px;
+.whiteborder{
+  text-shadow:5px 2px 6px #000000;
+  color: #ffffff
 }
-.twocard{
-  margin-top: 60px;
+.fullheight{
+  height: 100vh;
 }
-.threecard{
-  margin-top: 0px;
+.vermiddle{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.fourcard{
-  margin-top: 60px;
+.whiteback{
+  margin: 30px 30px;
+  padding: 30px;
+  height: calc(100vh - 120px);
+  background-color: #ffffff99;
+  text-align: left;
 }
+.blackfont{
+  color: #000000;
+}
+
 </style>

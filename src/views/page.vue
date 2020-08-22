@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .juli1{
   margin-top: 100px;
   float: left;

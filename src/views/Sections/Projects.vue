@@ -5,7 +5,7 @@
         <p class="title">产品</p>
         <div class="tile is-ancestor">
           <div class="tile is-4 is-vertical is-parent">
-            <div class="tile is-child box wow slideInLeft">
+            <div class="tile is-child box">
               <figure class="image is-4by3">
                 <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
               </figure>
@@ -13,7 +13,7 @@
               <p class="title">茶油</p>
               <a class="button is-success is-rounded">查看详情</a>
             </div>
-            <div class="tile is-child box wow slideInLeft">
+            <div class="tile is-child box">
               <figure class="image is-4by3">
                 <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
               </figure>
@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="tile is-parent">
-            <div class="tile is-child box wow slideInRight">
+            <div class="tile is-child box">
               <nav class="level">
                 <div class="level-item">
                   <p class="title">各种中药材</p>
@@ -54,52 +54,6 @@
                     <p class="title">标题</p>
                   </article>
                   <article class="tile is-child box">
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                    <br>
-                    <p class="title">标题</p>
-                  </article>
-                </div>
-                <div class="tile is-parent is-vertical">
-                  <article class="tile is-child box">
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                    <br>
-                    <p class="title">标题</p>
-                  </article>
-                  <article class="tile is-child box">
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                    <br>
-                    <p class="title">标题</p>
-                  </article>
-                  <article class="tile is-child box" style="opacity:0">
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                    <br>
-                    <p class="title">标题</p>
-                  </article>
-                </div>
-                <div class="tile is-parent is-vertical">
-                  <article class="tile is-child box">
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                    <br>
-                    <p class="title">标题</p>
-                  </article>
-                  <article class="tile is-child box">
-                    <figure class="image is-4by3">
-                      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </figure>
-                    <br>
-                    <p class="title">标题</p>
-                  </article>
-                  <article class="tile is-child box" style="opacity:0">
                     <figure class="image is-4by3">
                       <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
                     </figure>

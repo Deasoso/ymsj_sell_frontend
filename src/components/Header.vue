@@ -3,9 +3,9 @@
     <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
-          <img style="filter:Invert();" src="http://pic.deaso40.com/deasologo/deasosmallblack.png" width="112" height="28">
+          <img style="margin-left:8px;" src="../assets/deaso.jpg" width="28" height="28">
         </a>
-
+        <!-- 反色 filter:Invert(); -->
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -16,31 +16,31 @@
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
           <a class="navbar-item">
-            技术
+            游戏
           </a>
-
           <a class="navbar-item">
-            团队
+            文章
           </a>
-
+          <a class="navbar-item">
+            音乐
+          </a>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
-              产品
+              技术
             </a>
-
             <div class="navbar-dropdown">
               <a class="navbar-item">
-                茶油
+                区块链
               </a>
               <a class="navbar-item">
-                有机盆栽蔬菜
+                小程序
               </a>
               <a class="navbar-item">
-                各种中药材
+                网站搭建
               </a>
               <hr class="navbar-divider">
               <a class="navbar-item">
-                技术提供信息
+                游戏制作
               </a>
             </div>
           </div>
@@ -49,12 +49,12 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>进入交易市场</strong>
+              <a class="button is-success">
+                <strong>联系我</strong>
               </a>
-              <a class="button is-light">
+              <!-- <a class="button is-light">
                 联系我们
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default {
           red: 255,
           green: 255,
           blue: 255,
-          alpha: 1.0
+          alpha: 0.9
         }).toRGB();
         this.colorshowing = true;
       } else if (top <= 59 && this.colorshowing){
@@ -149,7 +149,7 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .header{
   z-index: 1000;
 }
