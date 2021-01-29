@@ -26,7 +26,6 @@
         </div>
       <!-- </div> -->
     </section>
-    <title2 />
   </div>
 </template>
 
