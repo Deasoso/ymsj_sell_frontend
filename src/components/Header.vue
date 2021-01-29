@@ -3,7 +3,7 @@
     <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
-          <img style="margin-left:8px;filter:Invert();" src="../assets/deaso.jpg" width="28" height="28">
+          <img style="margin-left:8px;width:96px;height:40px;max-height:none;" src="../assets/ymsjlogo.png">
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
           <span aria-hidden="true"></span>
@@ -14,47 +14,43 @@
 
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
-          <a class="navbar-item whitefont">
-            游戏
+          <a class="navbar-item yellowfont">
+            <span>
+              <img class="pagelogo" src="../assets/title_slices/home.png">
+            </span>
+            首页
           </a>
           <a class="navbar-item whitefont">
-            文章
+            <span>
+              <img class="pagelogo" src="../assets/title_slices/card.png">
+            </span>
+            卡牌大全
           </a>
           <a class="navbar-item whitefont">
-            音乐
+            <span>
+              <img class="pagelogo" src="../assets/title_slices/trade.png">
+            </span>
+            交易大厅
           </a>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link whitefont">
-              技术
-            </a>
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                区块链
-              </a>
-              <a class="navbar-item">
-                小程序
-              </a>
-              <a class="navbar-item">
-                网站搭建
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                游戏制作
-              </a>
-            </div>
-          </div>
+          <a class="navbar-item whitefont">
+            <span>
+              <img class="pagelogo" src="../assets/title_slices/store.png">
+            </span>
+            卡牌商店
+          </a>
+          <a class="navbar-item whitefont">
+            <span>
+              <img class="pagelogo" src="../assets/title_slices/backpack.png">
+            </span>
+            我的背包
+          </a>
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons">
-              <a class="button">
-                <strong>联系我</strong>
-              </a>
-              <!-- <a class="button is-light">
-                联系我们
-              </a> -->
-            </div>
+            <button class="button is-outlined loginbutton">
+              <strong>登录钱包</strong>
+            </button>
           </div>
         </div>
       </div>
@@ -63,100 +59,50 @@
 </template>
 
 <script>
-var Color = net.brehaut.Color
+// var Color = net.brehaut.Color
 
 export default {
   data() {
     return {
       selected: "",
-      title: "",
-      color: {
-        red: 255,
-        green: 255,
-        blue: 255,
-        alpha: 0
-      },
-      tweenedColor: {},
-      colorshowing: false,
+      title: ""
     }
-  },
-  mounted(){
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  created: function () {
-    this.tweenedColor = Object.assign({}, this.color)
   },
   methods: {
     clicknav(){
-      // console.log(this.$refs.nav.classList);
       this.$refs.nav.classList.toggle("is-active");
       this.$refs.navitem.classList.toggle("is-active");
     },
-    handleScroll(){
-      const top = document.documentElement.scrollTop;
-      if (top > 60 && !this.colorshowing) {
-        this.color = new Color({
-          red: 0,
-          green: 0,
-          blue: 0,
-          alpha: 0.6
-        }).toRGB();
-        this.colorshowing = true;
-      } else if (top <= 59 && this.colorshowing){
-        this.color = new Color({
-          red: 0,
-          green: 0,
-          blue: 0,
-          alpha: 0
-        }).toRGB();
-        this.colorshowing = false;
-      }
-    }
-  },
-  watch: {
-    color: function () {
-      function animate () {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
-        }
-      }
-      new TWEEN.Tween(this.tweenedColor)
-        .to(this.color, 100)
-        .start()
-      animate()
-    }
-  },
-  computed: {
-    tweenedCSSColor: function () {
-      // console.log(new Color({
-      //   red: this.tweenedColor.red,
-      //   green: this.tweenedColor.green,
-      //   blue: this.tweenedColor.blue,
-      //   alpha: this.tweenedColor.alpha
-      // }).toCSS());
-      if(this.tweenedColor.alpha == 1){
-        return "rgba(255,255,255,1)";
-      }else{
-        return new Color({
-          red: this.tweenedColor.red,
-          green: this.tweenedColor.green,
-          blue: this.tweenedColor.blue,
-          alpha: this.tweenedColor.alpha
-        }).toCSS()
-      }
-    }
-  },
+  }
 }
 </script>
 <style scoped>
-.header{
-  z-index: 1000;
+.navbar.is-fixed-top {
+  background-color: #333333;
+  height: 80px;
+}
+.yellowfont{
+  color: #E7CE8A;
+  font-size: 16px;
 }
 .whitefont{
-  color: #ffffff;
+  color: #b2b2b2;
+  font-size: 16px;
 }
 .nav_shadow{
-  box-shadow: 0px 0px 10px 0px #acacac
+  box-shadow: 0px 0px 10px 0px hsl(0, 0%, 67%)
+}
+.loginbutton{
+  background-color: #333333;
+  color: #E7CE8A;
+  height: 40px;
+  width: 160px;
+}
+.pagelogo{
+  margin-left: 8px;
+  width: 28px;
+  height: 30px;
+  margin-right: 8px;
 }
 </style>
 

@@ -50,7 +50,7 @@
   margin-bottom: 20px;
 }
 .cardcontainer{
-  background-image: url("../assets/manread.jpg");
+  background-image: url("../assets/title_slices/bgi1.png");
   background-size: 100vw auto;
 }
 .whiteborder{

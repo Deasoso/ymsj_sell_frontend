@@ -4,10 +4,10 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title whiteborder">
-            司令の殿
+            隐秘世界
           </h1>
           <h2 class="subtitle whiteborder">
-            - A Little Site of Deaso -
+            - Underworld OL -
           </h2>
         </div>
       </div>
@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import { Slider, SliderItem } from 'vue-easy-slider';
-import Students from '../components/Students';
+import Students from '../views/Students';
 
 export default {
   name: 'HelloWorld',
@@ -82,8 +81,8 @@ a {
   color: #3a2729;
 }
 .backpic{
-  background-image: url("../assets/bigback.jpg");
-  background-size: 100vw auto;
+  background-image: url("../assets/title_slices/bgi1.png");
+  background-size: auto 100vh;
 }
 .whiteborder{
   text-shadow:5px 2px 6px #000000;
