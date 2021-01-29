@@ -3,7 +3,7 @@
     <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
-          <img style="margin-left:8px;width:96px;height:40px;max-height:none;" src="../assets/ymsjlogo.png">
+          <img class="ymsjlogo" src="../assets/ymsjlogo.png">
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
           <span aria-hidden="true"></span>
@@ -103,6 +103,12 @@ export default {
   width: 28px;
   height: 30px;
   margin-right: 8px;
+}
+.ymsjlogo{
+  margin-left: 8px;
+  width: 96px;
+  height: 40px;
+  max-height: none;
 }
 </style>
 
