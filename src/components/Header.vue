@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
+    <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
           <img style="margin-left:8px;width:96px;height:40px;max-height:none;" src="../assets/ymsjlogo.png">

@@ -23,8 +23,6 @@ import Students from '../views/Students';
 export default {
   name: 'HelloWorld',
   components: {
-    Slider,
-    SliderItem,
     Students
   },
   props: {
