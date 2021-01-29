@@ -13,23 +13,20 @@
       </div>
     </section>
     <img src="../assets/line/line1.jpg">
-    <!-- <projects /> -->
     <students />
   </div>
 </template>
 
 <script>
 import { Slider, SliderItem } from 'vue-easy-slider';
-import Students from './Sections/Students';
-import Projects from './Sections/Projects';
+import Students from '../components/Students';
 
 export default {
   name: 'HelloWorld',
   components: {
     Slider,
     SliderItem,
-    Students,
-    Projects
+    Students
   },
   props: {
     msg: String
@@ -86,6 +83,7 @@ a {
 }
 .backpic{
   background-image: url("../assets/bigback.jpg");
+  background-size: 100vw auto;
 }
 .whiteborder{
   text-shadow:5px 2px 6px #000000;

@@ -3,9 +3,8 @@
     <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation" :style="{ backgroundColor: tweenedCSSColor }">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
-          <img style="margin-left:8px;" src="../assets/deaso.jpg" width="28" height="28">
+          <img style="margin-left:8px;filter:Invert();" src="../assets/deaso.jpg" width="28" height="28">
         </a>
-        <!-- 反色 filter:Invert(); -->
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -15,17 +14,17 @@
 
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a class="navbar-item whitefont">
             游戏
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item whitefont">
             文章
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item whitefont">
             音乐
           </a>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
+            <a class="navbar-link whitefont">
               技术
             </a>
             <div class="navbar-dropdown">
@@ -49,7 +48,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-success">
+              <a class="button">
                 <strong>联系我</strong>
               </a>
               <!-- <a class="button is-light">
@@ -97,17 +96,17 @@ export default {
       const top = document.documentElement.scrollTop;
       if (top > 60 && !this.colorshowing) {
         this.color = new Color({
-          red: 255,
-          green: 255,
-          blue: 255,
-          alpha: 0.9
+          red: 0,
+          green: 0,
+          blue: 0,
+          alpha: 0.6
         }).toRGB();
         this.colorshowing = true;
       } else if (top <= 59 && this.colorshowing){
         this.color = new Color({
-          red: 255,
-          green: 255,
-          blue: 255,
+          red: 0,
+          green: 0,
+          blue: 0,
           alpha: 0
         }).toRGB();
         this.colorshowing = false;
@@ -153,9 +152,9 @@ export default {
 .header{
   z-index: 1000;
 }
-/*
-
-*/
+.whitefont{
+  color: #ffffff;
+}
 .nav_shadow{
   box-shadow: 0px 0px 10px 0px #acacac
 }

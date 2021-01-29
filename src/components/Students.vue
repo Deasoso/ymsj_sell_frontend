@@ -4,7 +4,7 @@
       <div class="columns is-gapless">
         <div class="column fullheight">
           <div class="vermiddle">
-            <img class="avatar" src="../../assets/touxiang2.jpg"/>
+            <img class="avatar" src="@/assets/touxiang2.jpg"/>
             <h1 class="title whiteborder">
               司令死灵法师
             </h1>
@@ -50,7 +50,8 @@
   margin-bottom: 20px;
 }
 .cardcontainer{
-  background-image: url("../../assets/manread.jpg");
+  background-image: url("../assets/manread.jpg");
+  background-size: 100vw auto;
 }
 .whiteborder{
   text-shadow:5px 2px 6px #000000;
