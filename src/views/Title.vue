@@ -19,6 +19,7 @@
     <title3 style="z-index: -1;position:relative;"/>
     <title4 />
     <title5 />
+    <title6 />
   </div>
 </template>
 
@@ -27,14 +28,15 @@ import Title2 from '../views/Title2';
 import Title3 from '../views/Title3';
 import Title4 from '../views/Title4';
 import Title5 from '../views/Title5';
+import Title6 from '../views/Title6';
 
 export default {
-  name: 'HelloWorld',
   components: {
     Title2,
     Title3,
     Title4,
-    Title5
+    Title5,
+    Title6
   }
 }
 </script>

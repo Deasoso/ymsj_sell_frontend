@@ -44,7 +44,7 @@
   height: 132px;
   width: 132px;
   border-radius:50%;
-  border: 3px solid white;
+  border: 3px outset white;
   vertical-align: top;
   display:inline-block;
   margin-bottom: 20px;

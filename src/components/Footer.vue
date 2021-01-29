@@ -1,35 +1,58 @@
 <template>
-  <div class="footer">
-    <!-- <mt-tabbar v-model="selected"
-    :fixed="true">
-      <mt-tab-item id="主页" @click.native="menuTab('/Home')">
-        <img slot="icon" src="../assets/logo.png">
-        页面1
-      </mt-tab-item>
-      <mt-tab-item id="资产公告"  @click.native="menuTab('/page1')">
-        <img slot="icon" src="../assets/logo.png">
-        页面2
-      </mt-tab-item>
-      <mt-tab-item id="路线图" @click.native="menuTab('/page2')">
-        <img slot="icon" src="../assets/logo.png">
-        页面3
-      </mt-tab-item>
-    </mt-tabbar> -->
+  <div>
+    1231412
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <div class="content">
+            <router-link class="navbar-item"
+                         :to="{ name: 'Home'}">
+              {{$t('Home')}}
+            </router-link>
+            <router-link class="navbar-item"
+                         :to="{ name: 'FAQ'}">
+              {{$t('FAQs')}}
+            </router-link>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="content">
+            <router-link class="navbar-item"
+                         :to="{ name: 'Term'}">
+              {{$t('Terms of Service')}}
+            </router-link>
+            <router-link class="navbar-item"
+                         :to="{ name: 'Privacy'}">
+              {{$t('Privacy Policy')}}
+            </router-link>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="content">
+            <span> {{$t('Contact Us')}}</span>
+            <p><a href="http://t.me/CryptoGirl_Official"
+               target="_blank">
+              @Telegram
+            </a></p>
+            <p><a href="https://discord.gg/nMXUYGQ"
+               target="_blank">
+              @Discord
+            </a></p>
+            <p>Wechat Group: add wechat friend "do_best_for_you"</p>
+          </div>
+        </div>
+      </div>
+      <div class="content has-text-centered">
+        <p>
+          <small>
+            All rights reserved. <br>
+            &copy; Copyright 2018
+            <strong>CryptoGirl.pro</strong>
+          </small>
+        </p>
+      </div>
+    </div>
+  </footer>
   </div>
 </template>
-
-<script>
-import { mapGetters } from "vuex";
-
-export default {
-  name: "NavigateTabBar",
-  data: () => ({
-    selected: 0
-  }),
-  methods: {
-    menuTab(name) {
-      this.$router.push(name);
-    }
-  }
-};
-</script>

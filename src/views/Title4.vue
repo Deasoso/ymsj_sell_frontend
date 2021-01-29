@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero is-cover allheight backpic">
+    <section class="hero is-cover allheight backpic" style="overflow:hidden;">
       <!-- <div class="hero-body"> -->
         <div class="container toleft">
           <div class="titlepos whiteborder">
@@ -50,7 +50,7 @@
   width: 178px;
   height: 40px;
   padding-top: 8px;
-  margin-top: -15px;
+  margin-top: -22px;
   margin-left: 600px;
   text-align: center;
 }
@@ -88,7 +88,7 @@
   height: 200px;
   background-color: #f1f1f1;
   padding: 24px;
-  border-style: solid;
+  border-style: outset;
   border-width: 5px;
   border-color: #E7C874;
 }
