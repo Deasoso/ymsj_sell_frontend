@@ -129,7 +129,6 @@ export default {
   border-width: 5px;
   border-color: #E7C874;
   text-align: center;
-  z-index: -1;
 }
 .intext{
   color: #ffffff;

@@ -112,5 +112,9 @@ export default {
   height: 40px;
   max-height: none;
 }
+.header{
+  position: relative;
+  z-index: 200;
+}
 </style>
 
