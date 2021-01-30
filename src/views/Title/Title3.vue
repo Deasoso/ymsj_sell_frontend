@@ -1,10 +1,10 @@
 <template>
   <div>
-    <section class="hero is-cover allheight backpic" style="overflow:hidden;">
+    <section class="hero is-cover allheight backpic">
       <!-- <div class="hero-body"> -->
         <div class="container toleft">
           <div class="titlepos whiteborder">
-            <div class="titletext">众多超高价值卡牌，等你来收藏 !</div>
+            <div class="titletext">科学与魔法并存，这里有引人入胜的世界观...</div>
           </div>
           <div class="subtitlepos whiteborder">
             <div class="subtitletext">这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …</div>
@@ -31,9 +31,9 @@
 
 <style scoped>
 .backpic{
-  background-image: url("../assets/title_slices/bgi4.png");
+  background-image: url("../../assets/title_slices/bgi3.png");
   background-size: auto 100%;
-  background-position: right;
+  background-position: left;
   margin-top: -32px;
 }
 .whiteborder{
@@ -46,7 +46,7 @@
 }
 .goldbuttonback{
   background-size: 100% 100%;
-  background-image: url("../assets/title_slices/button1.png");
+  background-image: url("../../assets/title_slices/button1.png");
   width: 178px;
   height: 40px;
   padding-top: 8px;
@@ -79,7 +79,7 @@
   width: 800px;
 }
 .toleft{
-  margin-left: 120px;
+  margin-left: calc(1000px - (1920px - 100vw));
   text-align: left;
 }
 .textbackpos{

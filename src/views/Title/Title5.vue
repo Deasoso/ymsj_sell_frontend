@@ -7,7 +7,7 @@
             <slider-item>
               <div class="slideContainer">
                 <div class="titlepos whiteborder">
-                  <img class="ymsjlogo" src="../assets/title_slices/avatar备份.png">
+                  <img class="ymsjlogo" src="../../assets/title_slices/avatar备份.png">
                 </div>
                 <div class="subtitlepos whiteborder">
                   <div class="subtitletext">HideoKojima</div>
@@ -69,7 +69,7 @@ export default {
 </script>
 <style scoped>
 .backpic{
-  background-image: url("../assets/title_slices/bgi5.png");
+  background-image: url("../../assets/title_slices/bgi5.png");
   background-size: auto 100%;
   background-position: left;
 }
@@ -84,7 +84,7 @@ export default {
 }
 .goldbuttonback{
   background-size: 100% 100%;
-  background-image: url("../assets/title_slices/button1.png");
+  background-image: url("../../assets/title_slices/button1.png");
   width: 178px;
   height: 40px;
   padding-top: 8px;

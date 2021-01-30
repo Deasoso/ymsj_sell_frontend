@@ -4,7 +4,7 @@
       <!-- <div class="hero-body"> -->
         <div class="container">
           <div class="logopos whiteborder">
-            <img class="ymsjlogo" src="../assets/ymsjlogo.png">
+            <img class="ymsjlogo" src="../../assets/ymsjlogo.png">
           </div>
           <div class="textpos whiteborder">
             <span class="subtitletext">超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！</span>
@@ -15,41 +15,18 @@
         </div>
       <!-- </div> -->
     </section>
-    <title2 />
-    <title3 style="z-index: -1;position:relative;"/>
-    <title4 />
-    <title5 />
-    <title6 />
   </div>
 </template>
 
-<script>
-import Title2 from '../views/Title2';
-import Title3 from '../views/Title3';
-import Title4 from '../views/Title4';
-import Title5 from '../views/Title5';
-import Title6 from '../views/Title6';
-
-export default {
-  components: {
-    Title2,
-    Title3,
-    Title4,
-    Title5,
-    Title6
-  }
-}
-</script>
-
 <style scoped>
 .backpic{
-  background-image: url("../assets/title_slices/bgi1.png");
+  background-image: url("../../assets/title_slices/bgi1.png");
   background-size: auto 100%;
   background-position: center;
 }
 .whiteborder{
   text-shadow:5px 2px 6px #000000;
-  color: #ffffff;
+  color: #ffffff
 }
 .ymsjlogo{
   width: 472px;
@@ -60,7 +37,7 @@ export default {
 }
 .goldbuttonback{
   background-size: 100% 100%;
-  background-image: url("../assets/title_slices/button1.png");
+  background-image: url("../../assets/title_slices/button1.png");
   width: 268px;
   height: 60px;
   padding-top: 16px;
