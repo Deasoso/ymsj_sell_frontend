@@ -16,36 +16,36 @@
 
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
-          <a class="navbar-item yellowfont">
+          <router-link class="navbar-item yellowfont" :to="{ name: 'Home'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/home.png">
             </span>
             首页
-          </a>
-          <a class="navbar-item whitefont">
+          </router-link>
+          <router-link class="navbar-item whitefont" :to="{ name: 'AllCards'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/card.png">
             </span>
             卡牌大全
-          </a>
-          <a class="navbar-item whitefont">
+          </router-link>
+          <router-link class="navbar-item whitefont" :to="{ name: 'Home'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/trade.png">
             </span>
             交易大厅
-          </a>
-          <a class="navbar-item whitefont">
+          </router-link>
+          <router-link class="navbar-item whitefont" :to="{ name: 'Home'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/store.png">
             </span>
             卡牌商店
-          </a>
-          <a class="navbar-item whitefont">
+          </router-link>
+          <router-link class="navbar-item whitefont" :to="{ name: 'Home'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/backpack.png">
             </span>
             我的背包
-          </a>
+          </router-link>
         </div>
 
         <div class="navbar-end">

@@ -17,6 +17,7 @@
     "vue": "^2.5.21",
     "vue-easy-slider": "^5.3.4",
     "vue-router": "^3.0.2",
+    "vuescroll": "^4.17.3",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
