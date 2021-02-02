@@ -40,7 +40,7 @@
             </span>
             卡牌商店
           </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'Home'}">
+          <router-link class="navbar-item whitefont" :to="{ name: 'Backpack'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/backpack.png">
             </span>

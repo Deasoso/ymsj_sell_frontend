@@ -4,6 +4,7 @@ import Home from "@/views/Title/Title.vue";
 import AllCards from "@/views/AllCards/AllCards.vue";
 import SellCards from "@/views/SellCards/SellCards.vue";
 import Shop from "@/views/Shop/Shop.vue";
+import Backpack from "@/views/Backpack/Backpack.vue";
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       path: "/Shop",
       name: "Shop",
       component: Shop
+    },
+    {
+      path: "/Backpack",
+      name: "Backpack",
+      component: Backpack
     }
   ]
 });

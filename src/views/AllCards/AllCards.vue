@@ -52,10 +52,6 @@
   background-size: auto 100%;
   background-position: center;
 }
-.whiteborder{
-  text-shadow:5px 2px 6px #000000;
-  color: #ffffff
-}
 .allheight{
   height: 840px;
 }

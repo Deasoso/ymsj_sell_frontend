@@ -1,4 +1,4 @@
-# study
+# ymsj_sell_frontend
 
 ## Project setup
 ```
