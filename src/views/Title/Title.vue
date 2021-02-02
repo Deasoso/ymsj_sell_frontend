@@ -43,6 +43,7 @@ export default {
 
 <style scoped>
 .backpic{
+  margin-top: 80px;
   background-image: url("../../assets/title_slices/bgi1.png");
   background-size: auto 100%;
   background-position: center;

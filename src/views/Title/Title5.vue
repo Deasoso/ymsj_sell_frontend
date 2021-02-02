@@ -169,7 +169,6 @@ export default {
   width: 80px;
   height: 8px;
   padding: 0px;
-  cursor: none;
   border-radius: 0px;
   border: 0px;
 }

@@ -28,13 +28,13 @@
             </span>
             卡牌大全
           </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'Home'}">
+          <router-link class="navbar-item whitefont" :to="{ name: 'SellCards'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/trade.png">
             </span>
             交易大厅
           </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'Home'}">
+          <router-link class="navbar-item whitefont" :to="{ name: 'Shop'}">
             <span>
               <img class="pagelogo" src="../assets/title_slices/store.png">
             </span>
