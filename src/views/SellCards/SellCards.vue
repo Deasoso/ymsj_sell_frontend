@@ -64,20 +64,28 @@
         </one-card>
       </div>
     </section>
+    <b-button
+      label="Launch card modal (keep scroll)"
+      type="is-primary"
+      size="is-medium"
+      @click="modalactive = true" />
+    <modal :modalactive.sync="modalactive" />
   </div>
 </template>
 
 <script>
 import OneCard from "./OneCard";
+import Modal from './Modal'
 
 export default {
 	data(){
 		return{
-
+      modalactive: true,
 		}
   },
   components:{
-    OneCard
+    OneCard,
+    Modal
   },
   methods:{
     clickdrop(){

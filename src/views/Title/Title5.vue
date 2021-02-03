@@ -7,7 +7,7 @@
             <slider-item>
               <div class="slideContainer">
                 <div class="titlepos whiteborder">
-                  <img class="ymsjlogo" src="../../assets/title_slices/avatar备份.png">
+                  <img class="speakerlogo" src="../../assets/title_slices/avatar备份.png">
                 </div>
                 <div class="subtitlepos whiteborder">
                   <div class="subtitletext">HideoKojima</div>
@@ -77,10 +77,11 @@ export default {
   text-shadow:5px 2px 6px #000000;
   color: #ffffff;
 }
-.ymsjlogo{
+.speakerlogo{
   width: 64px;
   height: 64px;
   margin: 0 auto;
+  border-radius: 0px;
 }
 .goldbuttonback{
   background-size: 100% 100%;
