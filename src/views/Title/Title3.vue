@@ -20,7 +20,7 @@
               这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
             </div>
           </div>
-          <div class="buttonpos goldbuttonback">
+          <div class="goldbuttonback">
             <a class="buttontext">立即前往</a>
           </div>
         </div>
