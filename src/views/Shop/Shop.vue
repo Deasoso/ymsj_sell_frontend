@@ -51,21 +51,30 @@
       type="is-primary"
       size="is-medium"
       @click="modalactive = true" />
+    <b-button
+      label="Launch buy modal (keep scroll)"
+      type="is-primary"
+      size="is-medium"
+      @click="buymodalactive = true" />
     <draw-modal :modalactive.sync="modalactive" />
+    <buy-modal :buymodalactive.sync="buymodalactive" />
   </div>
 </template>
 
 <script>
 import DrawModal from './DrawModal'
+import BuyModal from './BuyModal'
 
 export default {
 	data(){
 		return{
-      modalactive: true,
+      modalactive: false,
+      buymodalactive: true,
 		}
   },
   components:{
-    DrawModal
+    DrawModal,
+    BuyModal
   },
   methods:{
     
