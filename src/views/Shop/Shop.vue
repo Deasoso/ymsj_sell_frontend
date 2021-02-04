@@ -46,8 +46,32 @@
       </div>
       <img class="fairy" src="../../assets/shop_slices/fair.png">
     </section>
+    <b-button
+      label="Launch card modal (keep scroll)"
+      type="is-primary"
+      size="is-medium"
+      @click="modalactive = true" />
+    <draw-modal :modalactive.sync="modalactive" />
   </div>
 </template>
+
+<script>
+import DrawModal from './DrawModal'
+
+export default {
+	data(){
+		return{
+      modalactive: true,
+		}
+  },
+  components:{
+    DrawModal
+  },
+  methods:{
+    
+  }
+};
+</script>
 
 <style scoped>
 .backpic{
