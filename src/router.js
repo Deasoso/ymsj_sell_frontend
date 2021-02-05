@@ -6,6 +6,8 @@ import SellCards from "@/views/SellCards/SellCards.vue";
 import Shop from "@/views/Shop/Shop.vue";
 import Backpack from "@/views/Backpack/Backpack.vue";
 
+import CardDetail from "@/views/Backpack/CardDetail.vue";
+
 Vue.use(Router);
 
 export default new Router({
@@ -34,6 +36,11 @@ export default new Router({
       path: "/Backpack",
       name: "Backpack",
       component: Backpack
+    },
+    {
+      path: "/CardDetail",
+      name: "CardDetail",
+      component: CardDetail
     }
   ]
 });

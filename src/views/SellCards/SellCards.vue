@@ -39,7 +39,7 @@
           <div class="level-item">
             <button class="button is-dark newexchange">
               <span class="icon">
-                <img class="newexchangeicon" src="../../assets/sellcards_slices/trade.png">
+                <img src="../../assets/sellcards_slices/trade.png">
               </span>
               <span>新建交易</span>
             </button>
@@ -69,13 +69,13 @@
       type="is-primary"
       size="is-medium"
       @click="modalactive = true" />
-    <modal :modalactive.sync="modalactive" />
+    <card-modal :modalactive.sync="modalactive" />
   </div>
 </template>
 
 <script>
 import OneCard from "./OneCard";
-import Modal from './Modal'
+import CardModal from './CardModal'
 
 export default {
 	data(){
@@ -85,7 +85,7 @@ export default {
   },
   components:{
     OneCard,
-    Modal
+    CardModal
   },
   methods:{
     clickdrop(){
