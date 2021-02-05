@@ -10,7 +10,7 @@
             <img class="shareicon" src="../../assets/shop_slices/share.png">
             <span>分享卡牌</span>
           </b-button>
-          <button class="button is-dark newexchange">
+          <button class="button is-dark newexchange" @click="modalactive = true">
             <span class="icon">
               <img src="../../assets/sellcards_slices/trade.png">
             </span>
@@ -76,11 +76,6 @@
         </div>
       </div>
     </section>
-    <b-button
-      label="Launch card modal (keep scroll)"
-      type="is-primary"
-      size="is-medium"
-      @click="modalactive = true" />
     <sell-modal :modalactive.sync="modalactive" />
   </div>
 </template>

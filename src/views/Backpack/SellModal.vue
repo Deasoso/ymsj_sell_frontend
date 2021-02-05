@@ -6,51 +6,47 @@
       scroll="keep">
       <div class="modalpos">
         <div class="upcontents">
-          <div class="titletext">购买宝石</div>
+          <div class="titletext">新建交易</div>
           <!-- <button
             type="button"
             class="delete"
             @click="cancelHandler"/> -->
-          <button class="button selectgem gembuttonleft1">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>100</span>
-          </button>
-          <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>200</span>
-          </button>
+          <div class="selecttext">交易对象</div>
+          <b-select 
+            placeholder="选择交易对象" 
+            class="selectpos" 
+            style="width: 240px;height: 40px;">
+            <option
+              v-for="option in [{'id':'1'},{'id':'2'},{'id':'3'},{'id':'4'}]"
+              :value="option.id"
+              :key="option.id">
+              {{ option.id }}
+            </option>
+          </b-select>
 
-          <button class="button selectgem gembuttonleft">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>500</span>
-          </button>
-          <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>1000</span>
-          </button>
+          <div class="selecttext">商品价格</div>
+          <b-input placeholder="输入你想卖的价格" class="inputwidth" v-model="price"></b-input>
 
-          <button class="button selectgem gembuttonleft">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>2000</span>
-          </button>
-          <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>5000</span>
-          </button>
+          <div class="selecttext">货币种类</div>
+          <b-select 
+            placeholder="选择货币种类" 
+            class="selectpos" 
+            style="width: 240px;height: 40px;">
+            <!-- <img class="priceicon" src="../../assets/title_slices/bgi1.png"> -->
+            <option
+              v-for="option in [{'id':'1'},{'id':'2'},{'id':'3'},{'id':'4'}]"
+              :value="option.id"
+              :key="option.id">
+              {{ option.id }}
+            </option>
+          </b-select>
 
-          <button class="button selectgem gembuttonleft">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>10000</span>
-          </button>
-          <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
-            <span>50000</span>
-          </button>
+          <div class="selecttext">商品简介</div>
+          <b-input placeholder="输入你想卖的价格" class="introducewidth" v-model="price" type="textarea"></b-input>
         </div>
 
-        <div class="pricetext">总计需要花费0.01 ETH</div>
         <button class="button is-dark enterbuy">
-          <span>确认购买</span>
+          <span>发布商品</span>
         </button>
         
       </div>
@@ -66,6 +62,7 @@
         ops: {
 
         },
+        price: '',
       }
     },
     props:['modalactive'],
@@ -88,8 +85,7 @@
   margin-top: 80px;
 }
 .modalpos{
-  margin-top: calc(50vh - 400px);
-  height: 400px;
+  height: 600px;
   border-radius: 16px;
   background-color: #ffffff;
   padding: 16px;
@@ -102,44 +98,39 @@
   font-size: 24px;
   font-weight: bold;
   color: #333333;
-  margin-bottom: 16px;
-}
-.gemicon{
-  width: 30px;
-  height: 30px;
-  margin-right: 4px;
-  margin-left: 70px;
-}
-.selectgem{
-  width: 220px;
-  height: 40px;
-  margin-bottom: 8px;
-  color: #815004;
-  font-size: 14px;
-  font-weight: bold;
-  justify-content: left;
-  padding: 0px;
-  border-color: #E4C46D;
-}
-.gembuttonleft1{
-  background-color: #E4C46D;
-}
-.gembuttonleft{
-  background-color: #ffffff;
-}
-.gembuttonright{
-  margin-left: 8px;
-  background-color: #ffffff;
 }
 .upcontents{
   /* 作用为把下面的组件挤下去 */
-  height: calc(100% - 74px);
+  height: calc(100% - 54px);
 }
-.pricetext{
-  text-align: center;
+.selecttext{
+  margin-top: 16px;
+  text-align: left;
   font-size: 14px;
   color: #B2B2B2;
   margin-bottom: 8px;
+}
+.selectpos{
+  margin-top: 8px;
+}
+/deep/ .select select {
+  width: 240px;
+  height: 40px;
+}
+/deep/ .select:not(.is-multiple):not(.is-loading)::after {
+  top: 20px;
+}
+.inputwidth{
+  width: 240px;
+  height: 40px;
+}
+.priceicon{
+  width: 32px;
+  height: 32px;
+}
+.introducewidth{
+  width: 448px;
+  height: 150px;
 }
 .enterbuy{
   margin: 0 auto;

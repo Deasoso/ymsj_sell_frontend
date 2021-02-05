@@ -88,7 +88,6 @@
   margin-top: 80px;
 }
 .modalpos{
-  margin-top: calc(50vh - 400px);
   height: 400px;
   border-radius: 16px;
   background-color: #ffffff;
