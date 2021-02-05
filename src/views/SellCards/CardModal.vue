@@ -8,7 +8,7 @@
         <article class="media">
           <div class="leftcontent">
             <div class="cardstage">
-              <img class="cardpos" src="../../assets/title_slices/bgi1.png">
+              <img class="cardpos" src="../../assets/cards/01联会禁音使.png">
             </div>
             <div class="exchangestage">
               <vue-scroll>
@@ -100,7 +100,7 @@
   export default {
     data() {
       return {
-        isCardModalActive: true,
+        isCardModalActive: false,
         data: [
           { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' },
           { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' },

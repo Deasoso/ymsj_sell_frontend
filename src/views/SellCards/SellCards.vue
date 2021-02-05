@@ -14,9 +14,9 @@
                 </span>
               </button>
             </template>
-            <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
-            <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
-            <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+            <b-dropdown-item aria-role="listitem">种族筛选</b-dropdown-item>
+            <b-dropdown-item aria-role="listitem">费用筛选</b-dropdown-item>
+            <b-dropdown-item aria-role="listitem">功能筛选</b-dropdown-item>
           </b-dropdown>
         </div>
 
@@ -47,28 +47,23 @@
         </div>
       </nav>
       <div class="sellcards">
-        <one-card class="onecard">
+        <one-card class="onecard" @ClickBuy="ClickBuy">
           12312
         </one-card>
-        <one-card class="onecard">
+        <one-card class="onecard" @ClickBuy="ClickBuy">>
           12312
         </one-card>
-        <one-card class="onecard">
+        <one-card class="onecard" @ClickBuy="ClickBuy">>
           12312
         </one-card>
-        <one-card class="onecard">
+        <one-card class="onecard" @ClickBuy="ClickBuy">>
           12312
         </one-card>
-        <one-card class="onecard">
+        <one-card class="onecard" @ClickBuy="ClickBuy">>
           12312
         </one-card>
       </div>
     </section>
-    <b-button
-      label="Launch card modal (keep scroll)"
-      type="is-primary"
-      size="is-medium"
-      @click="modalactive = true" />
     <card-modal :modalactive.sync="modalactive" />
   </div>
 </template>
@@ -80,7 +75,7 @@ import CardModal from './CardModal'
 export default {
 	data(){
 		return{
-      modalactive: true,
+      modalactive: false,
 		}
   },
   components:{
@@ -92,6 +87,9 @@ export default {
       this.$refs.dropbutton.classList.toggle("is-active");
       this.$refs.dropitem.classList.toggle("is-active");
     },
+    ClickBuy(){
+      this.modalactive = true;
+    }
   }
 };
 </script>

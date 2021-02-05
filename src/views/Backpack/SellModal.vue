@@ -58,7 +58,7 @@
   export default {
     data() {
       return {
-        isCardModalActive: true,
+        isCardModalActive: false,
         ops: {
 
         },

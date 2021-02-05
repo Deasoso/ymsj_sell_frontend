@@ -16,7 +16,7 @@
           <!-- 左边没有东西 -->
         </div>
         <div class="level-right">
-          <div class="goldbuttonback">
+          <div class="goldbuttonback" @click="buymodalactive=true">
             <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
             <a class="goldbuttontext">购买宝石</a>
           </div>
@@ -31,12 +31,12 @@
         </div>
         <div class="intextpos">
           <nav class="level buybuttons"><!-- 有level，按钮垂直居中 -->
-            <div class="buybuttonback">
+            <div class="buybuttonback" @click="modalactive=true">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
               <a class="buybuttonvalue">120</a>
               <a class="buybuttontext">单次召唤</a>
             </div>
-            <div class="buybuttonback">
+            <div class="buybuttonback" @click="modalactive=true">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
               <a class="buybuttonvalue">1000</a>
               <a class="buybuttontext">十连召唤</a>
@@ -46,16 +46,6 @@
       </div>
       <img class="fairy" src="../../assets/shop_slices/fair.png">
     </section>
-    <b-button
-      label="Launch card modal (keep scroll)"
-      type="is-primary"
-      size="is-medium"
-      @click="modalactive = true" />
-    <b-button
-      label="Launch buy modal (keep scroll)"
-      type="is-primary"
-      size="is-medium"
-      @click="buymodalactive = true" />
     <draw-modal :modalactive.sync="modalactive" />
     <buy-modal :buymodalactive.sync="buymodalactive" />
   </div>
@@ -69,7 +59,7 @@ export default {
 	data(){
 		return{
       modalactive: false,
-      buymodalactive: true,
+      buymodalactive: false,
 		}
   },
   components:{

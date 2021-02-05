@@ -61,15 +61,14 @@
         </nav>
       </div>
       <div class="sellcards">
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
-        <img class="onecard" src="../../assets/title_slices/bgi1.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
       </div>
     </section>
   </div>
@@ -93,7 +92,7 @@ export default {
   margin-top: 80px;
 }
 .allheight{
-  height: 840px;
+  height: 1000px;
 }
 .sellhead{
   margin: 0 auto;

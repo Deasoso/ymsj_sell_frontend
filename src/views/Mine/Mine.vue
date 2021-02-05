@@ -27,13 +27,13 @@
         </div>
       </nav>
       <div class="teamcards">
-        <img class="teamcard1" src="../../assets/title_slices/bgi1.png">
-        <img class="teamcard" src="../../assets/title_slices/bgi1.png">
-        <img class="teamcard" src="../../assets/title_slices/bgi1.png">
-        <img class="teamcard" src="../../assets/title_slices/bgi1.png">
-        <img class="teamcard" src="../../assets/title_slices/bgi1.png">
-        <img class="teamcard" src="../../assets/title_slices/bgi1.png">
-        <img class="teamcard" src="../../assets/title_slices/bgi1.png">
+        <img class="teamcard1" src="../../assets/cards/01联会禁音使.png">
+        <img class="teamcard" src="../../assets/cards/01联会禁音使.png">
+        <img class="teamcard" src="../../assets/cards/01联会禁音使.png">
+        <img class="teamcard" src="../../assets/cards/01联会禁音使.png">
+        <img class="teamcard" src="../../assets/cards/01联会禁音使.png">
+        <img class="teamcard" src="../../assets/cards/01联会禁音使.png">
+        <img class="teamcard" src="../../assets/cards/01联会禁音使.png">
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;">
         <div class="level-left">
@@ -47,7 +47,7 @@
       </nav>
       <div class="shopgoods">
         <div class="shopgood1">
-          <img class="shopcard" src="../../assets/title_slices/bgi1.png">
+          <img class="shopcard" src="../../assets/cards/01联会禁音使.png">
           <a class="button pricebutton">
             <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
             <span class="price">
@@ -56,7 +56,7 @@
           </a>
         </div>
         <div class="shopgood">
-          <img class="shopcard" src="../../assets/title_slices/bgi1.png">
+          <img class="shopcard" src="../../assets/cards/01联会禁音使.png">
           <a class="button pricebutton">
             <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
             <span class="price">
@@ -65,7 +65,7 @@
           </a>
         </div>
         <div class="shopgood">
-          <img class="shopcard" src="../../assets/title_slices/bgi1.png">
+          <img class="shopcard" src="../../assets/cards/01联会禁音使.png">
           <a class="button pricebutton">
             <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
             <span class="price">

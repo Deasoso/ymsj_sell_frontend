@@ -9,7 +9,7 @@
           <div class="textpos whiteborder">
             <span class="subtitletext">超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！</span>
           </div>
-          <div class="buttonpos goldbuttonback">
+          <div class="buttonpos goldbuttonback" @click="$router.push('/Shop')">
             <a class="buttontext">立即领取</a>
           </div>
         </div>

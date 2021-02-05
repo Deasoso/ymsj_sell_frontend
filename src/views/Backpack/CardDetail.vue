@@ -10,7 +10,7 @@
             <img class="shareicon" src="../../assets/shop_slices/share.png">
             <span>分享卡牌</span>
           </b-button>
-          <button class="button is-dark newexchange" @click="modalactive = true">
+          <button class="button is-dark newexchange" @click="modalactive=true">
             <span class="icon">
               <img src="../../assets/sellcards_slices/trade.png">
             </span>
@@ -18,7 +18,7 @@
           </button>
         </div>
       </nav>
-      <img class="cardimg" src="../../assets/title_slices/bgi1.png">
+      <img class="cardimg" src="../../assets/cards/01联会禁音使.png">
       <div>
         <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #44D7B6;color: #15AD8B;">
           已拥有
@@ -86,7 +86,7 @@ import SellModal from './SellModal'
 export default {
 	data(){
 		return{
-      modalactive: true
+      modalactive: false
 		}
   },
   components:{

@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="goldbuttonback">
-            <a class="buttontext">立即前往</a>
+            <a class="buttontext" @click="$router.push('/Shop')">立即前往</a>
           </div>
         </div>
       <!-- </div> -->

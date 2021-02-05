@@ -56,7 +56,7 @@
           </div>
           <img class="speakerlogo" 
             v-if="islogin" 
-            @click="toMine" 
+            @click="$router.push('/Mine')" 
             src="../assets/title_slices/avatar备份.png">
         </div>
       </div>
@@ -82,9 +82,6 @@ export default {
     },
     login(){
       this.islogin = !this.islogin;
-    },
-    toMine(){
-      this.$router.push('/Mine')
     }
   }
 }

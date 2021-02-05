@@ -11,7 +11,7 @@
         <div class="subtitletext">「隐秘世界」</div>
         <div class="subtitletext">引领卡牌游戏新潮流</div>
       </div>
-      <div class="buttonpos goldbuttonback">
+      <div class="buttonpos goldbuttonback" @click="$router.push('/Shop')">
         <a class="buttontext">立即游玩</a>
       </div>
     </section>

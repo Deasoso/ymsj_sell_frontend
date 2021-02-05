@@ -47,7 +47,7 @@
             <small>
               All rights reserved. <br>
               &copy; Copyright 2018
-              <strong>CryptoGirl.pro</strong>
+              <strong>UnderWord.pro</strong>
             </small>
           </p>
         </div>

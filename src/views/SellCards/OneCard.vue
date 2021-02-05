@@ -1,7 +1,7 @@
 <template>
 	<div class="box-card">
     <div class="cardhead">
-      <img class="cardimg" src="../../assets/title_slices/bgi1.png">
+      <img class="cardimg" src="../../assets/cards/01联会禁音使.png">
     </div>
     <div class="cardbody">
       <div class="cardname">这是卡牌名称</div>
@@ -21,7 +21,7 @@
         <!-- Right side -->
         <div class="level-right">
           <p class="level-item">
-            <a class="button pricebutton">
+            <a class="button pricebutton" @click="$emit('ClickBuy')">
               <span class="icon">
                 <img src="../../assets/sellcards_slices/编组.png">
               </span>

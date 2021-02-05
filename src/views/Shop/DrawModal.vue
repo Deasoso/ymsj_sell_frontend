@@ -17,10 +17,10 @@
           <img class="onecard" src="../../assets/title_slices/bgi1.png">
           <img class="onecard" src="../../assets/title_slices/bgi1.png">
         </div>
-        <div class="buttonpos1 goldbuttonback">
+        <div class="buttonpos1 goldbuttonback" @click="$router.push('/Backpack')">
           <a class="buttontext">我的背包</a>
         </div>
-        <div class="buttonpos2 goldbuttonback">
+        <div class="buttonpos2 goldbuttonback" @click="cancelHandler">
           <a class="buttontext">返回商店</a>
         </div>
       </div>

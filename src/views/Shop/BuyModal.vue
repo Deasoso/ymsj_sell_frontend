@@ -62,10 +62,7 @@
   export default {
     data() {
       return {
-        isCardModalActive: true,
-        ops: {
-
-        },
+        isCardModalActive: false
       }
     },
     props:['buymodalactive'],
