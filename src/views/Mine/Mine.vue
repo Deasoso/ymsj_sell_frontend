@@ -21,7 +21,7 @@
           <img class="goodslogo" src="../../assets/mine_slices/card.png">
           拥有的卡牌
         </div>
-        <div class="level-right">
+        <div class="level-right" @click="$router.push('/AllCards')">
           查看更多
           <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
         </div>
@@ -40,7 +40,7 @@
           <img class="shoplogo" src="../../assets/mine_slices/goods.png">
           在售的商品
         </div>
-        <div class="level-right">
+        <div class="level-right" @click="$router.push('/SellCards')">
           查看更多
           <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
         </div>
