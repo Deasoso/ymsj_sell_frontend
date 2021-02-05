@@ -2,7 +2,7 @@
   <div class="header">
     <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="/">
           <img class="ymsjlogo" src="../assets/ymsjlogo.png">
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
@@ -13,7 +13,7 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-
+      
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
           <router-link class="navbar-item yellowfont" :to="{ name: 'Home'}">
@@ -49,11 +49,15 @@
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item">
-            <button class="button is-outlined loginbutton">
+          <div class="navbar-item" v-if="!islogin" >
+            <button class="button is-outlined loginbutton" @click="login">
               <strong>登录钱包</strong>
             </button>
           </div>
+          <img class="speakerlogo" 
+            v-if="islogin" 
+            @click="toMine" 
+            src="../assets/title_slices/avatar备份.png">
         </div>
       </div>
     </nav>
@@ -67,7 +71,8 @@ export default {
   data() {
     return {
       selected: "",
-      title: ""
+      title: "",
+      islogin: false
     }
   },
   methods: {
@@ -75,6 +80,12 @@ export default {
       this.$refs.nav.classList.toggle("is-active");
       this.$refs.navitem.classList.toggle("is-active");
     },
+    login(){
+      this.islogin = !this.islogin;
+    },
+    toMine(){
+      this.$router.push('/Mine')
+    }
   }
 }
 </script>
@@ -115,6 +126,17 @@ export default {
 .header{
   position: relative;
   z-index: 200;
+}
+strong {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.speakerlogo{
+  margin-right: 24px;
+  margin-top: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 0px;
 }
 </style>
 

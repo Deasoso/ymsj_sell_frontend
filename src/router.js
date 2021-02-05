@@ -5,6 +5,7 @@ import AllCards from "@/views/AllCards/AllCards.vue";
 import SellCards from "@/views/SellCards/SellCards.vue";
 import Shop from "@/views/Shop/Shop.vue";
 import Backpack from "@/views/Backpack/Backpack.vue";
+import Mine from "@/views/Mine/Mine.vue";
 
 import CardDetail from "@/views/Backpack/CardDetail.vue";
 
@@ -37,6 +38,12 @@ export default new Router({
       name: "Backpack",
       component: Backpack
     },
+    {
+      path: "/Mine",
+      name: "Mine",
+      component: Mine
+    },
+
     {
       path: "/CardDetail",
       name: "CardDetail",

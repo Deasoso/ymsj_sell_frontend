@@ -11,7 +11,7 @@
               <img class="cardpos" src="../../assets/title_slices/bgi1.png">
             </div>
             <div class="exchangestage">
-              <vue-scroll :ops="ops">
+              <vue-scroll>
                 <b-table :data="data" :columns="columns"></b-table>
               </vue-scroll>
             </div>
@@ -101,9 +101,6 @@
     data() {
       return {
         isCardModalActive: true,
-        ops: {
-
-        },
         data: [
           { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' },
           { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' },

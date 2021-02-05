@@ -106,7 +106,7 @@ export default {
   height: 1060px;
 }
 .sharehead{
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
   padding-top: 48px;
 }
@@ -149,8 +149,8 @@ export default {
   color: #888888;
 }
 .teamtypes{
+  max-width: 800px;
   text-align: center;
-  width: 800px;
   margin: 0 auto;
 }
 .teamtype{
