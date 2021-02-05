@@ -6,22 +6,24 @@
       scroll="keep">
       <div class="modalpos">
         <div class="sellcards">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
-          <img class="onecard" src="../../assets/title_slices/bgi1.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <div class="bottombuttons">
+          <div class="buttonpos goldbuttonback" @click="$router.push('/Backpack')">
+            <a class="buttontext">我的背包</a>
+          </div>
+          <div class="buttonpos goldbuttonback" @click="cancelHandler">
+            <a class="buttontext">返回商店</a>
+          </div>
         </div>
-        <div class="buttonpos1 goldbuttonback" @click="$router.push('/Backpack')">
-          <a class="buttontext">我的背包</a>
-        </div>
-        <div class="buttonpos2 goldbuttonback" @click="cancelHandler">
-          <a class="buttontext">返回商店</a>
         </div>
       </div>
     </b-modal>
@@ -74,19 +76,20 @@
   margin: 24px;
   width: 256px;
   height: 367px;
-  box-shadow: 0px 0px 48px 12px #FCE81280;
+  filter: drop-shadow(0 0 24px #FCE81280);
+  /* box-shadow: 0px 0px 48px 12px #FCE81280; */
 }
 /deep/ .modal .modal-content {
   margin: 0 0;
   /* overflow-x: hidden; */
 }
-.buttonpos1{
-  margin-left: calc(50vw - 268px - 24px);
-  margin-top: 48px;
+.bottombuttons{
+  margin: 0 auto;
+  margin-top: 24px;
 }
-.buttonpos2{
-  margin-left: calc(50vw + 24px);
-  margin-top: -60px;
+.buttonpos{
+  display: inline-block;
+  margin: 24px;
 }
 .goldbuttonback{
   background-size: 100% 100%;
