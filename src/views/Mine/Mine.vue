@@ -1,6 +1,17 @@
 <template>
   <div>
     <section class="is-cover allheight backpic">
+      <div class='metamask-info'>
+        <p>Metamask: {{ web3.isInjected }}</p>
+        <p>Network: {{ web3.networkId }}</p>
+        <p>Account: {{ web3.coinbase }}</p>
+        <p>Balance: {{ web3.balance }}</p>
+        <!-- <a @click="send">send bnb</a> -->
+        <div><button @click="draw()">draw</button></div>
+        <input v-model="nftid" placeholder="id"/>
+        <button @click="getdata()">get nft</button>
+        <p>{{ymsjvalue}}</p>
+      </div>
       <nav class="level sharehead" style="margin-bottom: 4px;">
         <div class="level-left">
           <!-- 左边没有东西 -->
@@ -88,54 +99,118 @@
     </section>
   </div>
 </template>
-
 <script>
-  export default {
-    data() {
-      return {
-        data: [
-          { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' },
-          { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' },
-          { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'date': '2016-04-26 06:26:28', 'gender': 'Female' },
-          { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'date': '2016-04-10 10:28:46', 'gender': 'Male' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-          { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' }
-        ],
-        columns: [
-          {
-            field: 'id',
-            label: 'ID',
-            width: '40',
-            numeric: true
-          },
-          {
-            field: 'first_name',
-            label: 'First Name',
-          },
-          {
-            field: 'last_name',
-            label: 'Last Name',
-          },
-          {
-            field: 'date',
-            label: 'Date',
-            centered: true
-          },
-          {
-            field: 'gender',
-            label: 'Gender',
-          }
-        ]
-      }
+import nft_abi from "@/contracts/NFT_abi.json"
+
+export default {
+  name: 'mine',
+  data(){
+    return{
+      data: [
+        { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' },
+        { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' },
+        { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'date': '2016-04-26 06:26:28', 'gender': 'Female' },
+        { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'date': '2016-04-10 10:28:46', 'gender': 'Male' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' }
+      ],
+      columns: [
+        {
+          field: 'id',
+          label: 'ID',
+          width: '40',
+          numeric: true
+        },
+        {
+          field: 'first_name',
+          label: 'First Name',
+        },
+        {
+          field: 'last_name',
+          label: 'Last Name',
+        },
+        {
+          field: 'date',
+          label: 'Date',
+          centered: true
+        },
+        {
+          field: 'gender',
+          label: 'Gender',
+        }
+      ],
+      ymsjvalue: 0,
+      nftid: ''
+    }
+  },
+  computed: {
+    web3(){
+      return this.$store.state.web3
+    },
+    contract(){
+      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
+      return contract_in.at('0xff66f816b0bdb2de3e8f2b3af71d850fcafeae1b');
+    }
+  },
+  mounted(){
+    
+  },
+  methods:{
+    send(){
+      this.web3.web3Instance().eth.sendTransaction(
+        {
+          from: '0x3014734DC6E7A17a7783517393053DeFF324790e', 
+          to:'0x1953e2A26c1325C924BFDD11ed3C0Cd9E498f869', 
+          value: web3.toWei(0.1, 'ether'), 
+          gasLimit: 21000, 
+          gasPrice: 20000000000
+        },function(err, transactionHash) {
+          if (!err)
+            console.log(transactionHash); 
+        }
+      )
+    },
+    async getdata(){
+      this.ymsjvalue = await new Promise(
+        (resolve, reject) => {
+          this.contract.balanceOf(
+            this.web3.coinbase,
+            this.nftid,
+            function(error, result){
+            if(!error){
+              console.log(result);
+              resolve(result.toNumber());
+            }else{
+              reject(error);
+            }
+          })
+        }
+      );
+    },
+    async draw(){
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase
+      await new Promise(
+        (resolve, reject) => {
+          this.contract.join(
+            function(error, result){
+            if(!error){
+              resolve(result);
+            }else{
+              reject(error);
+            }
+          })
+        }
+      );
     }
   }
+}
 </script>
 
 <style scoped>

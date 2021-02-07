@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import 'animate.css'
-import {WOW} from 'wowjs'    
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -18,19 +16,11 @@ export default {
     Header,
     Footer
   },
-  data: () => {
-     return {
-       amount: 1000
-     }
+  beforeCreate () {
+    // eslint-disable-next-line
+    console.log('registerWeb3 Action dispatched from casino-dapp.vue')
+    this.$store.dispatch('registerWeb3')
   },
-  methods: {
-    addbutton(ssss){
-      this.amount += ssss;
-    }
-  },
-  mounted() {
-    new WOW().init() 
-  }
 }
 </script>
 
