@@ -63,7 +63,7 @@
   margin-top: 60px;
   padding-bottom: 60px;
 }
-/deep/ .modal-close{
+.modalbackpos >>> .modal-close{
   top: 100px;
 }
 .sellcards{
@@ -79,7 +79,7 @@
   filter: drop-shadow(0 0 24px #FCE81280);
   /* box-shadow: 0px 0px 48px 12px #FCE81280; */
 }
-/deep/ .modal .modal-content {
+.modalbackpos >>> .modal .modal-content {
   margin: 0 0;
   /* overflow-x: hidden; */
 }

@@ -164,7 +164,7 @@
   margin-top: 140px;
   padding-bottom: 140px;
 }
-/deep/ .modal-close{
+.modalbackpos >>> .modal-close{
   top: 100px;
 }
 .leftcontent{

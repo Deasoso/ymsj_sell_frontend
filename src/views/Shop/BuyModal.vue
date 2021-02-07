@@ -90,7 +90,7 @@
   background-color: #ffffff;
   padding: 16px;
 }
-/deep/ .modal-close{
+.modalbackpos >>> .modal-close{
   top: 100px;
 }
 .titletext{

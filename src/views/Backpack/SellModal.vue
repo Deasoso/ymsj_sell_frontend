@@ -42,7 +42,7 @@
           </b-select>
 
           <div class="selecttext">商品简介</div>
-          <b-input placeholder="输入你想卖的价格" class="introducewidth" v-model="price" type="textarea"></b-input>
+          <b-input placeholder="输入商品简介" class="introducewidth" v-model="price" type="textarea"></b-input>
         </div>
 
         <button class="button is-dark enterbuy">
@@ -90,7 +90,7 @@
   background-color: #ffffff;
   padding: 16px;
 }
-/deep/ .modal-close{
+.modalbackpos >>> .modal-close{
   top: 100px;
 }
 .titletext{
@@ -113,11 +113,11 @@
 .selectpos{
   margin-top: 8px;
 }
-/deep/ .select select {
+.modalbackpos >>> .select select {
   width: 240px;
   height: 40px;
 }
-/deep/ .select:not(.is-multiple):not(.is-loading)::after {
+.modalbackpos >>> .select:not(.is-multiple):not(.is-loading)::after {
   top: 20px;
 }
 .inputwidth{
