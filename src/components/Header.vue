@@ -5,7 +5,7 @@
         <a class="navbar-item" href="/">
           <img class="ymsjlogo" src="../assets/ymsjlogo.png">
         </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav" style="height: 80px;">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>

@@ -1,67 +1,44 @@
 <template>
   <div>
     <section class="is-cover allheight backpic">
+      <div v-for="(item, index) in cardfactions" :key="index">
+        <div class="searchmore">
+          <nav class="level" style="margin-bottom: 0px;">
+            <div class="level-left">
+            </div>
+            <div class="level-right" @click="$router.push('/Backpack')">
+              查看更多
+              <img class="arrowlogo" src="@/assets/allcards_slices/goto.png">
+            </div>
+          </nav>
+        </div>
+        <div class="allcards">
+          <nav class="level">
+            <div class="level-left">
+              <img class="teamlogo" :src="item.url">
+            </div>
+            <div class="level-right">
+              <div class="teamcards">
+                <vue-scroll :ops="ops">
+                  <div :style="getCardsWidth(getCardsByType(item.id))">
+                    <span v-for="(card,index2) in getCardsByType(item.id)" :key="index2">
+                      <img class="teamcard1" v-if="index2 == 0" @click="$router.push('/CardDetail')" :src="card.url">
+                      <img class="teamcard" v-else @click="$router.push('/CardDetail')" :src="card.url">
+                    </span>
+                  </div>
+                </vue-scroll>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
       <div class="searchmore">
-        <nav class="level" style="margin-bottom: 0px;">
+        <nav class="level">
           <div class="level-left">
           </div>
           <div class="level-right" @click="$router.push('/Backpack')">
             查看更多
             <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
-          </div>
-        </nav>
-      </div>
-      <div class="allcards">
-        <nav class="level">
-          <div class="level-left">
-            <img class="teamlogo" src="../../assets/title_slices/bgi1.png">
-          </div>
-          <div class="level-right">
-            <div class="teamcards">
-              <vue-scroll :ops="ops">
-                <div :style="getCardsWidth([1,1,1,1,1,1,1])">
-                  <img class="teamcard1" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                </div>
-              </vue-scroll>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div class="searchmore">
-        <nav class="level">
-          <div class="level-left">
-          </div>
-          <div class="level-right" @click="$router.push('/Backpack')">
-            查看更多
-            <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
-          </div>
-        </nav>
-      </div>
-      <div class="allcards">
-        <nav class="level">
-          <div class="level-left">
-            <img class="teamlogo" src="../../assets/title_slices/bgi1.png">
-          </div>
-          <div class="level-right">
-            <div class="teamcards">
-              <vue-scroll :ops="ops">
-                <div :style="getCardsWidth([1,1,1,1,1,1,1])">
-                  <img class="teamcard1" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                  <img class="teamcard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png">
-                </div>
-              </vue-scroll>
-            </div>
           </div>
         </nav>
       </div>
@@ -70,6 +47,10 @@
 </template>
 
 <script>
+import allcards from '@/util/allcards'
+import drawablecards from '@/util/drawablecards';
+import cardfactions from '@/util/cardfactions';
+
 export default {
   data() {
     return {
@@ -78,12 +59,72 @@ export default {
           scrollingX: true,
           scrollingY: false,
         }
-      }
+      },
+      cardfactions: cardfactions
     }
+  },
+  mounted(){
+    console.log(drawablecards);
+    console.log(drawablecards.length);
+    // var Data = allcards;
+    // var allcards = [];
+    // for (var i = 0; i < Data.length; i++) {
+    //   var card = {};
+    //   if (Data[i][0].indexOf("asset") != -1) {
+    //     card.url = Data[i][0];
+    //   } else {
+    //     card.url = "http://material.kdsrpg.com/" + Data[i][0];
+    //   }
+    //   card.id = Data[i][1];
+    //   card.type = Data[i][2];
+    //   card.childType = Data[i][3];
+    //   card.cost = Data[i][4];
+    //   card.factions = Data[i][5];
+    //   card.loyal = Data[i][6];
+    //   card.name = Data[i][7].replace(/[*&@]/g, "");
+    //   card.childName = Data[i][8];
+    //   card.isGolden = Data[i][9];
+    //   card.whiteSpyNum = Data[i][10];
+    //   card.whiteBattleNum = Data[i][11];
+    //   card.whitePowerNum = Data[i][12];
+    //   card.blackSpyNum = Data[i][13];
+    //   card.blackBattleNum = Data[i][14];
+    //   card.blackPowerNum = Data[i][15];
+    //   card.def = Data[i][16];
+    //   card.magicAreaID = Data[i][17];
+    //   card.cardNumber = Data[i][18];
+    //   card.cardPainterID = Data[i][19];
+    //   card.area_needWinPower = Data[i][20];
+    //   card.area_score = Data[i][21];
+    //   card.addType = Data[i][22];
+    //   card.effectID = Data[i][23];
+    //   card.limitNum = Data[i][24];
+    //   card.isDebar = Data[i][25];
+    //   card.screenshotPath = Data[i][26];
+    //   card.rarity = Data[i][27];
+    //   card.ringCenterPos = Data[i][28];
+    //   card.ringRadius = parseFloat(Data[i][29]);
+    //   card.bgStory = Data[i][30];
+    //   card.series = Data[i][31];
+    //   card.seriesID = Data[i][32];
+    //   card.skillInfo = Data[i][33];
+    //   allcards[card.id] = card;
+    //   card.modelId = card.id;
+    // }
+    // console.log(allcards)
   },
   methods:{
     getCardsWidth(cards){
       return "width:" + ((cards.length * 256) + ((cards.length - 1) * 24)) + "px;";
+    },
+    getCardsByType(id){
+      var typecards = []
+      for(var index in drawablecards){
+        if(drawablecards[index].factions == id){
+          typecards.push(drawablecards[index])
+        }
+      }
+      return typecards;
     }
   }
 }
@@ -93,11 +134,12 @@ export default {
 .backpic{
   margin-top: 80px;
   background-image: url("../../assets/allcards_slices/bgi7.png");
-  background-size: auto 100%;
+  background-size: 100% auto;
   background-position: center;
 }
 .allheight{
-  height: 1000px;
+  min-height: 1000px;
+  padding-bottom: 48px;
 }
 .searchmore{
   max-width: 1376px;
