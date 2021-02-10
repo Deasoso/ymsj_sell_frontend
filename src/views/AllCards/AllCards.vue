@@ -16,6 +16,7 @@
           <nav class="level">
             <div class="level-left">
               <img class="teamlogo" :src="item.url">
+              <div class="teamtext">{{item.name}}</div>
             </div>
             <div class="level-right">
               <div class="teamcards">
@@ -165,6 +166,14 @@ export default {
   height: 174px;
   /* margin-left: 48px; */
   /* margin-top: 85px; */
+}
+.teamtext{
+  margin-left: -128px;
+  margin-top: 230px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  width: 128px;
 }
 .teamcards{
   width: calc(100vw - 144px - 128px);

@@ -8,21 +8,51 @@
           <div class="level-left">
             <div class="level-item">
               <span class="teamtext">阵营</span>
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
+              <b-dropdown aria-role="list" style="margin-left: 12px;">
+                <template #trigger="{ active }">
+                  <button class="button allgoods">
+                    <span style="margin-right: 12px;">全部阵营</span>
+                    <span class="icon is-small">
+                      <img src="../../assets/sellcards_slices/paixu.png" />
+                    </span>
+                  </button>
+                </template>
+                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
+                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
+                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+              </b-dropdown>
             </div>
             <div class="level-item">
-              <span class="teamtext2">DP</span>
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
+              <span class="teamtext2">AP</span>
+              <b-dropdown aria-role="list" style="margin-left: 12px;">
+                <template #trigger="{ active }">
+                  <button class="button allgoods">
+                    <span style="margin-right: 12px;">全部费用</span>
+                    <span class="icon is-small">
+                      <img src="../../assets/sellcards_slices/paixu.png" />
+                    </span>
+                  </button>
+                </template>
+                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
+                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
+                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+              </b-dropdown>
             </div>
             <div class="level-item">
-              <span class="teamtext3">AP</span>
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
-              <img class="teamicons" src="../../assets/title_slices/bgi1.png" />
+              <span class="teamtext3">DP</span>
+              <b-dropdown aria-role="list" style="margin-left: 12px;">
+                <template #trigger="{ active }">
+                  <button class="button allgoods">
+                    <span style="margin-right: 12px;">全部防御</span>
+                    <span class="icon is-small">
+                      <img src="../../assets/sellcards_slices/paixu.png" />
+                    </span>
+                  </button>
+                </template>
+                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
+                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
+                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+              </b-dropdown>
             </div>
           </div>
 
@@ -32,7 +62,7 @@
               <b-dropdown aria-role="list" style="margin-left: 12px;">
                 <template #trigger="{ active }">
                   <button class="button allgoods">
-                    <span style="margin-right: 12px;">全部卡牌</span>
+                    <span style="margin-right: 12px;">全部类型</span>
                     <span class="icon is-small">
                       <img src="../../assets/sellcards_slices/paixu.png" />
                     </span>
@@ -45,61 +75,110 @@
             </div>
             <div class="level-item">
               <div class="field has-addons">
-                <p class="control">
-                  <input class="input searchinput" type="text" placeholder="输入你想搜索的卡牌名称">
-                </p>
-                <p class="control">
-                  <button class="button searchbutton">
-                    <span class="icon searchicon">
-                      <img src="../../assets/sellcards_slices/search.png" />
-                    </span>
-                  </button>
-                </p>
+                <input class="input searchinput" type="text" placeholder="输入你想搜索的卡牌名称">
+                <button class="button searchbutton">
+                  <span class="icon searchicon">
+                    <img src="../../assets/sellcards_slices/search.png" />
+                  </span>
+                </button>
               </div>
             </div>
           </div>
         </nav>
       </div>
       <div class="sellcards">
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
-        <img class="onecard" @click="$router.push('/CardDetail')" src="../../assets/cards/01联会禁音使.png" />
+        <a v-for="(item, index) in showcards" :key="index">
+          <img class="onecard" @click="$router.push('/CardDetail?id=' + item.id)" :src="drawablecards[item.id].url"/>
+        </a>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import usercards from '@/assets/fakedatas/usercards';
+import drawablecards from '@/util/drawablecards';
+import cardfactions from '@/util/cardfactions';
+
 export default {
 	data(){
 		return{
-
+      showcards: usercards,
+      drawablecards: drawablecards,
+      teamoptions: [{label: '全部阵营', value: 'all'}],
+      apoptions: [{label: '全部费用', value: 'all'}],
+      dpoptions: [{label: '全部防御', value: 'all'}],
+      typeoptions: [{label: '全部类型', value: 'all'}],
+      selectteam: '',
+      selectap: '',
+      selectdp: '',
+      selecttype: '',
 		}
   },
+  methods:{
+    getCartType(index){
+      return index == 0 ? '地区' : index == 1 ? '角色' : index == 2 ? '事务' : index == 3 ? '秘社' : '附属';
+    },
+    refreshOption(){
+      this.teamoptions = [{label: '全部阵营', value: 'all'}];
+      this.apoptions = [{label: '全部费用', value: 'all'}];
+      this.dpoptions = [{label: '全部防御', value: 'all'}];
+      this.typeoptions = [{label: '全部类型', value: 'all'}];
+      for(var i in drawablecards){
+        if((teamoptions.filter(item => item.value == drawablecards[i].factions)).length <= 0){
+          teamoptions.push({
+            label: cardfactions[drawablecards[i].factions].name,
+            value: drawablecards[i].factions
+          })
+        }
+        if((apoptions.filter(item => item.value == drawablecards[i].cost)).length <= 0){
+          apoptions.push({
+            label: drawablecards[i].cost,
+            value: drawablecards[i].cost
+          })
+        }
+        if((dpoptions.filter(item => item.value == drawablecards[i].def)).length <= 0){
+          dpoptions.push({
+            label: drawablecards[i].def,
+            value: drawablecards[i].def
+          })
+        }
+        if((typeoptions.filter(item => item.value == drawablecards[i].type)).length <= 0){
+          typeoptions.push({
+            label: this.getCartType(drawablecards[i].type),
+            value: drawablecards[i].type
+          })
+        }
+      }
+    },
+    refreshCard(){
+
+    },
+  },
+  mounted(){
+    //
+    
+  }
 };
 </script>
 
 <style scoped>
 .backpic{
   background-image: url("../../assets/allcards_slices/bgi7.png");
-  background-size: auto 100%;
+  background-size: 100% auto;
   background-position: center;
   margin-top: 80px;
 }
 .allheight{
-  height: 1000px;
+  min-height: 1000px;
+  padding-bottom: 48px;
 }
 .sellhead{
   margin: 0 auto;
   width: calc(100vw - 48px);
   max-width: 1376px;
   height: 80px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .searchbutton{
   height: 40px;
@@ -122,12 +201,12 @@ export default {
   height: 48px;
 }
 .teamtext2{
-  margin-left: 90px;
+  margin-left: 12px;
   color: #FFFFFF;
   font-size: 16px;
 }
 .teamtext3{
-  margin-left: 128px;
+  margin-left: 12px;
   color: #FFFFFF;
   font-size: 16px;
 }

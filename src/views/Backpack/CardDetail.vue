@@ -98,13 +98,14 @@ export default {
     this.cardData = drawablecards[this.$route.query.id];
   },
   methods:{
+    // getCardType:
+    // ConstCartType.AREA = 0;
+    // ConstCartType.ACTOR = 1;
+    // ConstCartType.AFFAIR = 2;
+    // ConstCartType.SECRET_CIRCLE = 3;
+    // ConstCartType.SECRET_ADD = 4;
+    // 地区牌/角色牌/事务牌/秘社牌/附属牌
     getCartType(index){
-      // ConstCartType.AREA = 0;
-      // ConstCartType.ACTOR = 1;
-      // ConstCartType.AFFAIR = 2;
-      // ConstCartType.SECRET_CIRCLE = 3;
-      // ConstCartType.SECRET_ADD = 4;
-      // 地区牌/角色牌/事务牌/秘社牌/附属牌
       return index == 0 ? '地区' : index == 1 ? '角色' : index == 2 ? '事务' : index == 3 ? '秘社' : '附属';
     },
     getChildTypes(inputtypes){
