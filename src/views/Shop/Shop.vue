@@ -1,6 +1,17 @@
 <template>
   <div>
     <section class="is-cover allheight backpic">
+      <div class='metamask-info'>
+        <p>Metamask: {{ web3.isInjected }}</p>
+        <p>Network: {{ web3.networkId }}</p>
+        <p>Account: {{ web3.coinbase }}</p>
+        <p>Balance: {{ web3.balance }}</p>
+        <!-- <a @click="send">send bnb</a> -->
+        <div><button @click="draw()">draw</button></div>
+        <input v-model="nftid" placeholder="id"/>
+        <button @click="getdata()">get nft</button>
+        <p>{{ymsjvalue}}</p>
+      </div>
       <nav class="level gemhead" style="margin-bottom: 4px;">
         <div class="level-left">
           <!-- 左边没有东西 -->
@@ -52,6 +63,7 @@
 </template>
 
 <script>
+import nft_abi from "@/contracts/NFT_abi.json"
 import DrawModal from './DrawModal'
 import BuyModal from './BuyModal'
 
@@ -66,8 +78,62 @@ export default {
     DrawModal,
     BuyModal
   },
+  computed: {
+    web3(){
+      return this.$store.state.web3
+    },
+    contract(){
+      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
+      return contract_in.at('0xff66f816b0bdb2de3e8f2b3af71d850fcafeae1b');
+    }
+  },
   methods:{
-    
+    send(){
+      this.web3.web3Instance().eth.sendTransaction(
+        {
+          from: '0x3014734DC6E7A17a7783517393053DeFF324790e', 
+          to:'0x1953e2A26c1325C924BFDD11ed3C0Cd9E498f869', 
+          value: this.web3.web3Instance().toWei(0.1, 'ether'), 
+          gasLimit: 21000, 
+          gasPrice: 20000000000
+        },function(err, transactionHash) {
+          if (!err)
+            console.log(transactionHash); 
+        }
+      )
+    },
+    async getdata(){
+      this.ymsjvalue = await new Promise(
+        (resolve, reject) => {
+          this.contract.balanceOf(
+            this.web3.coinbase,
+            this.nftid,
+            function(error, result){
+            if(!error){
+              console.log(result);
+              resolve(result.toNumber());
+            }else{
+              reject(error);
+            }
+          })
+        }
+      );
+    },
+    async draw(){
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase
+      await new Promise(
+        (resolve, reject) => {
+          this.contract.join(
+            function(error, result){
+            if(!error){
+              resolve(result);
+            }else{
+              reject(error);
+            }
+          })
+        }
+      );
+    }
   }
 };
 </script>

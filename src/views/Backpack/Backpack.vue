@@ -125,26 +125,26 @@ export default {
       this.dpoptions = [{label: '全部防御', value: 'all'}];
       this.typeoptions = [{label: '全部类型', value: 'all'}];
       for(var i in drawablecards){
-        if((teamoptions.filter(item => item.value == drawablecards[i].factions)).length <= 0){
-          teamoptions.push({
+        if((this.teamoptions.filter(item => item.value == drawablecards[i].factions)).length <= 0){
+          this.teamoptions.push({
             label: cardfactions[drawablecards[i].factions].name,
             value: drawablecards[i].factions
           })
         }
-        if((apoptions.filter(item => item.value == drawablecards[i].cost)).length <= 0){
-          apoptions.push({
+        if((this.apoptions.filter(item => item.value == drawablecards[i].cost)).length <= 0){
+          this.apoptions.push({
             label: drawablecards[i].cost,
             value: drawablecards[i].cost
           })
         }
-        if((dpoptions.filter(item => item.value == drawablecards[i].def)).length <= 0){
-          dpoptions.push({
+        if((this.dpoptions.filter(item => item.value == drawablecards[i].def)).length <= 0){
+          this.dpoptions.push({
             label: drawablecards[i].def,
             value: drawablecards[i].def
           })
         }
-        if((typeoptions.filter(item => item.value == drawablecards[i].type)).length <= 0){
-          typeoptions.push({
+        if((this.typeoptions.filter(item => item.value == drawablecards[i].type)).length <= 0){
+          this.typeoptions.push({
             label: this.getCartType(drawablecards[i].type),
             value: drawablecards[i].type
           })

@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import allcards from '@/util/allcards'
+// import allcards from '@/util/allcards'
 import drawablecards from '@/util/drawablecards';
 import cardfactions from '@/util/cardfactions';
 
@@ -65,12 +65,10 @@ export default {
     }
   },
   mounted(){
-    for (var i = 0; i < drawablecards.length; i++) {
-      console.log(i);
-      console.log(drawablecards[i])
-    }
-    console.log(drawablecards);
-    console.log(drawablecards.length);
+    // for (var i = 0; i < drawablecards.length; i++) {
+    //   console.log(i);
+    //   console.log(drawablecards[i])
+    // }
     // var Data = allcards;
     // var allcards = [];
     // for (var i = 0; i < Data.length; i++) {

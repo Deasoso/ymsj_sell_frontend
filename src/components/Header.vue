@@ -16,35 +16,13 @@
       
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
-          <router-link class="navbar-item yellowfont" :to="{ name: 'Home'}">
+          <router-link v-for="(item, index) in headeritems" :key="index"
+            :class="'navbar-item ' + ((activeItem == item.to) ? 'yellowfont' : 'whitefont')" 
+            :to="{name: item.to}">
             <span>
-              <img class="pagelogo" src="../assets/title_slices/home.png">
+              <img class="pagelogo" :src="(activeItem == item.to) ? item.active_url : item.url">
             </span>
-            首页
-          </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'AllCards'}">
-            <span>
-              <img class="pagelogo" src="../assets/title_slices/card.png">
-            </span>
-            卡牌大全
-          </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'SellCards'}">
-            <span>
-              <img class="pagelogo" src="../assets/title_slices/trade.png">
-            </span>
-            交易大厅
-          </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'Shop'}">
-            <span>
-              <img class="pagelogo" src="../assets/title_slices/store.png">
-            </span>
-            卡牌商店
-          </router-link>
-          <router-link class="navbar-item whitefont" :to="{ name: 'Backpack'}">
-            <span>
-              <img class="pagelogo" src="../assets/title_slices/backpack.png">
-            </span>
-            我的背包
+            {{item.name}}
           </router-link>
         </div>
 
@@ -57,7 +35,7 @@
           <img class="speakerlogo" 
             v-if="islogin" 
             @click="$router.push('/Mine')" 
-            src="../assets/title_slices/avatar备份.png">
+            src="@/assets/title_slices/avatar备份.png">
         </div>
       </div>
     </nav>
@@ -65,23 +43,29 @@
 </template>
 
 <script>
-// var Color = net.brehaut.Color
+import headeritems from "@/util/headeritems"
 
 export default {
   data() {
     return {
       selected: "",
       title: "",
-      islogin: false
+      islogin: false,
+      headeritems: headeritems
     }
   },
-  methods: {
+  methods:{
     clicknav(){
       this.$refs.nav.classList.toggle("is-active");
       this.$refs.navitem.classList.toggle("is-active");
     },
     login(){
       this.islogin = !this.islogin;
+    }
+  },
+  computed: {
+    activeItem(){
+      return this.$route.path.split('/')[1] || 'Home';
     }
   }
 }
@@ -92,7 +76,7 @@ export default {
   height: 80px;
 }
 .yellowfont{
-  color: #E7CE8A;
+  color: #E7CE8A !important;
   font-size: 16px;
 }
 .whitefont{
@@ -134,6 +118,9 @@ strong {
   width: 32px;
   height: 32px;
   border-radius: 0px;
+}
+.header >>> a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, .navbar-link.is-active{
+  background-color: #666666;
 }
 </style>
 
