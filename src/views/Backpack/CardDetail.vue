@@ -18,60 +18,57 @@
           </button>
         </div>
       </nav>
-      <img class="cardimg" src="../../assets/cards/01联会禁音使.png">
+      <img class="cardimg" :src="cardData.url">
       <div>
         <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #44D7B6;color: #15AD8B;">
           已拥有
         </b-button>
       </div>
       <div class="cardname">
-        新生血族
+        {{cardData.name}}
       </div>
       <div class="cardtype">
-        角色·吸血鬼
+        {{getCartType(cardData.type)}}·{{getChildTypes(cardData.childType)}}
       </div>
       <div class="teamtypes">
         <div class="teamtype">
-          <img class="teamicon" src="../../assets/title_slices/bgi1.png">
+          <img class="teamicon" :src="cardfactions[cardData.factions].url">
           <div class="teamname">阵营</div>
         </div>
         <div class="teamtype">
-          <img class="teamicon" src="../../assets/title_slices/bgi1.png">
+          <img class="teamicon" src="@/assets/types/费用背景.png">
+          <div class="costtext">{{cardData.cost}}</div>
           <div class="teamname">AP</div>
         </div>
         <div class="teamtype">
-          <img class="teamicon" src="../../assets/title_slices/bgi1.png">
+          <img class="teamicon" src="@/assets/types/defImg.png">
+          <div class="deftext">{{cardData.def}}</div>
           <div class="teamname">DP</div>
         </div>
         <div class="teamtype">
-          <img class="teamicon" src="../../assets/title_slices/bgi1.png">
-          <div class="teamname">属性</div>
+          <div class="attrs">
+            <img v-for="index in cardData.whiteSpyNum" :key="index" class="attr" src="@/assets/types/attr_eye_white.png">
+            <img v-for="index in cardData.whiteBattleNum" :key="index" class="attr" src="@/assets/types/attr_battle_white.png">
+            <img v-for="index in cardData.whitePowerNum" :key="index" class="attr" src="@/assets/types/attr_power_white.png">
+            <img v-for="index in cardData.blackSpyNum" :key="index" class="attr" src="@/assets/types/attr_eye.png">
+            <img v-for="index in cardData.blackBattleNum" :key="index" class="attr" src="@/assets/types/attr_battle.png">
+            <img v-for="index in cardData.blackPowerNum" :key="index" class="attr" src="@/assets/types/attr_power.png">
+            <div class="attrbottom" />
+            <div class="teamname">属性</div>
+          </div>
         </div>
         <div class="description">
           <img class="descriptionicon" src="../../assets/backpack_slices/skill.png">
           <div class="descriptionname">技能</div>
           <div class="descriptiontext">
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
-            这是一段技能说明…这是一段技能说明…这是一段技能说明…这是一段技能说明…
+            {{cardData.skillInfo}}
           </div>
         </div>
         <div class="description">
           <img class="descriptionicon" src="../../assets/backpack_slices/man.png">
           <div class="descriptionname">简介</div>
           <div class="descriptiontext">
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
-            这是一段人物简介…这是一段人物简介…这是一段人物简介…这是一段人物简介…
+            {{cardData.bgStory}}
           </div>
         </div>
       </div>
@@ -82,15 +79,45 @@
 
 <script>
 import SellModal from './SellModal'
+import drawablecards from '@/util/drawablecards';
+import cardfactions from '@/util/cardfactions';
+import childtypes from '@/util/childtypes';
 
 export default {
 	data(){
 		return{
-      modalactive: false
+      modalactive: false,
+      cardData: drawablecards[0],
+      cardfactions: cardfactions,
 		}
   },
   components:{
     SellModal
+  },
+  mounted(){
+    this.cardData = drawablecards[this.$route.query.id];
+  },
+  methods:{
+    getCartType(index){
+      // ConstCartType.AREA = 0;
+      // ConstCartType.ACTOR = 1;
+      // ConstCartType.AFFAIR = 2;
+      // ConstCartType.SECRET_CIRCLE = 3;
+      // ConstCartType.SECRET_ADD = 4;
+      // 地区牌/角色牌/事务牌/秘社牌/附属牌
+      return index == 0 ? '地区' : index == 1 ? '角色' : index == 2 ? '事务' : index == 3 ? '秘社' : '附属';
+    },
+    getChildTypes(inputtypes){
+      var str = '';
+      for(var i in inputtypes){
+        if(i == 0){
+          str += childtypes[inputtypes[i]].name;
+        }else{
+          str += ('/' + childtypes[inputtypes[i]].name);
+        }
+      }
+      return str;
+    }
   }
 };
 </script>
@@ -99,11 +126,12 @@ export default {
 .backpic{
   margin-top: 80px;
   background-image: url("../../assets/allcards_slices/bgi7.png");
-  background-size: auto 100%;
+  background-size: 100% auto;
   background-position: center;
 }
 .allheight{
-  height: 1060px;
+  min-height: 1060px;
+  padding-bottom: 48px;
 }
 .sharehead{
   max-width: 800px;
@@ -162,12 +190,39 @@ export default {
 }
 .teamicon{
   width: 48px;
-  height: 48px;
+  height: auto;
 }
 .teamname{
   font-size: 16px;
   color: #333333;
 }
+.costtext{
+  font-size: 30px;
+  font-weight: bolder;
+  margin-top: -52px;
+  margin-bottom: 10px;
+}
+.deftext{
+  font-size: 30px;
+  font-weight: bolder;
+  color: #ffffff;
+  margin-top: -62px;
+  margin-bottom: 18px;
+}
+.attrs{
+  width: 48px;
+  height: 82px;
+  line-height: 0;
+}
+.attr{
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+}
+.attrbottom{
+  margin-top: 16px;
+}
+
 .description{
   text-align: left;
   max-width: 848px;

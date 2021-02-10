@@ -22,8 +22,8 @@
                 <vue-scroll :ops="ops">
                   <div :style="getCardsWidth(getCardsByType(item.id))">
                     <span v-for="(card,index2) in getCardsByType(item.id)" :key="index2">
-                      <img class="teamcard1" v-if="index2 == 0" @click="$router.push('/CardDetail')" :src="card.url">
-                      <img class="teamcard" v-else @click="$router.push('/CardDetail')" :src="card.url">
+                      <img class="teamcard1" v-if="index2 == 0" @click="enterDetail(card.arrid)" :src="card.url">
+                      <img class="teamcard" v-else @click="enterDetail(card.arrid)" :src="card.url">
                     </span>
                   </div>
                 </vue-scroll>
@@ -64,6 +64,10 @@ export default {
     }
   },
   mounted(){
+    for (var i = 0; i < drawablecards.length; i++) {
+      console.log(i);
+      console.log(drawablecards[i])
+    }
     console.log(drawablecards);
     console.log(drawablecards.length);
     // var Data = allcards;
@@ -125,6 +129,9 @@ export default {
         }
       }
       return typecards;
+    },
+    enterDetail(index){
+      this.$router.push('/CardDetail?id=' + index);
     }
   }
 }

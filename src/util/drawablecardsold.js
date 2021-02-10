@@ -1,4 +1,4 @@
-module.exports = [
+module.exports =  [
   {
     "url": require("@/assets/cards/0_1_通灵猫头鹰.png"),
     "id": 1,
@@ -38,8 +38,7 @@ module.exports = [
     "series": 1,
     "seriesID": "1",
     "skillInfo": "不能被装备结附：子类别为\"装备\"的附属\n，无法结附于该角色",
-    "modelId": 1,
-    "arrid": 0
+    "modelId": 1
   },
   {
     "url": require("@/assets/cards/0_2_巨石阵看护人.png"),
@@ -80,8 +79,7 @@ module.exports = [
     "series": 1,
     "seriesID": "2",
     "skillInfo": "现身：战场上的角色卡从\"暗藏者\"翻面，\n成为\"角色\"\n\n虚弱：无法参与调查、战斗、势力这三种对抗\n，在下一回合的准备阶段自动恢复\"常态\"",
-    "modelId": 2,
-    "arrid": 1
+    "modelId": 2
   },
   {
     "url": require("@/assets/cards/0_3_帷幕护卫.png"),
@@ -122,8 +120,7 @@ module.exports = [
     "series": 1,
     "seriesID": "3",
     "skillInfo": "虚弱：无法参与调查、战斗、势力这三种对抗\n，在下一回合的准备阶段自动恢复\"常态\"",
-    "modelId": 3,
-    "arrid": 2
+    "modelId": 3
   },
   {
     "url": require("@/assets/cards/0_4_力场法师.png"),
@@ -165,8 +162,7 @@ module.exports = [
     "series": 1,
     "seriesID": "4",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 4,
-    "arrid": 3
+    "modelId": 4
   },
   {
     "url": require("@/assets/cards/0_5_裂解术.png"),
@@ -207,8 +203,7 @@ module.exports = [
     "series": 1,
     "seriesID": "5",
     "skillInfo": "",
-    "modelId": 5,
-    "arrid": 4
+    "modelId": 5
   },
   {
     "url": require("@/assets/cards/0_6_常春藤派学者.png"),
@@ -249,8 +244,7 @@ module.exports = [
     "series": 1,
     "seriesID": "6",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 6,
-    "arrid": 5
+    "modelId": 6
   },
   {
     "url": require("@/assets/cards/0_7_逆转异界之门.png"),
@@ -291,8 +285,7 @@ module.exports = [
     "series": 1,
     "seriesID": "7",
     "skillInfo": "",
-    "modelId": 7,
-    "arrid": 6
+    "modelId": 7
   },
   {
     "url": require("@/assets/cards/0_8_灵能激发.png"),
@@ -333,9 +326,49 @@ module.exports = [
     "series": 1,
     "seriesID": "8",
     "skillInfo": "",
-    "modelId": 8,
-    "arrid": 7
+    "modelId": 8
   },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079458_8933715",
+  //   "id": 9,
+  //   "type": 4,
+  //   "childType": [
+  //     14
+  //   ],
+  //   "cost": 4,
+  //   "factions": 0,
+  //   "loyal": 1,
+  //   "name": "远东六号科研所",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 9,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     91
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": "null",
+  //   "rarity": 1,
+  //   "ringCenterPos": "200,600",
+  //   "ringRadius": 211,
+  //   "bgStory": "这个被帷幕守望者视为”头脑风暴”的仪式是他们用以探索奥秘的方式，藉由钻进自己的心灵深处，施法者得以进一步掌控自己的天赋，藉以达到更高的层次。这个仪式允许施术者在短暂的瞬间瞥见世界的真相--如此浩瀚而复杂的恐怖景象足以让任何凡人发疯，然而它也将向幸存者揭露让能量为己所用的宝贵知识。\n$“我曾经看过冷漠的古老幽灵，狡猾的时空窃贼、以及......恐怖的噩梦化身!”\n--艾米莉. 沙凡娜 纽约通灵人协会的资深会员",
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 9
+  // },
   {
     "url": require("@/assets/cards/0_10_青手，费南迪尔.png"),
     "id": 10,
@@ -376,8 +409,7 @@ module.exports = [
     "series": 1,
     "seriesID": "10",
     "skillInfo": "",
-    "modelId": 10,
-    "arrid": 8
+    "modelId": 10
   },
   {
     "url": require("@/assets/cards/0_11_德莫斯提尼·，大魔法师.png"),
@@ -420,9 +452,51 @@ module.exports = [
     "series": 1,
     "seriesID": "11",
     "skillInfo": "现身：战场上的角色卡从\"暗藏者\"翻面，\n成为\"角色\"",
-    "modelId": 11,
-    "arrid": 9
+    "modelId": 11
   },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079460_5390319",
+  //   "id": 12,
+  //   "type": 4,
+  //   "childType": [
+  //     51
+  //   ],
+  //   "cost": 2,
+  //   "factions": 0,
+  //   "loyal": 1,
+  //   "name": "帷幕守望徽记",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 12,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     29,
+  //     94,
+  //     95
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 12
+  // },
   {
     "url": require("@/assets/cards/0_13_公路骑士.png"),
     "id": 13,
@@ -460,8 +534,7 @@ module.exports = [
     "series": 1,
     "seriesID": "13",
     "skillInfo": "",
-    "modelId": 13,
-    "arrid": 10
+    "modelId": 13
   },
   {
     "url": require("@/assets/cards/0_14_驱魔人.png"),
@@ -502,8 +575,7 @@ module.exports = [
     "series": 1,
     "seriesID": "14",
     "skillInfo": "牺牲：将自身送入拥有者的墓地，玩家只\n能选择并牺牲自己操控的卡牌",
-    "modelId": 14,
-    "arrid": 11
+    "modelId": 14
   },
   {
     "url": require("@/assets/cards/0_15_执行部精锐.png"),
@@ -542,8 +614,7 @@ module.exports = [
     "series": 1,
     "seriesID": "15",
     "skillInfo": "",
-    "modelId": 15,
-    "arrid": 12
+    "modelId": 15
   },
   {
     "url": require("@/assets/cards/0_16_除咒师.png"),
@@ -584,8 +655,7 @@ module.exports = [
     "series": 1,
     "seriesID": "16",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 16,
-    "arrid": 13
+    "modelId": 16
   },
   {
     "url": require("@/assets/cards/0_17_弥尔顿的镇魔枪.png"),
@@ -627,8 +697,7 @@ module.exports = [
     "series": 1,
     "seriesID": "17",
     "skillInfo": "虚弱：无法参与调查、战斗、势力这三种对抗\n，在下一回合的准备阶段自动恢复\"常态\"",
-    "modelId": 17,
-    "arrid": 14
+    "modelId": 17
   },
   {
     "url": require("@/assets/cards/0_18_魔刃传人.png"),
@@ -669,8 +738,7 @@ module.exports = [
     "series": 1,
     "seriesID": "18",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 18,
-    "arrid": 15
+    "modelId": 18
   },
   {
     "url": require("@/assets/cards/0_19_引路仙子.png"),
@@ -711,8 +779,7 @@ module.exports = [
     "series": 1,
     "seriesID": "19",
     "skillInfo": "持续：只要卡牌在场上，其持续能力就一\n直生效",
-    "modelId": 19,
-    "arrid": 16
+    "modelId": 19
   },
   {
     "url": require("@/assets/cards/0_20_隐蔽的飞刀.png"),
@@ -754,8 +821,7 @@ module.exports = [
     "series": 1,
     "seriesID": "20",
     "skillInfo": "牺牲：将自身送入拥有者的墓地，玩家只\n能选择并牺牲自己操控的卡牌",
-    "modelId": 20,
-    "arrid": 17
+    "modelId": 20
   },
   {
     "url": require("@/assets/cards/0_21_狭路相逢.png"),
@@ -796,8 +862,7 @@ module.exports = [
     "series": 1,
     "seriesID": "21",
     "skillInfo": "",
-    "modelId": 21,
-    "arrid": 18
+    "modelId": 21
   },
   {
     "url": require("@/assets/cards/0_22_范·弥尔顿，.png"),
@@ -838,8 +903,7 @@ module.exports = [
     "series": 1,
     "seriesID": "22",
     "skillInfo": "持续：只要卡牌在场上，其持续能力就一\n直生效",
-    "modelId": 22,
-    "arrid": 19
+    "modelId": 22
   },
   {
     "url": require("@/assets/cards/0_23_S.P.T董事局，.png"),
@@ -880,9 +944,51 @@ module.exports = [
     "series": 1,
     "seriesID": "23",
     "skillInfo": "持续：只要卡牌在场上，其持续能力就一\n直生效",
-    "modelId": 23,
-    "arrid": 20
+    "modelId": 23
   },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079475_5995178",
+  //   "id": 24,
+  //   "type": 4,
+  //   "childType": [
+  //     51
+  //   ],
+  //   "cost": 2,
+  //   "factions": 1,
+  //   "loyal": 1,
+  //   "name": "猎手论坛徽记",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 24,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     29,
+  //     108,
+  //     109
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 24
+  // },
   {
     "url": require("@/assets/cards/0_25_鲜血奴仆.png"),
     "id": 25,
@@ -922,8 +1028,7 @@ module.exports = [
     "series": 1,
     "seriesID": "25",
     "skillInfo": "牺牲：将自身送入拥有者的墓地，玩家只\n能选择并牺牲自己操控的卡牌",
-    "modelId": 25,
-    "arrid": 21
+    "modelId": 25
   },
   {
     "url": require("@/assets/cards/0_26_新生血族.png"),
@@ -962,8 +1067,7 @@ module.exports = [
     "series": 1,
     "seriesID": "26",
     "skillInfo": "",
-    "modelId": 26,
-    "arrid": 22
+    "modelId": 26
   },
   {
     "url": require("@/assets/cards/0_27_巨型蝙蝠.png"),
@@ -1004,8 +1108,7 @@ module.exports = [
     "series": 1,
     "seriesID": "27",
     "skillInfo": "不能被装备结附：子类别为“装备”的附\n属，无法结附于该角色",
-    "modelId": 27,
-    "arrid": 23
+    "modelId": 27
   },
   {
     "url": require("@/assets/cards/0_28_唤灵师.png"),
@@ -1046,8 +1149,7 @@ module.exports = [
     "series": 1,
     "seriesID": "28",
     "skillInfo": "",
-    "modelId": 28,
-    "arrid": 24
+    "modelId": 28
   },
   {
     "url": require("@/assets/cards/0_29_初拥.png"),
@@ -1089,8 +1191,7 @@ module.exports = [
     "series": 1,
     "seriesID": "29",
     "skillInfo": "",
-    "modelId": 29,
-    "arrid": 25
+    "modelId": 29
   },
   {
     "url": require("@/assets/cards/0_30_血族长老.png"),
@@ -1131,9 +1232,52 @@ module.exports = [
     "series": 1,
     "seriesID": "30",
     "skillInfo": "",
-    "modelId": 30,
-    "arrid": 26
+    "modelId": 30
   },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079488_453186",
+  //   "id": 31,
+  //   "type": 4,
+  //   "childType": [
+  //     31,
+  //     27
+  //   ],
+  //   "cost": 1,
+  //   "factions": 2,
+  //   "loyal": 3,
+  //   "name": "心兽之道",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 31,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     29,
+  //     116,
+  //     117
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 31
+  // },
   {
     "url": require("@/assets/cards/0_32_传媒魔咒.png"),
     "id": 32,
@@ -1174,9 +1318,52 @@ module.exports = [
     "series": 1,
     "seriesID": "32",
     "skillInfo": "准备阶段：每回合最开始的阶段，在先手\n行动阶段之前\n\n强制：该能力在符合条件的时机必须发动",
-    "modelId": 32,
-    "arrid": 27
+    "modelId": 32
   },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079489_2383422",
+  //   "id": 33,
+  //   "type": 4,
+  //   "childType": [
+  //     33,
+  //     27
+  //   ],
+  //   "cost": 3,
+  //   "factions": 2,
+  //   "loyal": 1,
+  //   "name": "家族传承",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 33,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     29,
+  //     119,
+  //     120
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 33
+  // },
   {
     "url": require("@/assets/cards/0_34_克里斯蒂娜·，爱弗罗德.png"),
     "id": 34,
@@ -1216,8 +1403,7 @@ module.exports = [
     "series": 1,
     "seriesID": "34",
     "skillInfo": "",
-    "modelId": 34,
-    "arrid": 28
+    "modelId": 34
   },
   {
     "url": require("@/assets/cards/0_35_列恩，·爱弗罗德.png"),
@@ -1258,9 +1444,562 @@ module.exports = [
     "series": 1,
     "seriesID": "35",
     "skillInfo": "",
-    "modelId": 35,
-    "arrid": 29
+    "modelId": 35
   },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079491_1658630",
+  //   "id": 36,
+  //   "type": 4,
+  //   "childType": [
+  //     51
+  //   ],
+  //   "cost": 2,
+  //   "factions": 2,
+  //   "loyal": 1,
+  //   "name": "王座会徽记",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 36,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     29,
+  //     124,
+  //     125
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 36
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079501_4089355",
+  //   "id": 37,
+  //   "type": 1,
+  //   "childType": [
+  //     3,
+  //     35
+  //   ],
+  //   "cost": 1,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "末日信徒",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 1,
+  //   "blackPowerNum": 0,
+  //   "def": 1,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 37,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     126
+  //   ],
+  //   "limitNum": 3,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 37
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079502_6079101",
+  //   "id": 38,
+  //   "type": 1,
+  //   "childType": [
+  //     3,
+  //     5,
+  //     35
+  //   ],
+  //   "cost": 2,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "纵火狂",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 1,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 1,
+  //   "blackPowerNum": 0,
+  //   "def": 1,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 38,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     127
+  //   ],
+  //   "limitNum": 3,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 38
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079502_3889465",
+  //   "id": 39,
+  //   "type": 1,
+  //   "childType": [
+  //     3,
+  //     4,
+  //     35
+  //   ],
+  //   "cost": 3,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "灾难使者",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 1,
+  //   "blackBattleNum": 1,
+  //   "blackPowerNum": 1,
+  //   "def": 1,
+  //   "magicAreaID": 3,
+  //   "cardNumber": 39,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     67,
+  //     128
+  //   ],
+  //   "limitNum": 3,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 39
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079503_5757141",
+  //   "id": 40,
+  //   "type": 1,
+  //   "childType": [
+  //     3,
+  //     4,
+  //     35
+  //   ],
+  //   "cost": 4,
+  //   "factions": 3,
+  //   "loyal": 2,
+  //   "name": "钟摆祭司",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 1,
+  //   "blackBattleNum": 2,
+  //   "blackPowerNum": 0,
+  //   "def": 2,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 40,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     129
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 40
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079504_9889526",
+  //   "id": 41,
+  //   "type": 2,
+  //   "childType": [
+  //     25
+  //   ],
+  //   "cost": 3,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "烈火重围",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 41,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     130
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 41
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079504_2562866",
+  //   "id": 42,
+  //   "type": 1,
+  //   "childType": [
+  //     57,
+  //     11
+  //   ],
+  //   "cost": 5,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "无面屠戮者",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 1,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 2,
+  //   "blackPowerNum": 1,
+  //   "def": 3,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 42,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     51,
+  //     131
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 42
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079505_5788269",
+  //   "id": 43,
+  //   "type": 4,
+  //   "childType": [
+  //     37
+  //   ],
+  //   "cost": 2,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "诅咒沙漏",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 43,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     31,
+  //     132
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 43
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079505_8432312",
+  //   "id": 44,
+  //   "type": 2,
+  //   "childType": [
+  //     8,
+  //     50
+  //   ],
+  //   "cost": 2,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "深渊细语",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 0,
+  //   "cardNumber": 44,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     133
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 44
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079506_4844970",
+  //   "id": 45,
+  //   "type": 2,
+  //   "childType": [
+  //     25
+  //   ],
+  //   "cost": 5,
+  //   "factions": 3,
+  //   "loyal": 2,
+  //   "name": "丧钟回响",
+  //   "childName": "",
+  //   "isGolden": false,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 45,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     134
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 45
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079507_9295654",
+  //   "id": 46,
+  //   "type": 1,
+  //   "childType": [
+  //     3,
+  //     4
+  //   ],
+  //   "cost": 6,
+  //   "factions": 3,
+  //   "loyal": 3,
+  //   "name": "诺恩纳格斯塔",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 2,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 1,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 2,
+  //   "def": 3,
+  //   "magicAreaID": 3,
+  //   "cardNumber": 46,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     44,
+  //     135,
+  //     136
+  //   ],
+  //   "limitNum": 1,
+  //   "isDebar": true,
+  //   "screenshotPath": "null",
+  //   "rarity": 3,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 46
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079508_6244201",
+  //   "id": 47,
+  //   "type": 1,
+  //   "childType": [
+  //     3,
+  //     39
+  //   ],
+  //   "cost": 7,
+  //   "factions": 3,
+  //   "loyal": 4,
+  //   "name": "终焉的诗寇蒂",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 1,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 1,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 2,
+  //   "def": 1,
+  //   "magicAreaID": 4,
+  //   "cardNumber": 47,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 0,
+  //   "effectID": [
+  //     44,
+  //     137
+  //   ],
+  //   "limitNum": 1,
+  //   "isDebar": true,
+  //   "screenshotPath": "null",
+  //   "rarity": 4,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 47
+  // },
+  // {
+  //   "url": "http://material.kdsrpg.com/userfile/1/75079508_8604125",
+  //   "id": 48,
+  //   "type": 4,
+  //   "childType": [
+  //     51
+  //   ],
+  //   "cost": 2,
+  //   "factions": 3,
+  //   "loyal": 1,
+  //   "name": "鸣钟教派徽记",
+  //   "childName": "",
+  //   "isGolden": true,
+  //   "whiteSpyNum": 0,
+  //   "whiteBattleNum": 0,
+  //   "whitePowerNum": 0,
+  //   "blackSpyNum": 0,
+  //   "blackBattleNum": 0,
+  //   "blackPowerNum": 0,
+  //   "def": 0,
+  //   "magicAreaID": 5,
+  //   "cardNumber": 48,
+  //   "cardPainterID": 0,
+  //   "area_needWinPower": 0,
+  //   "area_score": 0,
+  //   "addType": 3,
+  //   "effectID": [
+  //     29,
+  //     138,
+  //     139
+  //   ],
+  //   "limitNum": 2,
+  //   "isDebar": true,
+  //   "screenshotPath": null,
+  //   "rarity": null,
+  //   "ringCenterPos": null,
+  //   "ringRadius": null,
+  //   "bgStory": null,
+  //   "series": null,
+  //   "seriesID": null,
+  //   "skillInfo": "",
+  //   "modelId": 48
+  // },
   {
     "url": require("@/assets/cards/0_49_地区警员.png"),
     "id": 49,
@@ -1300,8 +2039,7 @@ module.exports = [
     "series": 1,
     "seriesID": "49",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动\n\n虚弱：无法参与调查、战斗、势力这三种对抗\n，在下一回合的准备阶段自动恢复\"常态\"",
-    "modelId": 49,
-    "arrid": 30
+    "modelId": 49
   },
   {
     "url": require("@/assets/cards/0_50_监控员.png"),
@@ -1342,8 +2080,7 @@ module.exports = [
     "series": 1,
     "seriesID": "50",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 50,
-    "arrid": 31
+    "modelId": 50
   },
   {
     "url": require("@/assets/cards/0_51_坚毅的刑警.png"),
@@ -1384,8 +2121,7 @@ module.exports = [
     "series": 1,
     "seriesID": "51",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 51,
-    "arrid": 32
+    "modelId": 51
   },
   {
     "url": require("@/assets/cards/0_52_安全保卫部门.png"),
@@ -1426,8 +2162,7 @@ module.exports = [
     "series": 1,
     "seriesID": "52",
     "skillInfo": "持续：只要卡牌在场上，其持续能力就一\n直生效",
-    "modelId": 52,
-    "arrid": 33
+    "modelId": 52
   },
   {
     "url": require("@/assets/cards/0_53_神秘学顾问.png"),
@@ -1468,8 +2203,7 @@ module.exports = [
     "series": 1,
     "seriesID": "53",
     "skillInfo": "",
-    "modelId": 53,
-    "arrid": 34
+    "modelId": 53
   },
   {
     "url": require("@/assets/cards/0_54_危机处理特派小组.png"),
@@ -1510,8 +2244,7 @@ module.exports = [
     "series": 1,
     "seriesID": "54",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 54,
-    "arrid": 35
+    "modelId": 54
   },
   {
     "url": require("@/assets/cards/0_55_档案调查.png"),
@@ -1552,8 +2285,7 @@ module.exports = [
     "series": 1,
     "seriesID": "55",
     "skillInfo": "",
-    "modelId": 55,
-    "arrid": 36
+    "modelId": 55
   },
   {
     "url": require("@/assets/cards/0_56_警车追捕.png"),
@@ -1594,8 +2326,7 @@ module.exports = [
     "series": 1,
     "seriesID": "56",
     "skillInfo": "",
-    "modelId": 56,
-    "arrid": 37
+    "modelId": 56
   },
   {
     "url": require("@/assets/cards/0_57_戒严.png"),
@@ -1638,8 +2369,7 @@ module.exports = [
     "series": 1,
     "seriesID": "57",
     "skillInfo": "准备步骤：每回合最开始的阶段，在先手\n行动阶段之前\n\n强制：该能力在符合条件的时机必须发动",
-    "modelId": 57,
-    "arrid": 38
+    "modelId": 57
   },
   {
     "url": require("@/assets/cards/0_58_审问嫌疑人.png"),
@@ -1680,8 +2410,7 @@ module.exports = [
     "series": 1,
     "seriesID": "58",
     "skillInfo": "",
-    "modelId": 58,
-    "arrid": 39
+    "modelId": 58
   },
   {
     "url": require("@/assets/cards/0_59_封魔瓶，瑟琳娜.png"),
@@ -1722,8 +2451,7 @@ module.exports = [
     "series": 1,
     "seriesID": "59",
     "skillInfo": "进场：在角色卡\"派遣\"或\"现身\"之后发动",
-    "modelId": 59,
-    "arrid": 40
+    "modelId": 59
   },
   {
     "url": require("@/assets/cards/0_60_约翰·F·纳特里，.png"),
@@ -1764,9 +2492,9 @@ module.exports = [
     "series": 1,
     "seriesID": "60",
     "skillInfo": "",
-    "modelId": 60,
-    "arrid": 41
+    "modelId": 60
   },
+  ,
   {
     "url": require("@/assets/cards/01联会禁音使.png"),
     "id": 107,
@@ -1807,8 +2535,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 107,
-    "arrid": 42
+    "modelId": 107
   },
   {
     "url": require("@/assets/cards/02轮回秘仪.png"),
@@ -1850,8 +2577,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 108,
-    "arrid": 43
+    "modelId": 108
   },
   {
     "url": require("@/assets/cards/03力场束缚.png"),
@@ -1893,8 +2619,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 109,
-    "arrid": 44
+    "modelId": 109
   },
   {
     "url": require("@/assets/cards/04抹除现实.png"),
@@ -1936,8 +2661,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 110,
-    "arrid": 45
+    "modelId": 110
   },
   {
     "url": require("@/assets/cards/05天火的捷列娃.png"),
@@ -1979,8 +2703,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 111,
-    "arrid": 46
+    "modelId": 111
   },
   {
     "url": require("@/assets/cards/06入梦的费南迪尔.png"),
@@ -2023,8 +2746,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 112,
-    "arrid": 47
+    "modelId": 112
   },
   {
     "url": require("@/assets/cards/07圣水.png"),
@@ -2066,8 +2788,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 113,
-    "arrid": 48
+    "modelId": 113
   },
   {
     "url": require("@/assets/cards/08银弹爆头.png"),
@@ -2108,8 +2829,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 114,
-    "arrid": 49
+    "modelId": 114
   },
   {
     "url": require("@/assets/cards/09临时征召.png"),
@@ -2150,8 +2870,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 115,
-    "arrid": 50
+    "modelId": 115
   },
   {
     "url": require("@/assets/cards/10邪物克星.png"),
@@ -2194,8 +2913,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 116,
-    "arrid": 51
+    "modelId": 116
   },
   {
     "url": require("@/assets/cards/11伊丽莎白.png"),
@@ -2239,8 +2957,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 117,
-    "arrid": 52
+    "modelId": 117
   },
   {
     "url": require("@/assets/cards/12暴躁血仆.png"),
@@ -2282,8 +2999,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 118,
-    "arrid": 53
+    "modelId": 118
   },
   {
     "url": require("@/assets/cards/13焚血之道.png"),
@@ -2326,8 +3042,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 119,
-    "arrid": 54
+    "modelId": 119
   },
   {
     "url": require("@/assets/cards/14鲜血.png"),
@@ -2369,8 +3084,7 @@ module.exports = [
     "series": 1,
     "seriesID": "117",
     "skillInfo": "持续：只要卡牌在场上，其持续能力就一\n直生效",
-    "modelId": 120,
-    "arrid": 55
+    "modelId": 120
   },
   {
     "url": require("@/assets/cards/15爱弗罗德庄园.png"),
@@ -2412,8 +3126,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 121,
-    "arrid": 56
+    "modelId": 121
   },
   {
     "url": require("@/assets/cards/16法务部律师团.png"),
@@ -2456,8 +3169,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 122,
-    "arrid": 57
+    "modelId": 122
   },
   {
     "url": require("@/assets/cards/17祭品.png"),
@@ -2498,8 +3210,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 123,
-    "arrid": 58
+    "modelId": 123
   },
   {
     "url": require("@/assets/cards/18计时人.png"),
@@ -2542,8 +3253,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 124,
-    "arrid": 59
+    "modelId": 124
   },
   {
     "url": require("@/assets/cards/19熵力化身.png"),
@@ -2586,8 +3296,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 125,
-    "arrid": 60
+    "modelId": 125
   },
   {
     "url": require("@/assets/cards/20灵魂通道.png"),
@@ -2629,8 +3338,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 126,
-    "arrid": 61
+    "modelId": 126
   },
   {
     "url": require("@/assets/cards/21臣服于命运.png"),
@@ -2671,8 +3379,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 127,
-    "arrid": 62
+    "modelId": 127
   },
   {
     "url": require("@/assets/cards/22州议员.png"),
@@ -2715,8 +3422,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 128,
-    "arrid": 63
+    "modelId": 128
   },
   {
     "url": require("@/assets/cards/23谨慎的办事员.png"),
@@ -2760,8 +3466,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 129,
-    "arrid": 64
+    "modelId": 129
   },
   {
     "url": require("@/assets/cards/24防暴警察.png"),
@@ -2804,8 +3509,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 130,
-    "arrid": 65
+    "modelId": 130
   },
   {
     "url": require("@/assets/cards/25监控探头.png"),
@@ -2847,8 +3551,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 131,
-    "arrid": 66
+    "modelId": 131
   },
   {
     "url": require("@/assets/cards/26通缉令.png"),
@@ -2891,8 +3594,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 132,
-    "arrid": 67
+    "modelId": 132
   },
   {
     "url": require("@/assets/cards/27定点清除行动.png"),
@@ -2933,8 +3635,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 133,
-    "arrid": 68
+    "modelId": 133
   },
   {
     "url": require("@/assets/cards/28冥想者.png"),
@@ -2976,8 +3677,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 134,
-    "arrid": 69
+    "modelId": 134
   },
   {
     "url": require("@/assets/cards/29安魂师.png"),
@@ -3019,8 +3719,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 135,
-    "arrid": 70
+    "modelId": 135
   },
   {
     "url": require("@/assets/cards/30阿瓦隆岛的迷雾.png"),
@@ -3062,8 +3761,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 136,
-    "arrid": 71
+    "modelId": 136
   },
   {
     "url": require("@/assets/cards/32面壁苦修.png"),
@@ -3106,8 +3804,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 137,
-    "arrid": 72
+    "modelId": 137
   },
   {
     "url": require("@/assets/cards/33慈悲.png"),
@@ -3149,8 +3846,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 138,
-    "arrid": 73
+    "modelId": 138
   },
   {
     "url": require("@/assets/cards/34灵感.png"),
@@ -3192,8 +3888,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 139,
-    "arrid": 74
+    "modelId": 139
   },
   {
     "url": require("@/assets/cards/35白骨仆人.png"),
@@ -3236,8 +3931,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 140,
-    "arrid": 75
+    "modelId": 140
   },
   {
     "url": require("@/assets/cards/36圣甲虫的清理员.png"),
@@ -3279,8 +3973,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 141,
-    "arrid": 76
+    "modelId": 141
   },
   {
     "url": require("@/assets/cards/37夜总会看门人.png"),
@@ -3322,8 +4015,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 142,
-    "arrid": 77
+    "modelId": 142
   },
   {
     "url": require("@/assets/cards/38金特易卜拉欣.png"),
@@ -3366,8 +4058,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 143,
-    "arrid": 78
+    "modelId": 143
   },
   {
     "url": require("@/assets/cards/39方碑徽记.png"),
@@ -3410,8 +4101,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 144,
-    "arrid": 79
+    "modelId": 144
   },
   {
     "url": require("@/assets/cards/40催眠术表演者.png"),
@@ -3453,8 +4143,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 145,
-    "arrid": 80
+    "modelId": 145
   },
   {
     "url": require("@/assets/cards/41启迪之梦.png"),
@@ -3496,8 +4185,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 146,
-    "arrid": 81
+    "modelId": 146
   },
   {
     "url": require("@/assets/cards/42幻华.png"),
@@ -3540,8 +4228,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 147,
-    "arrid": 82
+    "modelId": 147
   },
   {
     "url": require("@/assets/cards/43具现化.png"),
@@ -3583,8 +4270,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 148,
-    "arrid": 83
+    "modelId": 148
   },
   {
     "url": require("@/assets/cards/44随风入梦.png"),
@@ -3626,8 +4312,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 149,
-    "arrid": 84
+    "modelId": 149
   },
   {
     "url": require("@/assets/cards/45破颅而出.png"),
@@ -3669,8 +4354,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 150,
-    "arrid": 85
+    "modelId": 150
   },
   {
     "url": require("@/assets/cards/46无名尸体.png"),
@@ -3709,8 +4393,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 151,
-    "arrid": 86
+    "modelId": 151
   },
   {
     "url": require("@/assets/cards/47防弹战术背心.png"),
@@ -3754,8 +4437,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 152,
-    "arrid": 87
+    "modelId": 152
   },
   {
     "url": require("@/assets/cards/48街头演说家.png"),
@@ -3799,8 +4481,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 153,
-    "arrid": 88
+    "modelId": 153
   },
   {
     "url": require("@/assets/cards/49葬礼.png"),
@@ -3841,8 +4522,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 154,
-    "arrid": 89
+    "modelId": 154
   },
   {
     "url": require("@/assets/cards/50电磁风暴.png"),
@@ -3884,8 +4564,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 155,
-    "arrid": 90
+    "modelId": 155
   },
   {
     "url": require("@/assets/cards/51秘社的使节.png"),
@@ -3929,8 +4608,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 156,
-    "arrid": 91
+    "modelId": 156
   },
   {
     "url": require("@/assets/cards/52瘦长鬼影.png"),
@@ -3973,8 +4651,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 157,
-    "arrid": 92
+    "modelId": 157
   },
   {
     "url": require("@/assets/cards/53裂口女.png"),
@@ -4016,8 +4693,7 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 158,
-    "arrid": 93
+    "modelId": 158
   },
   {
     "url": require("@/assets/cards/54无知路人.png"),
@@ -4056,7 +4732,5 @@ module.exports = [
     "series": null,
     "seriesID": null,
     "skillInfo": "",
-    "modelId": 159,
-    "arrid": 94
-  }
-]
+    "modelId": 159
+  }]
