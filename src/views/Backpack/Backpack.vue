@@ -8,70 +8,50 @@
           <div class="level-left">
             <div class="level-item">
               <span class="teamtext">阵营</span>
-              <b-dropdown aria-role="list" style="margin-left: 12px;">
-                <template #trigger="{ active }">
-                  <button class="button allgoods">
-                    <span style="margin-right: 12px;">全部阵营</span>
-                    <span class="icon is-small">
-                      <img src="../../assets/sellcards_slices/paixu.png" />
-                    </span>
-                  </button>
-                </template>
-                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
-              </b-dropdown>
+              <b-select v-model="selectteam" style="margin-left: 12px;">
+                <option 
+                  v-for="data in teamoptions"
+                  :value="data.value"
+                  :key="data.value">
+                  {{ data.label }}
+                </option>
+              </b-select>
             </div>
             <div class="level-item">
               <span class="teamtext2">AP</span>
-              <b-dropdown aria-role="list" style="margin-left: 12px;">
-                <template #trigger="{ active }">
-                  <button class="button allgoods">
-                    <span style="margin-right: 12px;">全部费用</span>
-                    <span class="icon is-small">
-                      <img src="../../assets/sellcards_slices/paixu.png" />
-                    </span>
-                  </button>
-                </template>
-                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
-              </b-dropdown>
+              <b-select v-model="selectap" style="margin-left: 12px;">
+                <option 
+                  v-for="data in apoptions"
+                  :value="data.value"
+                  :key="data.value">
+                  {{ data.label }}
+                </option>
+              </b-select>
             </div>
             <div class="level-item">
               <span class="teamtext3">DP</span>
-              <b-dropdown aria-role="list" style="margin-left: 12px;">
-                <template #trigger="{ active }">
-                  <button class="button allgoods">
-                    <span style="margin-right: 12px;">全部防御</span>
-                    <span class="icon is-small">
-                      <img src="../../assets/sellcards_slices/paixu.png" />
-                    </span>
-                  </button>
-                </template>
-                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
-              </b-dropdown>
+              <b-select v-model="selectdp" style="margin-left: 12px;">
+                <option 
+                  v-for="data in dpoptions"
+                  :value="data.value"
+                  :key="data.value">
+                  {{ data.label }}
+                </option>
+              </b-select>
             </div>
           </div>
 
           <!-- Right side -->
           <div class="level-right">
             <div class="level-item">
-              <b-dropdown aria-role="list" style="margin-left: 12px;">
-                <template #trigger="{ active }">
-                  <button class="button allgoods">
-                    <span style="margin-right: 12px;">全部类型</span>
-                    <span class="icon is-small">
-                      <img src="../../assets/sellcards_slices/paixu.png" />
-                    </span>
-                  </button>
-                </template>
-                <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
-                <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
-              </b-dropdown>
+              <b-select v-model="selecttype" style="margin-left: 12px;">
+                <option 
+                  v-for="data in typeoptions"
+                  :value="data.value"
+                  :key="data.value">
+                  {{ data.label }}
+                </option>
+              </b-select>
             </div>
             <div class="level-item">
               <div class="field has-addons">
@@ -109,10 +89,10 @@ export default {
       apoptions: [{label: '全部费用', value: 'all'}],
       dpoptions: [{label: '全部防御', value: 'all'}],
       typeoptions: [{label: '全部类型', value: 'all'}],
-      selectteam: '',
-      selectap: '',
-      selectdp: '',
-      selecttype: '',
+      selectteam: 'all',
+      selectap: 'all',
+      selectdp: 'all',
+      selecttype: 'all',
 		}
   },
   methods:{
@@ -152,12 +132,11 @@ export default {
       }
     },
     refreshCard(){
-
+      
     },
   },
   mounted(){
-    //
-    
+    this.refreshOption();
   }
 };
 </script>
