@@ -7,15 +7,6 @@
       <div class="modalpos">
         <div class="sellcards">
           <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
           <div class="bottombuttons">
           <div class="buttonpos goldbuttonback" @click="$router.push('/Backpack')">
             <a class="buttontext">我的背包</a>
@@ -31,28 +22,33 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        isCardModalActive: false,
-        ops: {
+export default {
+  data() {
+    return {
+      isCardModalActive: false,
+      ops: {
 
-        },
-      }
-    },
-    props:['modalactive'],
-    watch:{
-      modalactive: function(val){
-        this.isCardModalActive = val;
-      }
-    },
-    methods: {
-      cancelHandler(){
-        this.isCardModalActive = false;
-        this.$emit('update:modalactive', this.isCardModalActive);
       },
-    }	
-  }
+      drawedCards: [{
+
+      },{
+        
+      }]
+    }
+  },
+  props:['modalactive'],
+  watch:{
+    modalactive: function(val){
+      this.isCardModalActive = val;
+    }
+  },
+  methods: {
+    cancelHandler(){
+      this.isCardModalActive = false;
+      this.$emit('update:modalactive', this.isCardModalActive);
+    },
+  }	
+}
 </script>
 
 <style scoped>
