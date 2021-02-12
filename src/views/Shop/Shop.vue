@@ -6,7 +6,6 @@
         <p>Network: {{ web3.networkId }}</p>
         <p>Account: {{ web3.coinbase }}</p>
         <p>Balance: {{ web3.balance }}</p>
-        <!-- <a @click="send">send bnb</a> -->
         <div><button @click="draw()">draw</button></div>
         <input v-model="nftid" placeholder="id"/>
         <button @click="getdata()">get nft</button>
@@ -42,12 +41,12 @@
         </div>
         <div class="intextpos">
           <nav class="level buybuttons"><!-- 有level，按钮垂直居中 -->
-            <div class="buybuttonback" @click="modalactive=true">
+            <div class="buybuttonback" @click="drawOnce">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
               <a class="buybuttonvalue">120</a>
               <a class="buybuttontext">单次召唤</a>
             </div>
-            <div class="buybuttonback" @click="modalactive=true">
+            <div class="buybuttonback" @click="drawTence">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
               <a class="buybuttonvalue">1000</a>
               <a class="buybuttontext">十连召唤</a>
@@ -55,7 +54,7 @@
           </nav>
         </div>
       </div>
-      <img class="fairy" src="../../assets/shop_slices/fair.png">
+      <!-- <img class="fairy" src="../../assets/shop_slices/fair.png"> -->
     </section>
     <draw-modal :modalactive.sync="modalactive" />
     <buy-modal :buymodalactive.sync="buymodalactive" />
@@ -72,6 +71,8 @@ export default {
 		return{
       modalactive: false,
       buymodalactive: false,
+      ymsjvalue: 0,
+      nftid: '',
 		}
   },
   components:{
@@ -80,27 +81,48 @@ export default {
   },
   computed: {
     web3(){
-      return this.$store.state.web3
+      return this.$store.state.web3;
     },
     contract(){
       const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
-      return contract_in.at('0xff66f816b0bdb2de3e8f2b3af71d850fcafeae1b');
+      return contract_in.at('0xDBB7772018c0f8dAADfF6274d9548b70C8f5F942');
     }
   },
   methods:{
-    send(){
-      this.web3.web3Instance().eth.sendTransaction(
-        {
-          from: '0x3014734DC6E7A17a7783517393053DeFF324790e', 
-          to:'0x1953e2A26c1325C924BFDD11ed3C0Cd9E498f869', 
-          value: this.web3.web3Instance().toWei(0.1, 'ether'), 
-          gasLimit: 21000, 
-          gasPrice: 20000000000
-        },function(err, transactionHash) {
-          if (!err)
-            console.log(transactionHash); 
+    openModal(){
+      this.modalactive = true;
+    },
+    async drawOnce(){
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
+      await new Promise(
+        (resolve, reject) => {
+          1,
+          this.contract.join(
+            function(error, result){
+            if(!error){
+              resolve(result);
+            }else{
+              reject(error);
+            }
+          })
         }
-      )
+      );
+    },
+    async drawTence(){
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
+      await new Promise(
+        (resolve, reject) => {
+          10,
+          this.contract.join(
+            function(error, result){
+            if(!error){
+              resolve(result);
+            }else{
+              reject(error);
+            }
+          })
+        }
+      );
     },
     async getdata(){
       this.ymsjvalue = await new Promise(
@@ -112,21 +134,6 @@ export default {
             if(!error){
               console.log(result);
               resolve(result.toNumber());
-            }else{
-              reject(error);
-            }
-          })
-        }
-      );
-    },
-    async draw(){
-      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase
-      await new Promise(
-        (resolve, reject) => {
-          this.contract.join(
-            function(error, result){
-            if(!error){
-              resolve(result);
             }else{
               reject(error);
             }

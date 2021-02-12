@@ -60,7 +60,12 @@
 	},
 	{
 		"constant": false,
-		"inputs": [],
+		"inputs": [
+			{
+				"name": "times",
+				"type": "uint256"
+			}
+		],
 		"name": "join",
 		"outputs": [],
 		"payable": false,
@@ -97,12 +102,12 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_id",
-				"type": "uint256"
+				"name": "_ids",
+				"type": "uint256[]"
 			},
 			{
-				"name": "_quantity",
-				"type": "uint256"
+				"name": "_quantities",
+				"type": "uint256[]"
 			},
 			{
 				"name": "_data",
@@ -457,34 +462,6 @@
 	},
 	{
 		"constant": true,
-		"inputs": [],
-		"name": "_draw_end_id",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "_draw_start_id",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
 		"inputs": [
 			{
 				"name": "_owner",
@@ -556,6 +533,34 @@
 			{
 				"name": "",
 				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "draw_end_id",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "draw_start_id",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"payable": false,

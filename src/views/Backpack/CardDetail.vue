@@ -79,9 +79,9 @@
 
 <script>
 import SellModal from './SellModal'
-import drawablecards from '@/util/drawablecards';
-import cardfactions from '@/util/cardfactions';
-import childtypes from '@/util/childtypes';
+import drawablecards from '@/util/constants/drawablecards';
+import cardfactions from '@/util/constants/cardfactions';
+import childtypes from '@/util/constants/childtypes';
 
 export default {
 	data(){

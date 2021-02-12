@@ -77,8 +77,8 @@
 
 <script>
 import usercards from '@/assets/fakedatas/usercards';
-import drawablecards from '@/util/drawablecards';
-import cardfactions from '@/util/cardfactions';
+import drawablecards from '@/util/constants/drawablecards';
+import cardfactions from '@/util/constants/cardfactions';
 
 export default {
 	data(){

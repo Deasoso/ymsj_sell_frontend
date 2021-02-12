@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import headeritems from "@/util/headeritems"
+import headeritems from "@/util/constants/headeritems"
 
 export default {
   data() {

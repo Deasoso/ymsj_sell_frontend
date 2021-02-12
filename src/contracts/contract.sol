@@ -1195,15 +1195,44 @@ contract ERC1155Tradable is ERC1155, ERC1155MintBurn, ERC1155Metadata, Ownable, 
 }
 
 /**
- * @title Vest
- * Vest - Collect limited edition NFTs from Vest
+ * @title Ymsj
+ * Ymsj - Collect limited edition NFTs from Ymsj
  */
-contract VESTToken is ERC1155Tradable {
+contract YMSJToken is ERC1155Tradable {
+    
+    uint256 public draw_start_id = 0;
+    uint256 public draw_end_id = 0;
+    mapping (uint256 => address) draw_list;
+    
 	constructor(address _proxyRegistryAddress) public ERC1155Tradable("Vest NFT", "VEST", _proxyRegistryAddress) {
-		_setBaseMetadataURI("https://bsc.trxswap.info/vest/");
+		_setBaseMetadataURI("http://localhost:8080/");
 	}
-
+	
 	function contractURI() public view returns (string memory) {
-		return "https://bsc.trxswap.info/contract/vest-erc1155";
+		return "http://localhost:8080/";
 	}
+	
+	function join(uint256 times) public {
+	    require(times > 0,"Times too low");
+	    for(uint256 i = 0; i < times; i ++){
+	        draw_list[draw_end_id] = msg.sender;
+	        draw_end_id ++;
+	    }
+	}
+	
+	function mint_and_exit(
+	    uint256[] memory _ids,
+	    uint256[] memory _quantities,
+	    bytes memory _data
+	) public onlyMinter {
+	    require(_ids.length > 0,"id list empty");
+	    require(_quantities.length > 0,"quantity list empty");
+	    for(uint256 i = 0; i < _ids.length; i ++){
+	        require(draw_start_id < draw_end_id, "Start id too high");
+	        mint(draw_list[draw_start_id], _ids[i], _quantities[i], _data);
+	        delete draw_list[draw_start_id];
+	        draw_start_id ++;
+	    }
+	}
+	
 }

@@ -6,7 +6,10 @@
       scroll="keep">
       <div class="modalpos">
         <div class="sellcards">
-          <img class="onecard" src="../../assets/cards/01联会禁音使.png">
+          <img 
+            v-for="(item, index) in drawedCards" :key="index" 
+            class="onecard" 
+            :src="drawablecards[item].url">
           <div class="bottombuttons">
           <div class="buttonpos goldbuttonback" @click="$router.push('/Backpack')">
             <a class="buttontext">我的背包</a>
@@ -22,6 +25,8 @@
 </template>
 
 <script>
+import drawablecards from '@/util/constants/drawablecards';
+
 export default {
   data() {
     return {
@@ -29,11 +34,8 @@ export default {
       ops: {
 
       },
-      drawedCards: [{
-
-      },{
-        
-      }]
+      drawedCards: [7,39,42,43,57,63,65,67,68,81],
+      drawablecards: drawablecards
     }
   },
   props:['modalactive'],

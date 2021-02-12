@@ -48,9 +48,9 @@
 </template>
 
 <script>
-// import allcards from '@/util/allcards'
-import drawablecards from '@/util/drawablecards';
-import cardfactions from '@/util/cardfactions';
+// import allcards from '@/util/constants/allcards'
+import drawablecards from '@/util/constants/drawablecards';
+import cardfactions from '@/util/constants/cardfactions';
 
 export default {
   data() {

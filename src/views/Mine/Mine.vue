@@ -87,7 +87,7 @@
 </template>
 <script>
 import usercards from '@/assets/fakedatas/usercards';
-import drawablecards from '@/util/drawablecards';
+import drawablecards from '@/util/constants/drawablecards';
 
 export default {
   name: 'mine',
@@ -133,8 +133,6 @@ export default {
           label: 'Gender',
         }
       ],
-      ymsjvalue: 0,
-      nftid: '',
       showcards: usercards,
       drawablecards: drawablecards
     }
@@ -142,12 +140,8 @@ export default {
   computed: {
     web3(){
       return this.$store.state.web3
-    },
-    contract(){
-      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
-      return contract_in.at('0xff66f816b0bdb2de3e8f2b3af71d850fcafeae1b');
     }
-  },
+  }
 }
 </script>
 
