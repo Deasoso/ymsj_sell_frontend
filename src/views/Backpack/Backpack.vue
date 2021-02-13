@@ -83,7 +83,7 @@ import cardfactions from '@/util/constants/cardfactions';
 export default {
 	data(){
 		return{
-      showcards: usercards,
+      showcards: [],// usercards,
       drawablecards: drawablecards,
       teamoptions: [{label: '全部阵营', value: 'all'}],
       apoptions: [{label: '全部费用', value: 'all'}],
@@ -93,6 +93,11 @@ export default {
       selectap: 'all',
       selectdp: 'all',
       selecttype: 'all',
+		}
+  },
+  watch:{
+    '$store.state.cards': function(newValue, oldValue){
+      this.showcards = newValue;
 		}
   },
   methods:{
@@ -137,6 +142,7 @@ export default {
   },
   mounted(){
     this.refreshOption();
+    this.showcards = this.$store.state.cards;
   }
 };
 </script>

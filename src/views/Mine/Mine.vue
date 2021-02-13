@@ -28,8 +28,8 @@
       </nav>
       <div class="teamcards">
         <a v-for="(item, index) in showcards" :key="index">
-          <img v-if="index==0" class="teamcard1" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
-          <img v-else class="teamcard" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
+          <img v-if="index==0 && index<8" class="teamcard1" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
+          <img v-else-if="index<8" class="teamcard" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
         </a>
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;">
@@ -133,14 +133,22 @@ export default {
           label: 'Gender',
         }
       ],
-      showcards: usercards,
+      showcards: [],
       drawablecards: drawablecards
     }
+  },
+  watch:{
+    '$store.state.cards': function(newValue, oldValue){
+      this.showcards = newValue;
+		}
   },
   computed: {
     web3(){
       return this.$store.state.web3
     }
+  },
+  mounted(){
+    this.showcards = this.$store.state.cards;
   }
 }
 </script>
