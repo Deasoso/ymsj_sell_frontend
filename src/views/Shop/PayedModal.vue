@@ -5,19 +5,10 @@
       :width="1920"
       scroll="keep">
       <div class="modalpos">
-        <div class="sellcards">
-          <img 
-            v-for="(item, index) in drawedcards" :key="index" 
-            class="onecard" 
-            :src="drawablecards[item.id].url">
-          <div class="bottombuttons">
-          <div class="buttonpos goldbuttonback" @click="$router.push('/Backpack')">
-            <a class="buttontext">我的背包</a>
-          </div>
-          <div class="buttonpos goldbuttonback" @click="cancelHandler">
-            <a class="buttontext">返回商店</a>
-          </div>
-        </div>
+        支付成功！请稍后到此页面查看。
+        注：在此期间请不要刷新页面。
+        <div class="buttonpos goldbuttonback" @click="cancelHandler">
+          <a class="buttontext">确认</a>
         </div>
       </div>
     </b-modal>
@@ -34,10 +25,11 @@ export default {
       ops: {
 
       },
+      drawedCards: [7,39,42,43,57,63,65,67,68,81],
       drawablecards: drawablecards
     }
   },
-  props:['modalactive', 'drawedcards'],
+  props:['modalactive'],
   watch:{
     modalactive: function(val){
       this.isCardModalActive = val;
@@ -48,10 +40,7 @@ export default {
       this.isCardModalActive = false;
       this.$emit('update:modalactive', this.isCardModalActive);
     },
-  },
-  mounted(){
-    this.isCardModalActive = this.modalactive;
-  }
+  }	
 }
 </script>
 
@@ -65,19 +54,6 @@ export default {
 }
 .modalbackpos >>> .modal-close{
   top: 100px;
-}
-.sellcards{
-  text-align: center;
-  width: 1520px;
-  margin: 0 auto;
-}
-.onecard{
-  display: inline-block;
-  margin: 24px;
-  width: 256px;
-  height: 367px;
-  filter: drop-shadow(0 0 24px #FCE81280);
-  /* box-shadow: 0px 0px 48px 12px #FCE81280; */
 }
 .modalbackpos >>> .modal .modal-content {
   margin: 0 0;

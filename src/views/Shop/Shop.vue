@@ -1,16 +1,6 @@
 <template>
   <div>
     <section class="is-cover allheight backpic">
-      <div class='metamask-info'>
-        <p>Metamask: {{ web3.isInjected }}</p>
-        <p>Network: {{ web3.networkId }}</p>
-        <p>Account: {{ web3.coinbase }}</p>
-        <p>Balance: {{ web3.balance }}</p>
-        <div><button @click="draw()">draw</button></div>
-        <input v-model="nftid" placeholder="id"/>
-        <button @click="getdata()">get nft</button>
-        <p>{{ymsjvalue}}</p>
-      </div>
       <nav class="level gemhead" style="margin-bottom: 4px;">
         <div class="level-left">
           <!-- 左边没有东西 -->
@@ -41,12 +31,12 @@
         </div>
         <div class="intextpos">
           <nav class="level buybuttons"><!-- 有level，按钮垂直居中 -->
-            <div class="buybuttonback" @click="drawOnce">
+            <div class="buybuttonback" @click="draw(1)">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
               <a class="buybuttonvalue">120</a>
               <a class="buybuttontext">单次召唤</a>
             </div>
-            <div class="buybuttonback" @click="drawTence">
+            <div class="buybuttonback" @click="draw(10)">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
               <a class="buybuttonvalue">1000</a>
               <a class="buybuttontext">十连召唤</a>
@@ -56,8 +46,13 @@
       </div>
       <!-- <img class="fairy" src="../../assets/shop_slices/fair.png"> -->
     </section>
-    <draw-modal :modalactive.sync="modalactive" />
     <buy-modal :buymodalactive.sync="buymodalactive" />
+    <draw-modal 
+      v-for="(item,index) in newcards" 
+      :key="index"
+      :modalactive.sync="cardwindowshow[index]"
+      :drawedcards="newcards[index]" />
+    <!-- <payed-modal /> -->
   </div>
 </template>
 
@@ -69,10 +64,12 @@ import BuyModal from './BuyModal'
 export default {
 	data(){
 		return{
-      modalactive: false,
+      modalactive: true,
       buymodalactive: false,
       ymsjvalue: 0,
       nftid: '',
+      newcards: [],
+      cardwindowshow: []
 		}
   },
   components:{
@@ -92,15 +89,17 @@ export default {
     openModal(){
       this.modalactive = true;
     },
-    async drawOnce(){
+    async draw(times){
       this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
+      var that = this;
       await new Promise(
         (resolve, reject) => {
-          1,
-          this.contract.join(
+          that.contract.join(
+            times,
             function(error, result){
             if(!error){
               resolve(result);
+              that.$store.dispatch('drawCards', times);
             }else{
               reject(error);
             }
@@ -108,39 +107,27 @@ export default {
         }
       );
     },
-    async drawTence(){
-      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
-      await new Promise(
-        (resolve, reject) => {
-          10,
-          this.contract.join(
-            function(error, result){
-            if(!error){
-              resolve(result);
-            }else{
-              reject(error);
-            }
-          })
-        }
-      );
-    },
-    async getdata(){
-      this.ymsjvalue = await new Promise(
-        (resolve, reject) => {
-          this.contract.balanceOf(
-            this.web3.coinbase,
-            this.nftid,
-            function(error, result){
-            if(!error){
-              console.log(result);
-              resolve(result.toNumber());
-            }else{
-              reject(error);
-            }
-          })
-        }
-      );
+  },
+  watch:{
+    '$store.state.newCards': function(newValue, oldValue){
+      if (!newValue || newValue.length == 0) return;
+      for(var i=0;i<newValue.length;i++){
+        this.cardwindowshow.push(true);
+        this.newcards.push(newValue[i]);
+      }
+      this.$store.state.newCards = [];
+		}
+  },
+  mounted(){
+    console.log(this.$store.state.newCards)
+    for(var i=0;i<this.$store.state.newCards.length;i++){
+      this.cardwindowshow.push(true);
+      this.newcards.push(this.$store.state.newCards[i]);
     }
+    this.$store.state.newCards = [];
+    console.log(this.newcards);
+    console.log(this.cardwindowshow);
+    console.log('mounted');
   }
 };
 </script>

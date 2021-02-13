@@ -1,5 +1,7 @@
 # ymsj_sell_frontend
 
+前端web3版本0.20.5，后端web3版本为1.3.1
+
 ## Project setup
 ```
 npm install
