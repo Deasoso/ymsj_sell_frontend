@@ -82,7 +82,7 @@ export default {
     },
     contract(){
       const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
-      return contract_in.at('0xDBB7772018c0f8dAADfF6274d9548b70C8f5F942');
+      return contract_in.at(this.Global.contract_address);
     }
   },
   methods:{

@@ -1,14 +1,15 @@
 import nft_abi from "@/contracts/NFT_abi.json"
 import drawablecards from '@/util/constants/drawablecards';
+import Vue from '../main.js'
 
 const getCards = async function(input){
   const contract_in = input.web3Instance().eth.contract(nft_abi);
-  const contract = contract_in.at('0xDBB7772018c0f8dAADfF6274d9548b70C8f5F942');
+  const contract = contract_in.at(Vue.prototype.Global.contract_address);
   var accounts = [];
   var cards = []
   for(var i=0;i<drawablecards.length;i++){
     accounts.push(input.coinbase);
-    cards.push(drawablecards[i].arrid + 1);
+    cards.push(drawablecards[i].arrid + 1); // tip Deaso: 链上的卡牌是drawablecards索引+1
   }
   const getcoin = await new Promise(
     (resolve, reject) => {

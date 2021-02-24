@@ -1,20 +1,22 @@
 <template>
 	<div class="box-card">
     <div class="cardhead">
-      <img class="cardimg" src="../../assets/cards/01联会禁音使.png">
+      <img class="cardimg" :src="drawablecards[cardData.id].url">
     </div>
     <div class="cardbody">
-      <div class="cardname">这是卡牌名称</div>
+      <div class="cardname">
+        {{drawablecards[cardData.id].name}}
+      </div>
       <!-- Main container -->
       <nav class="level owner">
         <!-- Left side -->
         <div class="level-left">
           <div class="level-item">
             <span class="searchicon">
-              <img class="owneravatar" src="../../assets/title_slices/bgi1.png" />
+              <img class="owneravatar" :src="randomavatars[parseInt(cardData.owner) % randomavatars.length].url" />
             </span>
             <span class="ownername">
-              Bebe Rexha
+              {{cardData.owner}}
             </span>
           </div>
         </div>
@@ -26,7 +28,7 @@
                 <img src="../../assets/sellcards_slices/编组.png">
               </span>
               <span class="price">
-                3.238
+                {{getPrice(cardData.price)}}
               </span>
             </a>
           </p>
@@ -37,15 +39,23 @@
 </template>
 
 <script>
+import drawablecards from '@/util/constants/drawablecards';
+import randomavatars from '@/util/constants/randomavatars';
+
 export default {
 	data(){
 		return{
-
+      drawablecards: drawablecards,
+      randomavatars: randomavatars
 		}
   },
-  props:['amount', 'type', 'finish', 'unfinish'],
+  props:['cardData'],
 	methods:{
-
+    getPrice(input){
+      if(input < 1e15) return '< 0.001';
+      if(input > 1e21) return '> 1000.000';
+      return (input / 1e18).toFixed(3);
+    }
   },
 };
 </script>
@@ -93,7 +103,10 @@ export default {
   border-radius: 50%;
 }
 .ownername{
-  margin-left: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 120px;
+  margin-left: 8px;
   color: #888888;
 }
 .pricebutton{

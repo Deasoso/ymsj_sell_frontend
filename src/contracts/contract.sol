@@ -1203,21 +1203,34 @@ contract YMSJToken is ERC1155Tradable {
     uint256 public draw_start_id = 0;
     uint256 public draw_end_id = 0;
     mapping (uint256 => address) draw_list;
+    uint256 public card_price = 0;
     
-	constructor(address _proxyRegistryAddress) public ERC1155Tradable("Vest NFT", "VEST", _proxyRegistryAddress) {
+	constructor(address _proxyRegistryAddress, uint256 init_card_price) public ERC1155Tradable("YMSJ Token", "YMSJ", _proxyRegistryAddress) {
 		_setBaseMetadataURI("http://localhost:8080/");
+		card_price = init_card_price;
+	}
+	
+	function withdraw(uint256 value) public onlyMinter {
+	    msg.sender.transfer(value);
 	}
 	
 	function contractURI() public view returns (string memory) {
 		return "http://localhost:8080/";
 	}
 	
-	function join(uint256 times) public {
+	function join(uint256 times) public payable {
 	    require(times > 0,"Times too low");
+	    uint256 needvalue = card_price.mul(times);
+	    require(msg.value >= needvalue, "Value too low");
+	    uint256 excess = msg.value.sub(needvalue);
+	    
 	    for(uint256 i = 0; i < times; i ++){
 	        draw_list[draw_end_id] = msg.sender;
 	        draw_end_id ++;
 	    }
+	    if (excess > 0) {
+          msg.sender.transfer(excess);
+        }
 	}
 	
 	function mint_and_exit(
@@ -1225,8 +1238,8 @@ contract YMSJToken is ERC1155Tradable {
 	    uint256[] memory _quantities,
 	    bytes memory _data
 	) public onlyMinter {
-	    require(_ids.length > 0,"id list empty");
-	    require(_quantities.length > 0,"quantity list empty");
+	    require(_ids.length > 0,"Id list empty");
+	    require(_quantities.length > 0,"Quantity list empty");
 	    for(uint256 i = 0; i < _ids.length; i ++){
 	        require(draw_start_id < draw_end_id, "Start id too high");
 	        mint(draw_list[draw_start_id], _ids[i], _quantities[i], _data);
@@ -1235,4 +1248,87 @@ contract YMSJToken is ERC1155Tradable {
 	    }
 	}
 	
+	function change_price(uint256 newprice) public onlyMinter{
+	    require(newprice > 0, "Price too low");
+	    card_price = newprice;
+	}
+	
+	// 以下是出售购买相关
+	struct sell_struct {
+        address payable seller;
+        uint256 id;
+        uint256 amount;
+        uint256 price;
+    }
+    uint256 public sell_max_id = 0;
+    mapping (uint256 => sell_struct) sell_list;
+    uint256 public gasper100 = 3;
+    
+	function sell_card(uint256 id, uint256 amount, uint256 price) public {
+	    require(price > 0, "Price too low");
+	    sell_struct memory _sell = sell_struct(msg.sender, id, amount, price);
+	    _safeTransferFrom(msg.sender, address(this), id, amount);
+	    sell_list[sell_max_id] = _sell;
+	    sell_max_id ++;
+	}
+	
+	function buy_card(uint256 sell_id) public payable {
+	    sell_struct memory _sell = sell_list[sell_id];
+	    require(_sell.seller != address(0), "No seller");
+	    require(msg.value >= _sell.price, "Value not enough");
+	    
+	    _safeTransferFrom(address(this), msg.sender, _sell.id, _sell.amount);
+	    if (gasper100 >= 0 && gasper100 < 100){
+	        uint256 devCut = _sell.price.mul(gasper100).div(100);
+	        _sell.seller.transfer(_sell.price.sub(devCut));
+	    }
+	    uint256 excess = msg.value.sub(_sell.price);
+	    
+	    delete sell_list[sell_id];
+	    if (excess > 0) {
+          msg.sender.transfer(excess);
+        }
+	}
+	
+	function get_sell_list_batch(uint256 start, uint256 end)
+        public view returns (address[] memory, uint256[] memory, uint256[] memory, uint256[] memory)
+    {
+        //注意这个方法是从后面开始检索的
+        require(start < end, "Start over end");
+        
+        address[] memory batchSeller = new address[](end - start);
+        uint256[] memory batchId = new uint256[](end - start);
+        uint256[] memory batchAmount = new uint256[](end - start);
+        uint256[] memory batchPrice = new uint256[](end - start);
+        
+        uint256 searched = 0;
+        for(uint256 i = 0; i < sell_max_id; i ++){
+            if(i > 10000) break; // 最大检索10000个
+	        sell_struct memory _sell = sell_list[sell_max_id - i - 1];
+	        if(_sell.seller == address(0)) continue;
+	        batchSeller[searched] = _sell.seller;
+	        batchId[searched] = _sell.id;
+	        batchAmount[searched] = _sell.amount;
+	        batchPrice[searched] = _sell.price;
+	        searched ++ ;
+	        if(searched >= end - start) break;
+	    }
+    
+        return (batchSeller, batchId, batchAmount, batchPrice);
+    }
+    
+    function get_sell_card_by_id(uint256 sell_id)
+        public view returns (address, uint256, uint256, uint256)
+    {
+        sell_struct memory _sell = sell_list[sell_id];
+	    require(_sell.seller != address(0), "No seller");
+	    return (_sell.seller, _sell.id, _sell.amount, _sell.price);
+    }
+    
+    function change_gas(uint256 newgas) public onlyMinter{
+	    require(newgas > 0, "Gas too low");
+	    require(newgas <= 100, "Gas too high");
+	    gasper100 = newgas;
+	}
+    
 }

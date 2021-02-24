@@ -17,8 +17,14 @@ Vue.use(vuescroll)
 
 Vue.config.productionTip = false
 
+Vue.prototype.Global = {
+  contract_address: "0xf487029a9f444e99476771E0e8bCAe39E3fD5C96"
+}
+
 new Vue({
   router,
   store,
   render: h => h(App),
 }).$mount('#app')
+
+export default Vue;

@@ -47,35 +47,26 @@
         </div>
       </nav>
       <div class="sellcards">
-        <one-card class="onecard" @ClickBuy="ClickBuy">
-          12312
-        </one-card>
-        <one-card class="onecard" @ClickBuy="ClickBuy">>
-          12312
-        </one-card>
-        <one-card class="onecard" @ClickBuy="ClickBuy">>
-          12312
-        </one-card>
-        <one-card class="onecard" @ClickBuy="ClickBuy">>
-          12312
-        </one-card>
-        <one-card class="onecard" @ClickBuy="ClickBuy">>
-          12312
+        <one-card v-for="(item, index) in orders" :key="index" 
+          class="onecard" @ClickBuy="ClickBuy(item)" :cardData="item">
         </one-card>
       </div>
     </section>
-    <card-modal :modalactive.sync="modalactive" />
+    <card-modal :modalactive.sync="modalactive" :cardData.sync="selectItem" />
   </div>
 </template>
 
 <script>
 import OneCard from "./OneCard";
 import CardModal from './CardModal'
+import orderapi from '@/util/getOrders'
 
 export default {
 	data(){
 		return{
       modalactive: false,
+      orders: [],
+      selectItem: {}
 		}
   },
   components:{
@@ -87,9 +78,18 @@ export default {
       this.$refs.dropbutton.classList.toggle("is-active");
       this.$refs.dropitem.classList.toggle("is-active");
     },
-    ClickBuy(){
+    ClickBuy(item){
+      console.log(item);
+      this.selectItem = item;
       this.modalactive = true;
     }
+  },
+  async mounted(){
+    // const inputweb3 = this.$store.state.web3;
+    // this.$store.state.web3.web3Instance = this.$store.state.web3;
+    const orders = await orderapi.getOrders(this.$store.state.web3, 0, 10);
+    console.log(orders);
+    this.orders = orders;
   }
 };
 </script>
