@@ -18,7 +18,7 @@ Vue.use(vuescroll)
 Vue.config.productionTip = false
 
 Vue.prototype.Global = {
-  contract_address: "0xf487029a9f444e99476771E0e8bCAe39E3fD5C96"
+  contract_address: "0x5c883782341fCd4B8fB2e722FBE1E758Ea4BCE37"
 }
 
 new Vue({

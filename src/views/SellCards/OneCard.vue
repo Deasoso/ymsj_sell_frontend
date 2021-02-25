@@ -6,6 +6,9 @@
     <div class="cardbody">
       <div class="cardname">
         {{drawablecards[cardData.id].name}}
+        <span>
+          x{{cardData.amount}}
+        </span>
       </div>
       <!-- Main container -->
       <nav class="level owner">

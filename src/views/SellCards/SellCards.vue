@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="level-item">
-            <button class="button is-dark newexchange">
+            <button class="button is-dark newexchange" @click="sellmodalactive=!sellmodalactive">
               <span class="icon">
                 <img src="../../assets/sellcards_slices/trade.png">
               </span>
@@ -53,25 +53,29 @@
       </div>
     </section>
     <card-modal :modalactive.sync="modalactive" :cardData.sync="selectItem" />
+    <sell-modal :modalactive.sync="sellmodalactive" />
   </div>
 </template>
 
 <script>
 import OneCard from "./OneCard";
 import CardModal from './CardModal'
+import SellModal from './SellModal'
 import orderapi from '@/util/getOrders'
 
 export default {
 	data(){
 		return{
       modalactive: false,
+      sellmodalactive: false,
       orders: [],
       selectItem: {}
 		}
   },
   components:{
     OneCard,
-    CardModal
+    CardModal,
+    SellModal
   },
   methods:{
     clickdrop(){
@@ -79,14 +83,11 @@ export default {
       this.$refs.dropitem.classList.toggle("is-active");
     },
     ClickBuy(item){
-      console.log(item);
       this.selectItem = item;
       this.modalactive = true;
     }
   },
   async mounted(){
-    // const inputweb3 = this.$store.state.web3;
-    // this.$store.state.web3.web3Instance = this.$store.state.web3;
     const orders = await orderapi.getOrders(this.$store.state.web3, 0, 10);
     console.log(orders);
     this.orders = orders;

@@ -96,6 +96,7 @@ export default {
         (resolve, reject) => {
           that.contract.join(
             times,
+            {value: times * 1e16},
             function(error, result){
             if(!error){
               resolve(result);

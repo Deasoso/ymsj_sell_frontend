@@ -21,12 +21,13 @@ const getOrders = async function(input, start, end){
   console.log(getcoin);
   var userorders = [];
   for(var j=0;j<getcoin[0].length;j++){
-    if (parseInt(getcoin[0][j]) == 0) continue;
+    if (parseInt(getcoin[1][j]) == 0) continue;
     userorders.push({
-      owner: getcoin[0][j],
-      id: getcoin[1][j].toNumber() - 1,  // tip Deaso: 链上的卡牌是drawablecards索引+1
-      amount: getcoin[2][j].toNumber(),
-      price: getcoin[3][j].toNumber()
+      orderid: getcoin[0][j].toNumber(),
+      owner: getcoin[1][j],
+      id: getcoin[2][j].toNumber() - 1,  // tip Deaso: 链上的卡牌是drawablecards索引+1
+      amount: getcoin[3][j].toNumber(),
+      price: getcoin[4][j].toNumber()
     })
   }
   return userorders;

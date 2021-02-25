@@ -1291,11 +1291,12 @@ contract YMSJToken is ERC1155Tradable {
 	}
 	
 	function get_sell_list_batch(uint256 start, uint256 end)
-        public view returns (address[] memory, uint256[] memory, uint256[] memory, uint256[] memory)
+        public view returns (uint256[] memory, address[] memory, uint256[] memory, uint256[] memory, uint256[] memory)
     {
         //注意这个方法是从后面开始检索的
         require(start < end, "Start over end");
         
+        uint256[] memory batchSellId = new uint256[](end - start);
         address[] memory batchSeller = new address[](end - start);
         uint256[] memory batchId = new uint256[](end - start);
         uint256[] memory batchAmount = new uint256[](end - start);
@@ -1303,9 +1304,10 @@ contract YMSJToken is ERC1155Tradable {
         
         uint256 searched = 0;
         for(uint256 i = 0; i < sell_max_id; i ++){
-            if(i > 10000) break; // 最大检索10000个
+            // if(i > 10000) break; // 最大检索10000个
 	        sell_struct memory _sell = sell_list[sell_max_id - i - 1];
 	        if(_sell.seller == address(0)) continue;
+	        batchSellId[searched] = sell_max_id - i - 1;
 	        batchSeller[searched] = _sell.seller;
 	        batchId[searched] = _sell.id;
 	        batchAmount[searched] = _sell.amount;
@@ -1314,7 +1316,7 @@ contract YMSJToken is ERC1155Tradable {
 	        if(searched >= end - start) break;
 	    }
     
-        return (batchSeller, batchId, batchAmount, batchPrice);
+        return (batchSellId, batchSeller, batchId, batchAmount, batchPrice);
     }
     
     function get_sell_card_by_id(uint256 sell_id)

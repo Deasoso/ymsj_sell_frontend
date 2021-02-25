@@ -21,6 +21,9 @@
               <nav class="level" style="margin-bottom: 0px;">
                 <div class="level-left titletext">
                   {{drawablecards[showCardData.id].name}}
+                  <span style="font-size: 16px;margin-top: 16px;">
+                    x{{showCardData.amount}}
+                  </span>
                 </div>
                 <div class="level-right">
                   <button class="button sharebutton">
@@ -86,7 +89,7 @@
                   </div>
                 </div>
               </nav>
-              <button class="button buybutton">
+              <button class="button buybutton" @click="buyCard">
                 <span>购买该商品</span>
               </button>
             </div>
@@ -100,6 +103,7 @@
 <script>
 import drawablecards from '@/util/constants/drawablecards';
 import randomavatars from '@/util/constants/randomavatars';
+import nft_abi from "@/contracts/NFT_abi.json"
 
 export default {
   data() {
@@ -150,6 +154,15 @@ export default {
     }
   },
   props:['modalactive', 'cardData'],
+  computed: {
+    web3(){
+      return this.$store.state.web3;
+    },
+    contract(){
+      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
+      return contract_in.at(this.Global.contract_address);
+    }
+  },
   watch:{
     modalactive: function(val){
       this.isCardModalActive = val;
@@ -167,6 +180,25 @@ export default {
       // if(input < 1e9) return '< 0.000000001';
       // if(input > 1e27) return '> 1000000000.000';
       return input / 1e18;
+    },
+    async buyCard(){
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
+      console.log(this.contract);
+      var that = this;
+      await new Promise(
+        (resolve, reject) => {
+          that.contract.buy_card(
+            that.showCardData.orderid,
+            {value: this.showCardData.price},
+            function(error, result){
+            if(!error){
+              resolve(result);
+            }else{
+              reject(error);
+            }
+          })
+        }
+      );
     }
   }	
 }

@@ -724,6 +724,10 @@
 		"outputs": [
 			{
 				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
 				"type": "address[]"
 			},
 			{
