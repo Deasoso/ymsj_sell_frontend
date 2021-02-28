@@ -98,9 +98,14 @@ export default {
 <style scoped>
 .backpic{
   background-image: url("../../assets/allcards_slices/bgi7.png");
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center;
   margin-top: 80px;
+}
+@media (max-width: 1920px){
+  .backpic{
+    background-size: auto 100%;
+  }
 }
 .allheight{
   height: 840px;

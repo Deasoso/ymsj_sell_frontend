@@ -137,8 +137,13 @@ export default {
 .backpic{
   margin-top: 80px;
   background-image: url("../../assets/shop_slices/bgi8.png");
-  background-size: auto 100%;
+  background-size: cover;
   background-position: right;
+}
+@media (max-width: 1920px){
+  .backpic{
+    background-size: auto 100%;
+  }
 }
 .whiteborder{
   text-shadow:5px 2px 6px #000000;

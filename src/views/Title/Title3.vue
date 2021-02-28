@@ -32,9 +32,14 @@
 <style scoped>
 .backpic{
   background-image: url("../../assets/title_slices/bgi3.png");
-  background-size: auto 100%;
+  background-size: cover;
   background-position: left;
   margin-top: -32px;
+}
+@media (max-width: 1920px){
+  .backpic{
+    background-size: auto 100%;
+  }
 }
 .whiteborder{
   text-shadow:5px 2px 6px #000000;
