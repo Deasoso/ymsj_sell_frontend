@@ -1,10 +1,8 @@
 <template>
   <div>
     <section class="is-cover allheight backpic">
-      <nav class="level gemhead" style="margin-bottom: 4px;">
-        <div class="level-left">
-          <!-- 左边没有东西 -->
-        </div>
+      <!-- <nav class="level gemhead" style="margin-bottom: 4px;">
+        <div class="level-left"></div>
         <div class="level-right">
           <p class="level-item mygem whiteborder">
             我的宝石：10000
@@ -12,16 +10,14 @@
         </div>
       </nav>
       <nav class="level buyhead" style="margin-bottom: 4px;">
-        <div class="level-left">
-          <!-- 左边没有东西 -->
-        </div>
+        <div class="level-left"></div>
         <div class="level-right">
           <div class="goldbuttonback" @click="buymodalactive=true">
             <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
             <a class="goldbuttontext">购买宝石</a>
           </div>
         </div>
-      </nav>
+      </nav> -->
       <div class="textback">
         <div class="titlepos whiteborder">
           <div class="titletext">卡牌召唤</div>
@@ -44,6 +40,15 @@
           </nav>
         </div>
       </div>
+      <nav class="level loadinghead" v-if="$store.state.searchCardTimer">
+        <div class="level-left"></div>
+        <div class="level-right">
+          <div class="loading"></div>
+          <p class="level-item mygem whiteborder">
+            {{loadingtext}}
+          </p>
+        </div>
+      </nav>
       <!-- <img class="fairy" src="../../assets/shop_slices/fair.png"> -->
     </section>
     <buy-modal :buymodalactive.sync="buymodalactive" />
@@ -52,7 +57,6 @@
       :key="index"
       :modalactive.sync="cardwindowshow[index]"
       :drawedcards="newcards[index]" />
-    <!-- <payed-modal /> -->
   </div>
 </template>
 
@@ -69,7 +73,8 @@ export default {
       ymsjvalue: 0,
       nftid: '',
       newcards: [],
-      cardwindowshow: []
+      cardwindowshow: [],
+      loadingtext: '抽卡中...'
 		}
   },
   components:{
@@ -99,8 +104,9 @@ export default {
             {value: times * 1e16},
             function(error, result){
             if(!error){
-              resolve(result);
+              that.$buefy.dialog.alert('支付成功！请稍后到此页面查看。<div>注：在此期间请不要刷新页面。</div>');
               that.$store.dispatch('drawCards', times);
+              resolve(result);
             }else{
               reject(error);
             }
@@ -139,6 +145,7 @@ export default {
   background-image: url("../../assets/shop_slices/bgi8.png");
   background-size: cover;
   background-position: right;
+  padding-top: 200px;
 }
 @media (max-width: 1920px){
   .backpic{
@@ -160,6 +167,11 @@ export default {
 .buyhead{
   padding-top: 14px;
   margin: 0 auto;
+  width: calc(100vw - 400px);
+}
+.loadinghead{
+  margin: 0 auto;
+  margin-top: -646px;
   width: calc(100vw - 400px);
 }
 .mygem{
@@ -187,12 +199,12 @@ export default {
 }
 .textback{
   margin-left: calc(920px - (1920px - 100vw));
-  margin-top: 24px;
   width: 800px;
   height: 600px;
   background-color: #000000b3;
   border-style: outset;
   border-width: 8px;
+  border-radius: 16px;
   border-color: #E7C874;
   text-align: center;
 }
@@ -257,5 +269,19 @@ export default {
   height: 781px;
   width: 1125px;
   max-width: 1125px;
+}
+.loading {
+  -webkit-animation: spinAround 500ms infinite linear;
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid #773F05;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+  margin-right: 8px;
 }
 </style>

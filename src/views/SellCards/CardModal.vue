@@ -121,6 +121,7 @@ export default {
       isCardModalActive: false,
       showCardData: {
         url: require("@/assets/cards/01联会禁音使.png"),
+        owner: 1,
         id: 0,
         amount: 1,
         price: 1000000000000000000

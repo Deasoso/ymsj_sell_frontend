@@ -12,6 +12,9 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 Vue.use(Buefy)
 
+import { Dialog } from 'buefy'
+Vue.use(Dialog)
+
 import vuescroll from 'vuescroll';
 Vue.use(vuescroll)
 
