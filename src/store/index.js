@@ -22,6 +22,7 @@ export const store = new Vuex.Store({
     },
     saveCards (state, input) {
       state.cards = input;
+      state.cardNotGot = false;
     },
     newDrawCards (state, input){
       state.drawCards.push(input);

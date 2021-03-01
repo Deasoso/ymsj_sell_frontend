@@ -62,6 +62,7 @@
     </section>
     <card-modal :modalactive.sync="modalactive" :cardData.sync="selectItem" />
     <sell-modal :modalactive.sync="sellmodalactive" />
+    <b-loading v-model="isLoading"></b-loading>
   </div>
 </template>
 
@@ -80,6 +81,7 @@ export default {
       selectItem: {},
       selectoption: 'all',
       selectoptions: [{label: '全部阵营', value: 'all'}],
+      isLoading: true
 		}
   },
   components:{
@@ -101,6 +103,7 @@ export default {
     const orders = await orderapi.getOrders(this.$store.state.web3, 0, 10);
     console.log(orders);
     this.orders = orders;
+    this.isLoading = false;
   }
 };
 </script>

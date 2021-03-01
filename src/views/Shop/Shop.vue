@@ -19,7 +19,7 @@
         </div>
       </nav> -->
       <div class="textback">
-        <div class="titlepos whiteborder">
+        <div class="titlepos whiteborder" style="display:relative;">
           <div class="titletext">卡牌召唤</div>
         </div>
         <div class="subtitlepos whiteborder">

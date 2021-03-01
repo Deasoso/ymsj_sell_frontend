@@ -72,6 +72,7 @@
         </a>
       </div>
     </section>
+    <b-loading v-model="$store.state.cardNotGot"></b-loading>
   </div>
 </template>
 

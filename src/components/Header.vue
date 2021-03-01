@@ -106,7 +106,7 @@ export default {
 }
 .header{
   position: relative;
-  z-index: 200;
+  z-index: 1200;
 }
 strong {
   color: #ffffff !important;
