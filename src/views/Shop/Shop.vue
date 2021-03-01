@@ -173,6 +173,7 @@ export default {
   height: 60px;
   padding-top: 16px;
   margin: 0 auto;
+  cursor: pointer;
 }
 .goldbuttontext{
   color: #E4C46D;
@@ -230,6 +231,7 @@ export default {
   height: 60px;
   padding-top: 16px;
   margin: 0 auto;
+  cursor: pointer;
 }
 .buygemicon{
   width: 30px;

@@ -97,6 +97,7 @@ export default {
   width: 268px;
   height: 60px;
   padding-top: 16px;
+  cursor: pointer;
 }
 .buttontext{
   color: #773f05;

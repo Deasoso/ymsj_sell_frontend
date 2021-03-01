@@ -5,7 +5,15 @@
       <nav class="level sellhead" style="margin-bottom: 4px;">
         <!-- Left side -->
         <div class="level-left">
-          <b-dropdown aria-role="list">
+          <b-select v-model="selectoption" style="margin-left: 12px;">
+            <option 
+              v-for="data in selectoptions"
+              :value="data.value"
+              :key="data.value">
+              {{ data.label }}
+            </option>
+          </b-select>
+          <!-- <b-dropdown aria-role="list">
             <template #trigger="{ active }">
               <button class="button allgoods">
                 <span style="margin-right: 12px;">全部商品</span>
@@ -17,7 +25,7 @@
             <b-dropdown-item aria-role="listitem">种族筛选</b-dropdown-item>
             <b-dropdown-item aria-role="listitem">费用筛选</b-dropdown-item>
             <b-dropdown-item aria-role="listitem">功能筛选</b-dropdown-item>
-          </b-dropdown>
+          </b-dropdown> -->
         </div>
 
         <!-- Right side -->
@@ -69,7 +77,9 @@ export default {
       modalactive: false,
       sellmodalactive: false,
       orders: [],
-      selectItem: {}
+      selectItem: {},
+      selectoption: 'all',
+      selectoptions: [{label: '全部阵营', value: 'all'}],
 		}
   },
   components:{

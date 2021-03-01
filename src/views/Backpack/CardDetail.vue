@@ -61,14 +61,18 @@
           <img class="descriptionicon" src="../../assets/backpack_slices/skill.png">
           <div class="descriptionname">技能</div>
           <div class="descriptiontext">
-            {{cardData.skillInfo}}
+            <vue-scroll>
+              {{cardData.skillInfo || "无"}}
+            </vue-scroll>
           </div>
         </div>
         <div class="description">
           <img class="descriptionicon" src="../../assets/backpack_slices/man.png">
           <div class="descriptionname">简介</div>
           <div class="descriptiontext">
-            {{cardData.bgStory}}
+            <vue-scroll>
+              {{cardData.bgStory || "无"}}
+            </vue-scroll>
           </div>
         </div>
       </div>
@@ -246,6 +250,5 @@ export default {
   margin-top: 10px;
   font-size: 14px;
   height: 96px;
-  overflow: scroll;
 }
 </style>

@@ -17,11 +17,11 @@
         {{web3.coinbase || '无名'}}
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;">
-        <div class="level-left">
+        <div class="level-left" style="cursor: pointer;">
           <img class="goodslogo" src="../../assets/mine_slices/card.png">
           拥有的卡牌
         </div>
-        <div class="level-right" @click="$router.push('/Backpack')">
+        <div class="level-right" @click="$router.push('/Backpack')" style="cursor: pointer;">
           查看更多
           <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
         </div>
@@ -32,12 +32,12 @@
           <img v-else-if="index<8" class="teamcard" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
         </a>
       </div>
-      <nav class="level haveheader" style="margin-bottom: 8px;">
+      <nav class="level haveheader" style="margin-bottom: 8px;cursor: pointer;">
         <div class="level-left">
           <img class="shoplogo" src="../../assets/mine_slices/goods.png">
           在售的商品
         </div>
-        <div class="level-right" @click="$router.push('/SellCards')">
+        <div class="level-right" @click="$router.push('/SellCards')" style="cursor: pointer;">
           查看更多
           <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
         </div>
@@ -298,6 +298,5 @@ export default {
   margin: 0 auto;
   height: 430px;
   max-width: 1026px;
-  overflow: scroll;
 }
 </style>

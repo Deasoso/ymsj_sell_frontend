@@ -9,15 +9,16 @@
           <div class="textpos whiteborder">
             <span class="subtitletext">超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！</span>
           </div>
-          <div class="buttonpos goldbuttonback" @click="$router.push('/Shop')">
-            <a class="buttontext">立即领取</a>
+          <div class="buttonpos" @click="$router.push('/Shop')">
+            <a><img class="goldbutton" src="@/assets/title_slices/button1.png"></a>
+            <a><div class="buttontext">立即领取</div></a>
           </div>
         </div>
       <!-- </div> -->
     </section>
-    <title2 />
-    <title3 style="z-index: -1;position:relative;"/>
-    <title4 />
+    <title2 style="z-index: 1;position:relative;" />
+    <title3 />
+    <title4 style="z-index: 1;position:relative;" />
     <title5 />
     <title6 />
   </div>
@@ -64,28 +65,26 @@ export default {
 .subtitletext{
   font-size: 36px;
 }
-.goldbuttonback{
-  background-size: 100% 100%;
-  background-image: url("../../assets/title_slices/button1.png");
+.buttonpos{
+  margin: 0 auto;
+  width: 268px;
+  margin-top: 48px;
+}
+.goldbutton{
   width: 268px;
   height: 60px;
-  padding-top: 16px;
-  margin: 0 auto;
-  margin-top: 40px;
 }
 .buttontext{
   color: #773f05;
   font-size: 20px;
   font-weight: bold;
+  margin-top: -52px;
 }
 .logopos{
   margin-top: 236px;
 }
 .textpos{
   margin-top: 24px;
-}
-.buttonpos{
-  margin-top: 48px;
 }
 .allheight{
   height: 840px;

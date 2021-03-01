@@ -20,8 +20,8 @@
               这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
             </div>
           </div>
-          <div class="goldbuttonback">
-            <a class="buttontext" @click="$router.push('/Shop')">立即前往</a>
+          <div class="goldbuttonback" @click="$router.push('/Shop')">
+            <a class="buttontext">立即前往</a>
           </div>
         </div>
       <!-- </div> -->
@@ -58,6 +58,7 @@
   margin-top: -22px;
   margin-left: 600px;
   text-align: center;
+  cursor: pointer;
 }
 .buttontext{
   color: #773f05;

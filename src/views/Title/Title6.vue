@@ -49,6 +49,7 @@
   border-color: #E7CE8A;
   border-radius: 30px;
   border-style: outset;
+  cursor: pointer;
 }
 .buttontext{
   color: #E7CE8A;

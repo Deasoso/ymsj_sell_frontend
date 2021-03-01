@@ -20,8 +20,10 @@
               这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
             </div>
           </div>
-          <div class="goldbuttonback">
-            <a class="buttontext" @click="$router.push('/Shop')">立即前往</a>
+          <div class="buttonpos" @click="$router.push('/Shop')">
+            <a><img class="goldbutton" src="@/assets/title_slices/button1.png"></a>
+            <a><div class="buttontext">立即前往</div></a>
+            <!-- tip Deaso: 本来想全部按钮改成img，但是后来发现加个cursor就可以所以就没弄了。 -->
           </div>
         </div>
       <!-- </div> -->
@@ -45,24 +47,21 @@
   text-shadow:5px 2px 6px #000000;
   color: #ffffff;
 }
-.ymsjlogo{
-  width: 472px;
-  height: 200px;
-}
-.goldbuttonback{
-  background-size: 100% 100%;
-  background-image: url("../../assets/title_slices/button1.png");
-  width: 178px;
-  height: 40px;
-  padding-top: 8px;
+.buttonpos{
   margin-top: -22px;
   margin-left: 600px;
-  text-align: center;
+  text-align: left;
+}
+.goldbutton{
+  width: 178px;
+  height: 40px;
 }
 .buttontext{
   color: #773f05;
   font-size: 14px;
   font-weight: bold;
+  margin-left: 60px;
+  margin-top: -38px;
 }
 .allheight{
   height: 560px;

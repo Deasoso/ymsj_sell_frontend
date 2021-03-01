@@ -34,13 +34,15 @@
                 </div>
               </nav>
               <div class="contenttext">
-                {{drawablecards[showCardData.id].bgStory}}
-                <!-- 这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！ -->
+                <vue-scroll>
+                  {{drawablecards[showCardData.id].bgStory}}
+                  <!-- 这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
+                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
+                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
+                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
+                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
+                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！ -->
+                </vue-scroll>
               </div>
               <div class="justaline"></div>
               <div class="creatortext">
@@ -50,7 +52,9 @@
                 <div class="level-left">
                   <img class="ownerlogo" :src="randomavatars[parseInt(showCardData.owner) % randomavatars.length].url">
                     <div class="ownername">
-                      {{showCardData.owner}}
+                      <vue-scroll>
+                        {{showCardData.owner}}
+                      </vue-scroll>
                     </div>
                 </div>
               </nav>
@@ -62,7 +66,9 @@
                 <div class="level-left">
                   <img class="ownerlogo" :src="randomavatars[parseInt(showCardData.owner) % randomavatars.length].url">
                   <div class="ownername">
-                    {{showCardData.owner}}
+                    <vue-scroll>
+                      {{showCardData.owner}}
+                    </vue-scroll>
                   </div>
                 </div>
               </nav>
@@ -73,7 +79,9 @@
               <nav class="level addresspos" style="margin-bottom: 0px;">
                 <div class="level-left">
                   <div class="addresstext">
-                    {{Global.contract_address}}
+                    <vue-scroll>
+                      {{Global.contract_address}}
+                    </vue-scroll>
                   </div>
                   <img class="addresslogo" src="../../assets/sellcards_slices/copy.png">
                 </div>
@@ -237,7 +245,6 @@ export default {
 .exchangestage{
   background-color: #ffffff;
   height: 244px;
-  overflow: scroll;
 }
 .rightcontent{
   width: 360px;
@@ -263,7 +270,6 @@ export default {
   font-size: 14px;
   margin-top: 8px;
   height: 120px;
-  overflow: scroll;
 }
 .justaline{
   margin-top: 8px;
@@ -284,8 +290,8 @@ export default {
   height: 32px;
 }
 .ownername{
-  overflow: scroll;
   width: 240px;
+  height: 22px;
   font-size: 14px;
   font-weight: bold;
   margin-left: 8px;
@@ -299,8 +305,8 @@ export default {
   margin-left: 8px;
 }
 .addresstext{
-  overflow: scroll;
   width: 280px;
+  height: 22px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -320,7 +326,6 @@ export default {
   height: 18px;
 }
 .ethtext{
-  /* overflow: scroll; */
   /* width: 280px; */
   font-size: 24px;
   font-weight: bold;

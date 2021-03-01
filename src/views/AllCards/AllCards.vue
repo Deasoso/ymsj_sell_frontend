@@ -6,7 +6,7 @@
           <nav class="level" style="margin-bottom: 0px;">
             <div class="level-left">
             </div>
-            <div class="level-right" @click="$router.push('/Backpack')">
+            <div class="level-right" @click="$router.push('/Backpack')" style="cursor: pointer;">
               查看更多
               <img class="arrowlogo" src="@/assets/allcards_slices/goto.png">
             </div>
@@ -182,12 +182,14 @@ export default {
   width: 256px;
   height: 367px;
   display: inline-block;
+  cursor: pointer;
 }
 .teamcard{
   width: 256px;
   height: 367px;
   display: inline-block;
   margin-left: 24px;
+  cursor: pointer;
 }
 .allcards{
   max-width: 1376px;
