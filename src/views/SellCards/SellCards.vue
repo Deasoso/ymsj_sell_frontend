@@ -5,9 +5,9 @@
       <nav class="level sellhead" style="margin-bottom: 4px;">
         <!-- Left side -->
         <div class="level-left">
-          <b-select v-model="selectoption" style="margin-left: 12px;">
+          <b-select v-model="selectteam" style="margin-left: 12px;" @input="refreshCard">
             <option 
-              v-for="data in selectoptions"
+              v-for="data in teamoptions"
               :value="data.value"
               :key="data.value">
               {{ data.label }}
@@ -32,16 +32,20 @@
         <div class="level-right">
           <div class="level-item">
             <div class="field has-addons">
-              <p class="control">
-                <input class="input searchinput" type="text" placeholder="输入你想搜索的商品名称">
-              </p>
-              <p class="control">
-                <button class="button searchbutton">
-                  <span class="icon searchicon">
-                    <img src="../../assets/sellcards_slices/search.png" />
-                  </span>
-                </button>
-              </p>
+              <b-autocomplete
+                rounded
+                v-model="searchname"
+                :data="filteredDataArray"
+                placeholder="输入要搜索的卡牌名称"
+                clearable
+                @select="option => {searchedname=option;refreshCard()}">
+                <template #empty>No results found</template>
+              </b-autocomplete>
+              <button class="button searchbutton" @click="refreshCard">
+                <span class="icon searchicon">
+                  <img src="../../assets/sellcards_slices/search.png" />
+                </span>
+              </button>
             </div>
           </div>
           <div class="level-item">
@@ -55,9 +59,16 @@
         </div>
       </nav>
       <div class="sellcards">
-        <one-card v-for="(item, index) in orders" :key="index" 
+        <one-card v-for="(item, index) in showorders" :key="index" 
           class="onecard" @ClickBuy="ClickBuy(item)" :cardData="item">
         </one-card>
+        <div v-if="transactionisall" style="margin-top: 20px;">
+          没有更多内容了
+        </div>
+        <div v-else style="width: 100px;margin: 0 auto;margin-top:20px;">
+          <div class="loading"></div>
+          <div class="loadingtext">加载中</div>
+        </div>
       </div>
     </section>
     <card-modal :modalactive.sync="modalactive" :cardData.sync="selectItem" />
@@ -71,18 +82,39 @@ import OneCard from "./OneCard";
 import CardModal from './CardModal'
 import SellModal from './SellModal'
 import orderapi from '@/util/getOrders'
+import drawablecards from '@/util/constants/drawablecards'
+import cardfactions from '@/util/constants/cardfactions'
+import { getScrollHeight, getScrollTop, getWindowHeight } from "./screen";
 
 export default {
 	data(){
 		return{
+      drawablecards: drawablecards,
       modalactive: false,
       sellmodalactive: false,
-      orders: [],
       selectItem: {},
-      selectoption: 'all',
-      selectoptions: [{label: '全部阵营', value: 'all'}],
-      isLoading: true
+      teamoptions: [{label: '全部阵营', value: 'all'}],
+      selectteam: 'all',
+      searchnames: [],
+      searchname: '',
+      searchedname: '',
+      isLoading: false,
+      orders: [],
+      showorders: [],
+      transactionisall: false,
+      searchingTransaction: false,
+      transactionStart: 0
 		}
+  },
+  computed: {
+    filteredDataArray() {
+      return this.searchnames.filter((option) => {
+        return option
+          .toString()
+          .toLowerCase()
+          .indexOf(this.searchname.toLowerCase()) >= 0
+      })
+    }
   },
   components:{
     OneCard,
@@ -97,39 +129,94 @@ export default {
     ClickBuy(item){
       this.selectItem = item;
       this.modalactive = true;
-    }
+    },
+    loadOrders(){
+      if(getScrollTop() + getWindowHeight() >= getScrollHeight() - 400){ // 360是底部和加载中的高度
+        this.loadTransaction();
+      }
+    },
+    loadTransaction(){
+      if(this.transactionisall) return;
+      if(this.searchingTransaction) return;
+      this.searchingTransaction = true;
+      setTimeout(async () => {
+        await this.getTransaction();
+        this.searchingTransaction = false;
+        if(getScrollTop() + getWindowHeight() >= getScrollHeight() - 400){ // 360是底部和加载中的高度
+          this.loadTransaction();
+        }
+      },1000);
+    },
+    async getTransaction(){
+      const transactions = await orderapi.getOrders(this.transactionStart, this.transactionStart + 16, false, true, 0, 0, 0, 0);
+      this.orders = this.orders.concat(transactions);
+      console.log(this.transactionStart);
+      console.log(transactions.length);
+      this.transactionStart += transactions.length;
+      if (transactions.length < 16){// 不足16个，算找完了
+        this.transactionisall = true;
+      }
+      this.refreshCard();
+    },
+    getSearchNames(){
+      var names = []
+      drawablecards.filter(item => {
+        names.push(item.name)
+      })
+      this.searchnames = names;
+    },
+    refreshOption(){
+      this.teamoptions = [{label: '全部阵营', value: 'all'}];
+      for(var i in drawablecards){
+        if((this.teamoptions.filter(item => item.value == drawablecards[i].factions)).length <= 0){
+          this.teamoptions.push({
+            label: cardfactions[drawablecards[i].factions].name,
+            value: drawablecards[i].factions
+          })
+        }
+      }
+    },
+    refreshCard(){
+      this.showorders = this.orders.filter(item => {
+        if (this.searchname && this.searchname != '' && drawablecards[item.id].name.indexOf(this.searchname) == -1) return false;
+        if (this.searchedname && this.searchedname != '' && drawablecards[item.id].name != this.searchedname) return false;
+        if (this.selectteam != 'all' && this.selectteam != drawablecards[item.id].factions) return false;
+        return true;
+      })
+    },
   },
-  async mounted(){
+  mounted(){
+    this.getSearchNames();
+    this.refreshOption();
     this.$nextTick(async () => { // 没有nexttick访问不到vue.properties
-      const orders = await orderapi.getOrders(0, 16, false, true, 0, 0, 0, 0);
-      this.orders = orders;
-      this.isLoading = false;
+      this.loadTransaction();
     })
-  }
+    window.addEventListener('scroll', this.loadOrders);
+  },
+  destroyed(){
+    window.removeEventListener('scroll', this.loadOrders, false);
+  },
 };
 </script>
 
 <style scoped>
 .backpic{
   background-image: url("../../assets/allcards_slices/bgi7.png");
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
+  background-position-y: 0;
   margin-top: 80px;
-}
-@media (max-width: 1920px){
-  .backpic{
-    background-size: auto 100%;
-  }
+  padding-bottom: 40px;
 }
 .allheight{
-  height: 840px;
+  min-height: 840px;
 }
 .sellhead{
   padding-top: 48px;
   margin: 0 auto;
   width: calc(100vw - 96px);
   max-width: 1376px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .sellcards{
   margin: 0 auto;
@@ -157,5 +244,22 @@ export default {
 .searchicon{
   padding-left: 4px;
   padding-right: 4px;
+}
+.loading {
+  -webkit-animation: spinAround 500ms infinite linear;
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid #773F05;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+  margin-right: 8px;
+}
+.loadingtext{
+  margin-top: -19px;
 }
 </style>

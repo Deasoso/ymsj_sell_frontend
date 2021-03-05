@@ -21,10 +21,13 @@ Vue.use(vuescroll)
 import { InfiniteScroll } from 'element-ui';
 Vue.use(InfiniteScroll)
 
+import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard)
+
 Vue.config.productionTip = false
 
 Vue.prototype.Global = {
-  contract_address: "0xE6881bfDa3c5421a7f5EFb196C350DdE0b08eBAd"
+  contract_address: "0xA124938ECE6A4aD35e624abF65139C62236dD672"
 }
 
 new Vue({

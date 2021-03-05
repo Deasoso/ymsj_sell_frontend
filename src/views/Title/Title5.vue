@@ -7,20 +7,15 @@
             <slider-item>
               <div class="slideContainer">
                 <div class="titlepos whiteborder">
-                  <img class="speakerlogo" src="../../assets/title_slices/avatar备份.png">
+                  <img class="speakerlogo" src="https://avatars.githubusercontent.com/u/2507027?s=96&v=4">
                 </div>
                 <div class="subtitlepos whiteborder">
-                  <div class="subtitletext">HideoKojima</div>
+                  <div class="subtitletext">MinakoKojima</div>
                 </div>
                 <div class="intextpos whiteborder">
                   <div class="intext">
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
-                    这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …这是一段简介… …
+因为集换式卡牌游戏天然就适合用区块链去发行<br/>
+首先，卡牌本身具有收藏和交易的属性，较为硬核的对战模式也会更加体现卡牌的价值；区块链技术采用合约抽卡可以极大的保证游戏的公平性，卡牌上链可以给玩家资产带来最大的保障，通过智能合约交易也可以让玩家安全放心。
                   </div>
                 </div>
               </div>
@@ -87,6 +82,7 @@ export default {
   height: 64px;
   margin: 0 auto;
   border-radius: 0px;
+  border-radius: 50%;
 }
 .goldbuttonback{
   background-size: 100% 100%;

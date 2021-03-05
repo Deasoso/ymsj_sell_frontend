@@ -3,12 +3,13 @@
     <section class="is-cover allheight backpic">
       <!-- Main container -->
       <div class="blackhead">
+      </div>
         <nav class="level sellhead" style="margin-bottom: 36px;">
           <!-- Left side -->
           <div class="level-left">
             <div class="level-item">
               <span class="teamtext">阵营</span>
-              <b-select v-model="selectteam" style="margin-left: 12px;">
+              <b-select v-model="selectteam" style="margin-left: 12px;" @input="refreshCard">
                 <option 
                   v-for="data in teamoptions"
                   :value="data.value"
@@ -19,7 +20,7 @@
             </div>
             <div class="level-item">
               <span class="teamtext2">AP</span>
-              <b-select v-model="selectap" style="margin-left: 12px;">
+              <b-select v-model="selectap" style="margin-left: 12px;" @input="refreshCard">
                 <option 
                   v-for="data in apoptions"
                   :value="data.value"
@@ -30,7 +31,7 @@
             </div>
             <div class="level-item">
               <span class="teamtext3">DP</span>
-              <b-select v-model="selectdp" style="margin-left: 12px;">
+              <b-select v-model="selectdp" style="margin-left: 12px;" @input="refreshCard">
                 <option 
                   v-for="data in dpoptions"
                   :value="data.value"
@@ -44,7 +45,7 @@
           <!-- Right side -->
           <div class="level-right">
             <div class="level-item">
-              <b-select v-model="selecttype" style="margin-left: 12px;">
+              <b-select v-model="selecttype" style="margin-left: 12px;" @input="refreshCard">
                 <option 
                   v-for="data in typeoptions"
                   :value="data.value"
@@ -55,8 +56,16 @@
             </div>
             <div class="level-item">
               <div class="field has-addons">
-                <input class="input searchinput" type="text" placeholder="输入你想搜索的卡牌名称">
-                <button class="button searchbutton">
+                <b-autocomplete
+                  rounded
+                  v-model="searchname"
+                  :data="filteredDataArray"
+                  placeholder="输入要搜索的卡牌名称"
+                  clearable
+                  @select="option => {searchedname=option;refreshCard()}">
+                    <template #empty>No results found</template>
+                </b-autocomplete>
+                <button class="button searchbutton" @click="refreshCard">
                   <span class="icon searchicon">
                     <img src="../../assets/sellcards_slices/search.png" />
                   </span>
@@ -65,7 +74,7 @@
             </div>
           </div>
         </nav>
-      </div>
+      <!-- </div> -->
       <div class="sellcards">
         <a v-for="(item, index) in showcards" :key="index">
           <img class="onecard" @click="$router.push('/CardDetail?id=' + item.id)" :src="drawablecards[item.id].url"/>
@@ -77,15 +86,20 @@
 </template>
 
 <script>
-import usercards from '@/assets/fakedatas/usercards';
-import drawablecards from '@/util/constants/drawablecards';
-import cardfactions from '@/util/constants/cardfactions';
+import usercards from '@/assets/fakedatas/usercards'
+import drawablecards from '@/util/constants/drawablecards'
+import cardfactions from '@/util/constants/cardfactions'
 
 export default {
 	data(){
 		return{
-      showcards: [],// usercards,
+      cards: [],
+      showcards: [],
       drawablecards: drawablecards,
+      cardfactions: cardfactions,
+      searchnames: [],
+      searchname: '',
+      searchedname: '',
       teamoptions: [{label: '全部阵营', value: 'all'}],
       apoptions: [{label: '全部费用', value: 'all'}],
       dpoptions: [{label: '全部防御', value: 'all'}],
@@ -96,14 +110,32 @@ export default {
       selecttype: 'all',
 		}
   },
+  computed: {
+    filteredDataArray() {
+      return this.searchnames.filter((option) => {
+        return option
+          .toString()
+          .toLowerCase()
+          .indexOf(this.searchname.toLowerCase()) >= 0
+      })
+    }
+  },
   watch:{
     '$store.state.cards': function(newValue, oldValue){
-      this.showcards = newValue;
+      this.cards = newValue;
+      this.refreshCard();
 		}
   },
   methods:{
     getCartType(index){
       return index == 0 ? '地区' : index == 1 ? '角色' : index == 2 ? '事务' : index == 3 ? '秘社' : '附属';
+    },
+    getSearchNames(){
+      var names = []
+      drawablecards.filter(item => {
+        names.push(item.name)
+      })
+      this.searchnames = names;
     },
     refreshOption(){
       this.teamoptions = [{label: '全部阵营', value: 'all'}];
@@ -138,12 +170,22 @@ export default {
       }
     },
     refreshCard(){
-      
+      this.showcards = this.cards.filter(item => {
+        if (this.searchname && this.searchname != '' && drawablecards[item.id].name.indexOf(this.searchname) == -1) return false;
+        if (this.searchedname && this.searchedname != '' && drawablecards[item.id].name != this.searchedname) return false;
+        if (this.selectteam != 'all' && this.selectteam != drawablecards[item.id].factions) return false;
+        if (this.selectap != 'all' && this.selectap != drawablecards[item.id].cost) return false;
+        if (this.selectdp != 'all' && this.selectdp != drawablecards[item.id].def) return false;
+        if (this.selecttype != 'all' && this.selecttype != drawablecards[item.id].type) return false;
+        return true;
+      })
     },
   },
   mounted(){
+    this.getSearchNames();
     this.refreshOption();
-    this.showcards = this.$store.state.cards;
+    this.cards = this.$store.state.cards;
+    this.refreshCard();
   }
 };
 </script>
@@ -163,8 +205,7 @@ export default {
   margin: 0 auto;
   width: calc(100vw - 48px);
   max-width: 1376px;
-  height: 80px;
-  overflow-x: hidden;
+  margin-top: -60px;
 }
 .searchbutton{
   height: 40px;
@@ -199,6 +240,7 @@ export default {
 .blackhead{
   background-color: #00000080;
   width: 100vw;
+  height: 80px;
 }
 .sellcards{
   margin: 0 auto;

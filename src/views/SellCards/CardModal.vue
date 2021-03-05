@@ -71,12 +71,6 @@
               <div class="contenttext">
                 <vue-scroll>
                   {{drawablecards[showCardData.id].bgStory}}
-                  <!-- 这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！
-                  这张卡片非常稀有！收藏家们赶紧看过来~~机不可失时不再来！ -->
                 </vue-scroll>
               </div>
               <div class="justaline"></div>
@@ -85,7 +79,7 @@
               </div>
               <nav class="ownerpos" style="margin-bottom: 0px;">
                 <div class="level-left">
-                  <img class="ownerlogo" :src="randomavatars[parseInt(showCardData.owner) % randomavatars.length].url">
+                  <img class="ownerlogo" :src="randomavatars[parseInt('0x8c01d8cd287470a4597d4b10cd4c5c7dbe711125') % randomavatars.length].url">
                     <div class="ownername">
                       <vue-scroll>
                         {{showCardData.owner}}
@@ -144,8 +138,8 @@
 </template>
 
 <script>
-import drawablecards from '@/util/constants/drawablecards';
-import randomavatars from '@/util/constants/randomavatars';
+import drawablecards from '@/util/constants/drawablecards'
+import randomavatars from '@/util/constants/randomavatars'
 import nft_abi from "@/contracts/NFT_abi.json"
 import orderapi from '@/util/getOrders'
 

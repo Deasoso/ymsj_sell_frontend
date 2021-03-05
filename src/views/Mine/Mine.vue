@@ -6,7 +6,9 @@
           <!-- 左边没有东西 -->
         </div>
         <div class="level-right">
-          <b-button type="is-dark" inverted outlined class="sharebutton" style="border-color: #B2B2B2;color: #000000;">
+          <b-button type="is-dark" inverted outlined class="sharebutton" 
+            style="border-color: #B2B2B2;color: #000000;"
+            @click="share">
             <img class="shareicon" src="../../assets/shop_slices/share.png">
             <span>分享主页</span>
           </b-button>
@@ -46,7 +48,7 @@
       <div class="shopgoods">
         <div v-for="(cardData, index) in showorders" :key="index" :class="index == 0 ? 'shopgood1' : 'shopgood'">
           <img class="shopcard" :src="drawablecards[cardData.id].url">
-          <a class="button pricebutton" @click="$router.push('/CardDetail')">
+          <a class="button pricebutton" @click="$router.push('/SellCards')">
             <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
             <span class="price">
               {{getPrice(cardData.price)}}
@@ -170,6 +172,25 @@ export default {
       if (transactions.length < 16){// 不足16个，算找完了
         this.transactionisall = true;
       }
+    },
+    share(){
+      const _this = this;
+      this.$copyText(location.href).then(
+        function(e) {
+          _this.$buefy.dialog.alert({
+            title: '已复制',
+            message: '邀请链接已复制到剪切板！',
+            confirmText: '确认'
+          })
+        },
+        function(e) {
+          _this.$buefy.dialog.alert({
+            title: '复制失败',
+            message: '邀请链接复制失败，尝试手动复制？',
+            confirmText: '确认'
+          })
+        }
+      )
     }
   }
 }

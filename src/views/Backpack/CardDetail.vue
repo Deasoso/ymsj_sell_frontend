@@ -6,11 +6,13 @@
           <!-- 左边没有东西 -->
         </div>
         <div class="level-right">
-          <b-button type="is-dark" inverted outlined class="sharebutton" style="border-color: #B2B2B2;color: #000000;">
+          <b-button type="is-dark" inverted outlined class="sharebutton" 
+            style="border-color: #B2B2B2;color: #000000;"
+            @click="share">
             <img class="shareicon" src="../../assets/shop_slices/share.png">
             <span>分享卡牌</span>
           </b-button>
-          <button class="button is-dark newexchange" @click="modalactive=true">
+          <button v-if="havecard" class="button is-dark newexchange" @click="modalactive=true">
             <span class="icon">
               <img src="../../assets/sellcards_slices/trade.png">
             </span>
@@ -19,9 +21,14 @@
         </div>
       </nav>
       <img class="cardimg" :src="cardData.url">
-      <div>
+      <div v-if="havecard">
         <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #44D7B6;color: #15AD8B;">
           已拥有
+        </b-button>
+      </div>
+      <div v-else>
+        <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #bbbbbb;color: #bbbbbb;">
+          未拥有
         </b-button>
       </div>
       <div class="cardname">
@@ -95,6 +102,14 @@ export default {
       cardfactions: cardfactions,
 		}
   },
+  computed:{
+    havecard(){
+      const arr = this.$store.state.cards.filter(item => {
+        return item.id == this.cardData.id
+      })
+      return arr.length > 0
+    }
+  },
   components:{
     SellModal
   },
@@ -122,6 +137,25 @@ export default {
         }
       }
       return str;
+    },
+    share(){
+      const _this = this;
+      this.$copyText(location.href).then(
+        function(e) {
+          _this.$buefy.dialog.alert({
+            title: '已复制',
+            message: '邀请链接已复制到剪切板！',
+            confirmText: '确认'
+          })
+        },
+        function(e) {
+          _this.$buefy.dialog.alert({
+            title: '复制失败',
+            message: '邀请链接复制失败，尝试手动复制？',
+            confirmText: '确认'
+          })
+        }
+      )
     }
   }
 };
