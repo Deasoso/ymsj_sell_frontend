@@ -61,6 +61,7 @@ export const store = new Vuex.Store({
     registerWeb3 ({commit}) {
       console.log('registerWeb3 Action being executed')
       getWeb3.then(async (result) => {
+        console.log(result);
         console.log('committing result to registerWeb3Instance mutation')
         commit('registerWeb3Instance', result)
         if (result.coinbase){

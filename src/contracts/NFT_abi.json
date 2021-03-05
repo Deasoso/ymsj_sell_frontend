@@ -31,7 +31,7 @@
 		"constant": false,
 		"inputs": [
 			{
-				"name": "sell_id",
+				"name": "order_id",
 				"type": "uint256"
 			}
 		],
@@ -681,11 +681,62 @@
 		"constant": true,
 		"inputs": [
 			{
-				"name": "sell_id",
+				"name": "start",
+				"type": "uint256"
+			},
+			{
+				"name": "end",
+				"type": "uint256"
+			},
+			{
+				"name": "only_sold",
+				"type": "bool"
+			},
+			{
+				"name": "only_no_sold",
+				"type": "bool"
+			},
+			{
+				"name": "seller",
+				"type": "address"
+			},
+			{
+				"name": "buyer",
+				"type": "address"
+			},
+			{
+				"name": "seller_or_buyer",
+				"type": "address"
+			},
+			{
+				"name": "cardId",
 				"type": "uint256"
 			}
 		],
-		"name": "get_sell_card_by_id",
+		"name": "get_order_batch",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "order_id",
+				"type": "uint256"
+			}
+		],
+		"name": "get_order_by_id",
 		"outputs": [
 			{
 				"name": "",
@@ -702,45 +753,14 @@
 			{
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "start",
-				"type": "uint256"
-			},
-			{
-				"name": "end",
-				"type": "uint256"
-			}
-		],
-		"name": "get_sell_list_batch",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
 			},
 			{
 				"name": "",
-				"type": "address[]"
+				"type": "address"
 			},
 			{
 				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256[]"
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -858,11 +878,11 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "owner",
+		"name": "order_max_id",
 		"outputs": [
 			{
 				"name": "",
-				"type": "address"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -872,11 +892,11 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "sell_max_id",
+		"name": "owner",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256"
+				"type": "address"
 			}
 		],
 		"payable": false,

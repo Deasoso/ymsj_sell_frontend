@@ -12,7 +12,7 @@
           </b-button>
         </div>
       </nav>
-      <img class="avatarimg" src="../../assets/title_slices/bgi1.png">
+      <img class="avatarimg" :src="randomavatars[parseInt(web3.coinbase || '0') % randomavatars.length].url">
       <div class="username">
         {{web3.coinbase || '无名'}}
       </div>
@@ -28,8 +28,9 @@
       </nav>
       <div class="teamcards">
         <a v-for="(item, index) in showcards" :key="index">
-          <img v-if="index==0 && index<8" class="teamcard1" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
-          <img v-else-if="index<8" class="teamcard" @click="$router.push('/CardDetail?id='+item.id)" :src="drawablecards[item.id].url"/>
+          <img :class="index==0 ? 'teamcard1' : 'teamcard'" 
+            @click="$router.push('/CardDetail?id='+item.id)" 
+            :src="drawablecards[item.id].url"/>
         </a>
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;cursor: pointer;">
@@ -43,30 +44,12 @@
         </div>
       </nav>
       <div class="shopgoods">
-        <div class="shopgood1">
-          <img class="shopcard" src="../../assets/cards/01联会禁音使.png">
+        <div v-for="(cardData, index) in showorders" :key="index" :class="index == 0 ? 'shopgood1' : 'shopgood'">
+          <img class="shopcard" :src="drawablecards[cardData.id].url">
           <a class="button pricebutton" @click="$router.push('/CardDetail')">
             <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
             <span class="price">
-              3.238
-            </span>
-          </a>
-        </div>
-        <div class="shopgood">
-          <img class="shopcard" src="../../assets/cards/01联会禁音使.png">
-          <a class="button pricebutton" @click="$router.push('/CardDetail')">
-            <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
-            <span class="price">
-              3.238
-            </span>
-          </a>
-        </div>
-        <div class="shopgood">
-          <img class="shopcard" src="../../assets/cards/01联会禁音使.png">
-          <a class="button pricebutton" @click="$router.push('/CardDetail')">
-            <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
-            <span class="price">
-              3.238
+              {{getPrice(cardData.price)}}
             </span>
           </a>
         </div>
@@ -77,78 +60,117 @@
           交易记录
         </div>
       </nav>
-      <div class="exchangestage">
-        <vue-scroll>
-          <b-table :data="data" :columns="columns"></b-table>
-        </vue-scroll>
+      <div class="exchangestage" 
+        v-infinite-scroll="loadTransaction" 
+        infinite-scroll-distance="20" 
+        style="overflow:auto">
+        <b-table :data="showtransactions">
+          <b-table-column field="orderid" label="ID" width="60" centered v-slot="props">
+            {{ props.row.orderid }}
+          </b-table-column>
+          <b-table-column field="id" label="名称" centered v-slot="props">
+            {{drawablecards[props.row.id].name}}
+          </b-table-column>
+          <b-table-column field="seller" label="买方" centered v-slot="props">
+            <div class="table-owner-name">
+              <vue-scroll :ops="ops">
+                {{props.row.buyer}}
+              </vue-scroll>
+            </div>
+          </b-table-column>
+          <b-table-column field="buyer" label="卖方" centered v-slot="props">
+            <div class="table-owner-name">
+              <vue-scroll :ops="ops">
+                {{props.row.seller}}
+              </vue-scroll>
+            </div>
+          </b-table-column>
+          <b-table-column field="amount" label="数量" centered v-slot="props">
+            {{ props.row.amount }}
+          </b-table-column>
+          <b-table-column field="price" label="价格" centered v-slot="props">
+            {{ props.row.price / 1e18 }}
+          </b-table-column>
+        </b-table>
+        <div v-if="transactionisall">
+          没有更多内容了
+        </div>
+        <div v-else style="width: 100px;margin: 0 auto;">
+          <div class="loading"></div>
+          <div class="loadingtext">加载中</div>
+        </div>
       </div>
     </section>
   </div>
 </template>
 <script>
-import usercards from '@/assets/fakedatas/usercards';
 import drawablecards from '@/util/constants/drawablecards';
+import randomavatars from '@/util/constants/randomavatars';
+import orderapi from '@/util/getOrders'
 
 export default {
   name: 'mine',
   data(){
     return{
-      data: [
-        { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' },
-        { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' },
-        { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'date': '2016-04-26 06:26:28', 'gender': 'Female' },
-        { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'date': '2016-04-10 10:28:46', 'gender': 'Male' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' }
-      ],
-      columns: [
-        {
-          field: 'id',
-          label: 'ID',
-          width: '40',
-          numeric: true
-        },
-        {
-          field: 'first_name',
-          label: 'First Name',
-        },
-        {
-          field: 'last_name',
-          label: 'Last Name',
-        },
-        {
-          field: 'date',
-          label: 'Date',
-          centered: true
-        },
-        {
-          field: 'gender',
-          label: 'Gender',
-        }
-      ],
       showcards: [],
-      drawablecards: drawablecards
+      showorders: [],
+      drawablecards: drawablecards,
+      randomavatars: randomavatars,
+      ops: {
+        scrollPanel: {
+          scrollingX: true,
+          scrollingY: false,
+        }
+      },
+      showtransactions: [],
+      transactions: [],
+      transactionisall: false,
+      searchingTransaction: false,
+      transactionStart: 0
     }
   },
   watch:{
     '$store.state.cards': function(newValue, oldValue){
-      this.showcards = newValue;
+      this.showcards = newValue.slice(0,7);
 		}
   },
-  computed: {
+  computed:{
     web3(){
       return this.$store.state.web3
     }
   },
-  mounted(){
-    this.showcards = this.$store.state.cards;
+  async mounted(){
+    this.$nextTick(async () => { // 没有nexttick访问不到vue.properties
+      this.showcards = this.$store.state.cards.slice(0,7);
+      const orders = await orderapi.getOrders(0, 16, false, true, 0, 0, this.web3.coinbase, 0);
+      this.showorders = orders.slice(0,3);
+    })
+  },
+  methods:{
+    getPrice(input){
+      if(input < 1e15) return '< 0.001';
+      if(input > 1e21) return '> 1000';
+      return (input / 1e18).toFixed(3);
+    },
+    loadTransaction(){
+      if(this.transactionisall) return;
+      if(this.searchingTransaction) return;
+      this.searchingTransaction = true;
+      setTimeout(async () => {
+        await this.getTransaction()
+        this.searchingTransaction = false;
+      },1000);
+      console.log('loading...');
+    },
+    async getTransaction(){
+      const transactionorders = await orderapi.getOrders(this.transactionStart, this.transactionStart + 16, true, false, 0, 0, this.web3.coinbase, 0);
+      const transactions = await orderapi.getTransactions(transactionorders);
+      this.showtransactions = this.showtransactions.concat(transactions);
+      this.transactionStart += transactions.length;
+      if (transactions.length < 16){// 不足16个，算找完了
+        this.transactionisall = true;
+      }
+    }
   }
 }
 </script>
@@ -277,9 +299,9 @@ export default {
 }
 .pricebutton{
   background-color: #E7CE8A;
-  width: 64px;
+  width: 70px;
   height: 32px;
-  margin-left: 19px;
+  margin-left: 12px;
   margin-top: 149px;
 }
 .priceicon{
@@ -298,5 +320,30 @@ export default {
   margin: 0 auto;
   height: 430px;
   max-width: 1026px;
+}
+.infinite-list{
+  height: 200px;
+}
+.table-owner-name{
+  max-width: 200px;
+  height: 20px;
+  margin: 0 auto;
+}
+.loading {
+  -webkit-animation: spinAround 500ms infinite linear;
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid #773F05;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+  margin-right: 8px;
+}
+.loadingtext{
+  margin-top: -19px;
 }
 </style>

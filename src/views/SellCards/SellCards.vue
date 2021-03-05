@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="level-item">
-            <button class="button is-dark newexchange" @click="sellmodalactive=!sellmodalactive">
+            <button class="button is-dark newexchange" @click="sellmodalactive=true">
               <span class="icon">
                 <img src="../../assets/sellcards_slices/trade.png">
               </span>
@@ -100,10 +100,11 @@ export default {
     }
   },
   async mounted(){
-    const orders = await orderapi.getOrders(this.$store.state.web3, 0, 10);
-    console.log(orders);
-    this.orders = orders;
-    this.isLoading = false;
+    this.$nextTick(async () => { // 没有nexttick访问不到vue.properties
+      const orders = await orderapi.getOrders(0, 16, false, true, 0, 0, 0, 0);
+      this.orders = orders;
+      this.isLoading = false;
+    })
   }
 };
 </script>

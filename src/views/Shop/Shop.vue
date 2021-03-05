@@ -29,12 +29,12 @@
           <nav class="level buybuttons"><!-- 有level，按钮垂直居中 -->
             <div class="buybuttonback" @click="draw(1)">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
-              <a class="buybuttonvalue">120</a>
+              <a class="buybuttonvalue">0.010</a>
               <a class="buybuttontext">单次召唤</a>
             </div>
             <div class="buybuttonback" @click="draw(10)">
               <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
-              <a class="buybuttonvalue">1000</a>
+              <a class="buybuttonvalue">0.100</a>
               <a class="buybuttontext">十连召唤</a>
             </div>
           </nav>
@@ -95,6 +95,14 @@ export default {
       this.modalactive = true;
     },
     async draw(times){
+      if(!this.$store.state.web3.isInjected){
+        this.$buefy.dialog.alert({
+          title: '用户未登录',
+          message: '请先用Metamask钱包登录！',
+          confirmText: '确认'
+        })
+        return;
+      };
       this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
       var that = this;
       await new Promise(
@@ -104,10 +112,22 @@ export default {
             {value: times * 1e16},
             function(error, result){
             if(!error){
-              that.$buefy.dialog.alert('支付成功！请稍后到此页面查看。<div>注：在此期间请不要刷新页面。</div>');
+              that.$buefy.dialog.alert({
+                title: '支付成功',
+                message: '您的卡牌正在铸造，请稍后到此页面查看。<div>注：在此期间请不要刷新页面。</div>',
+                confirmText: '确认'
+              })
               that.$store.dispatch('drawCards', times);
               resolve(result);
             }else{
+              that.$buefy.dialog.alert({
+                title: '支付失败',
+                message: '用户取消了订单。',
+                type: 'is-danger',
+                confirmText: '确认'
+              })
+              console.log('failed')
+              that.$buefy.dialog.error('支付失败');
               reject(error);
             }
           })

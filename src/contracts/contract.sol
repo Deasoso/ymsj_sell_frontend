@@ -972,46 +972,16 @@ library Strings {
 	// via https://github.com/oraclize/ethereum-api/blob/master/oraclizeAPI_0.5.sol
 	function strConcat(
 		string memory _a,
-		string memory _b,
-		string memory _c,
-		string memory _d,
-		string memory _e
+		string memory _b
 	) internal pure returns (string memory) {
 		bytes memory _ba = bytes(_a);
 		bytes memory _bb = bytes(_b);
-		bytes memory _bc = bytes(_c);
-		bytes memory _bd = bytes(_d);
-		bytes memory _be = bytes(_e);
-		string memory abcde = new string(_ba.length + _bb.length + _bc.length + _bd.length + _be.length);
+		string memory abcde = new string(_ba.length + _bb.length);
 		bytes memory babcde = bytes(abcde);
 		uint256 k = 0;
 		for (uint256 i = 0; i < _ba.length; i++) babcde[k++] = _ba[i];
 		for (uint256 i = 0; i < _bb.length; i++) babcde[k++] = _bb[i];
-		for (uint256 i = 0; i < _bc.length; i++) babcde[k++] = _bc[i];
-		for (uint256 i = 0; i < _bd.length; i++) babcde[k++] = _bd[i];
-		for (uint256 i = 0; i < _be.length; i++) babcde[k++] = _be[i];
 		return string(babcde);
-	}
-
-	function strConcat(
-		string memory _a,
-		string memory _b,
-		string memory _c,
-		string memory _d
-	) internal pure returns (string memory) {
-		return strConcat(_a, _b, _c, _d, "");
-	}
-
-	function strConcat(
-		string memory _a,
-		string memory _b,
-		string memory _c
-	) internal pure returns (string memory) {
-		return strConcat(_a, _b, _c, "", "");
-	}
-
-	function strConcat(string memory _a, string memory _b) internal pure returns (string memory) {
-		return strConcat(_a, _b, "", "", "");
 	}
 
 	function uint2str(uint256 _i) internal pure returns (string memory _uintAsString) {
@@ -1254,77 +1224,82 @@ contract YMSJToken is ERC1155Tradable {
 	}
 	
 	// 以下是出售购买相关
-	struct sell_struct {
+	struct order_struct {
         address payable seller;
         uint256 id;
         uint256 amount;
         uint256 price;
+        address buyer;
+        bool sold;
     }
-    uint256 public sell_max_id = 0;
-    mapping (uint256 => sell_struct) sell_list;
+    uint256 public order_max_id = 0;
+    mapping (uint256 => order_struct) order_list;
     uint256 public gasper100 = 3;
     
 	function sell_card(uint256 id, uint256 amount, uint256 price) public {
 	    require(price > 0, "Price too low");
-	    sell_struct memory _sell = sell_struct(msg.sender, id, amount, price);
+	    order_struct memory _order = order_struct(msg.sender, id, amount, price, address(0), false);
 	    _safeTransferFrom(msg.sender, address(this), id, amount);
-	    sell_list[sell_max_id] = _sell;
-	    sell_max_id ++;
+	    order_list[order_max_id] = _order;
+	    order_max_id ++;
 	}
 	
-	function buy_card(uint256 sell_id) public payable {
-	    sell_struct memory _sell = sell_list[sell_id];
-	    require(_sell.seller != address(0), "No seller");
-	    require(msg.value >= _sell.price, "Value not enough");
+	function buy_card(uint256 order_id) public payable {
+	    order_struct memory _order = order_list[order_id];
+	    require(!_order.sold, "Card is sold");
+	    require(msg.value >= _order.price, "Value not enough");
 	    
-	    _safeTransferFrom(address(this), msg.sender, _sell.id, _sell.amount);
+	    _safeTransferFrom(address(this), msg.sender, _order.id, _order.amount);
 	    if (gasper100 >= 0 && gasper100 < 100){
-	        uint256 devCut = _sell.price.mul(gasper100).div(100);
-	        _sell.seller.transfer(_sell.price.sub(devCut));
+	        uint256 devCut = _order.price.mul(gasper100).div(100);
+	        _order.seller.transfer(_order.price.sub(devCut));
 	    }
-	    uint256 excess = msg.value.sub(_sell.price);
+	    uint256 excess = msg.value.sub(_order.price);
 	    
-	    delete sell_list[sell_id];
+	    order_list[order_id].buyer = msg.sender;
+	    order_list[order_id].sold = true;
 	    if (excess > 0) {
           msg.sender.transfer(excess);
         }
 	}
 	
-	function get_sell_list_batch(uint256 start, uint256 end)
-        public view returns (uint256[] memory, address[] memory, uint256[] memory, uint256[] memory, uint256[] memory)
+	function get_order_batch(uint256 start, uint256 end, bool only_sold, bool only_no_sold, address seller, address buyer, address seller_or_buyer, uint256 cardId)
+        public view returns (uint256[] memory, address[] memory)
     {
         //注意这个方法是从后面开始检索的
         require(start < end, "Start over end");
         
-        uint256[] memory batchSellId = new uint256[](end - start);
-        address[] memory batchSeller = new address[](end - start);
-        uint256[] memory batchId = new uint256[](end - start);
-        uint256[] memory batchAmount = new uint256[](end - start);
-        uint256[] memory batchPrice = new uint256[](end - start);
+        uint256 arrayLong = end - start;
+        uint256[] memory batchOrderId_CardId_Amount_Price = new uint256[](arrayLong.mul(4)); // 因为不能在这个方法中定义太多变量，所以将四个数组连在了一起
+        address[] memory batchSeller = new address[](arrayLong);
         
         uint256 searched = 0;
-        for(uint256 i = 0; i < sell_max_id; i ++){
+        for(uint256 i = 0; i < order_max_id; i ++){
             // if(i > 10000) break; // 最大检索10000个
-	        sell_struct memory _sell = sell_list[sell_max_id - i - 1];
-	        if(_sell.seller == address(0)) continue;
-	        batchSellId[searched] = sell_max_id - i - 1;
-	        batchSeller[searched] = _sell.seller;
-	        batchId[searched] = _sell.id;
-	        batchAmount[searched] = _sell.amount;
-	        batchPrice[searched] = _sell.price;
+	        order_struct memory _order = order_list[order_max_id - i - 1];
+	        if(only_sold && !_order.sold) continue;
+	        if(only_no_sold && _order.sold) continue;
+	        if(seller != address(0) && _order.seller != seller) continue;
+	        if(buyer != address(0) && _order.buyer != buyer) continue;
+	        if(seller_or_buyer != address(0) && _order.seller != seller_or_buyer && _order.buyer != seller_or_buyer) continue;
+	        if(cardId != 0 && _order.id != cardId) continue;
+	        batchOrderId_CardId_Amount_Price[searched]                      = order_max_id - i - 1;
+	        batchOrderId_CardId_Amount_Price[arrayLong + searched]          = _order.id;
+	        batchOrderId_CardId_Amount_Price[(arrayLong.mul(2)) + searched] = _order.amount;
+	        batchOrderId_CardId_Amount_Price[(arrayLong.mul(3)) + searched] = _order.price;
+	        batchSeller[searched] = _order.seller;
 	        searched ++ ;
-	        if(searched >= end - start) break;
+	        if(searched >= arrayLong) break;
 	    }
     
-        return (batchSellId, batchSeller, batchId, batchAmount, batchPrice);
+        return (batchOrderId_CardId_Amount_Price, batchSeller);
     }
     
-    function get_sell_card_by_id(uint256 sell_id)
-        public view returns (address, uint256, uint256, uint256)
+    function get_order_by_id(uint256 order_id)
+        public view returns (address, uint256, uint256, uint256, address, bool)
     {
-        sell_struct memory _sell = sell_list[sell_id];
-	    require(_sell.seller != address(0), "No seller");
-	    return (_sell.seller, _sell.id, _sell.amount, _sell.price);
+        order_struct memory _order = order_list[order_id];
+	    return (_order.seller, _order.id, _order.amount, _order.price, _order.buyer, _order.sold);
     }
     
     function change_gas(uint256 newgas) public onlyMinter{

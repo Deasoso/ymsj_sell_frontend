@@ -10,10 +10,45 @@
             <div class="cardstage">
               <img class="cardpos" :src="drawablecards[showCardData.id].url">
             </div>
-            <div class="exchangestage">
-              <vue-scroll>
-                <b-table :data="data" :columns="columns"></b-table>
-              </vue-scroll>
+            <div class="exchangestage" 
+              v-infinite-scroll="loadTransaction" 
+              infinite-scroll-distance="20" 
+              style="overflow:auto">
+              <b-table :data="showtransactions">
+                <b-table-column field="orderid" label="ID" width="60" centered v-slot="props">
+                  {{ props.row.orderid }}
+                </b-table-column>
+                <b-table-column field="id" label="名称" centered v-slot="props">
+                  {{drawablecards[props.row.id].name}}
+                </b-table-column>
+                <b-table-column field="seller" label="买方" width="140" centered v-slot="props">
+                  <div class="table-owner-name">
+                    <vue-scroll :ops="ops">
+                      {{props.row.buyer}}
+                    </vue-scroll>
+                  </div>
+                </b-table-column>
+                <b-table-column field="buyer" label="卖方" width="140" centered v-slot="props">
+                  <div class="table-owner-name">
+                    <vue-scroll :ops="ops">
+                      {{props.row.seller}}
+                    </vue-scroll>
+                  </div>
+                </b-table-column>
+                <b-table-column field="amount" label="数量" centered v-slot="props">
+                  {{ props.row.amount }}
+                </b-table-column>
+                <b-table-column field="price" label="价格" centered v-slot="props">
+                  {{ props.row.price / 1e18 }}
+                </b-table-column>
+              </b-table>
+              <div v-if="transactionisall">
+                没有更多内容了
+              </div>
+              <div v-else style="width: 100px;margin: 0 auto;">
+                <div class="loading"></div>
+                <div class="loadingtext">加载中</div>
+              </div>
             </div>
           </div>
           <div class="rightcontent">
@@ -112,6 +147,7 @@
 import drawablecards from '@/util/constants/drawablecards';
 import randomavatars from '@/util/constants/randomavatars';
 import nft_abi from "@/contracts/NFT_abi.json"
+import orderapi from '@/util/getOrders'
 
 export default {
   data() {
@@ -126,40 +162,17 @@ export default {
         amount: 1,
         price: 1000000000000000000
       },
-      data: [
-        { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' },
-        { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' },
-        { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'date': '2016-04-26 06:26:28', 'gender': 'Female' },
-        { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'date': '2016-04-10 10:28:46', 'gender': 'Male' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' }
-      ],
-      columns: [
-        {
-          field: 'id',
-          label: 'ID',
-          width: '40',
-          numeric: true
-        },
-        {
-          field: 'first_name',
-          label: 'First Name',
-        },
-        {
-          field: 'last_name',
-          label: 'Last Name',
-        },
-        {
-          field: 'date',
-          label: 'Date',
-          centered: true
-        },
-        {
-          field: 'gender',
-          label: 'Gender',
+      ops: {
+        scrollPanel: {
+          scrollingX: true,
+          scrollingY: false,
         }
-      ]
+      },
+      showtransactions: [],
+      transactions: [],
+      transactionisall: false,
+      searchingTransaction: false,
+      transactionStart: 0
     }
   },
   props:['modalactive', 'cardData'],
@@ -174,6 +187,12 @@ export default {
   },
   watch:{
     modalactive: function(val){
+      if(val == true){ 
+        this.transactionisall = false;
+        this.showtransactions = [];
+        this.transactions = [];
+        this.transactionStart = 0;
+      }
       this.isCardModalActive = val;
     },
     cardData: function(val){
@@ -208,6 +227,26 @@ export default {
           })
         }
       );
+    },
+    loadTransaction(){
+      if(this.transactionisall) return;
+      if(this.searchingTransaction) return;
+      this.searchingTransaction = true;
+      setTimeout(async () => {
+        await this.getTransaction();
+        this.searchingTransaction = false;
+      },1000);
+      console.log('loading...');
+    },
+    async getTransaction(){
+      console.log(this.showCardData.id);
+      const transactionorders = await orderapi.getOrders(this.transactionStart, this.transactionStart + 16, true, false, 0, 0, this.showCardData.owner, (parseInt(this.showCardData.id) + 1));
+      const transactions = await orderapi.getTransactions(transactionorders);
+      this.showtransactions = this.showtransactions.concat(transactions);
+      this.transactionStart += transactions.length;
+      if (transactions.length < 16){// 不足16个，算找完了
+        this.transactionisall = true;
+      }
     }
   }	
 }
@@ -340,5 +379,27 @@ export default {
   font-weight: bold;
   width: 296px;
   height: 43px;
+}
+.table-owner-name{
+  max-width: 140px;
+  height: 20px;
+  margin: 0 auto;
+}
+.loading {
+  -webkit-animation: spinAround 500ms infinite linear;
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid #773F05;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+  margin-right: 8px;
+}
+.loadingtext{
+  margin-top: -19px;
 }
 </style>

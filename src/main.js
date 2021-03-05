@@ -18,10 +18,13 @@ Vue.use(Dialog)
 import vuescroll from 'vuescroll';
 Vue.use(vuescroll)
 
+import { InfiniteScroll } from 'element-ui';
+Vue.use(InfiniteScroll)
+
 Vue.config.productionTip = false
 
 Vue.prototype.Global = {
-  contract_address: "0x5c883782341fCd4B8fB2e722FBE1E758Ea4BCE37"
+  contract_address: "0xE6881bfDa3c5421a7f5EFb196C350DdE0b08eBAd"
 }
 
 new Vue({
