@@ -9,7 +9,7 @@
 <style scoped>
 .backpic{
   margin-top: 80px;
-  background-image: url("../../assets/title_slices/bgi1.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/bgi1.png");
   background-size: cover;
   background-position: center;
 }

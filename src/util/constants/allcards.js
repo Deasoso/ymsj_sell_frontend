@@ -106597,7 +106597,7 @@ module.exports = [
     "modelId": 100000
   },
   {
-    "url": "asset/UnderWorld/FirstVersion/CN_Card/0_1_通灵猫头鹰.png",
+    "url": "asset/UnderWorld/FirstVersion/CN_Card/0_1_通灵mty.png",
     "id": 100001,
     "type": 1,
     "childType": [

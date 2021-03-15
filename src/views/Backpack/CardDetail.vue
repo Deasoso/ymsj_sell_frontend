@@ -9,12 +9,12 @@
           <b-button type="is-dark" inverted outlined class="sharebutton" 
             style="border-color: #B2B2B2;color: #000000;"
             @click="share">
-            <img class="shareicon" src="../../assets/shop_slices/share.png">
+            <img class="shareicon" src="http://ymsjimg.deaso40.com/shop_slices/share.png">
             <span>分享卡牌</span>
           </b-button>
           <button v-if="havecard" class="button is-dark newexchange" @click="modalactive=true">
             <span class="icon">
-              <img src="../../assets/sellcards_slices/trade.png">
+              <img src="http://ymsjimg.deaso40.com/sellcards_slices/trade.png">
             </span>
             <span>新建交易</span>
           </button>
@@ -43,29 +43,29 @@
           <div class="teamname">阵营</div>
         </div>
         <div class="teamtype">
-          <img class="teamicon" src="@/assets/types/费用背景.png">
+          <img class="teamicon" src="http://ymsjimg.deaso40.com/types/费用背景.png">
           <div class="costtext">{{cardData.cost}}</div>
           <div class="teamname">AP</div>
         </div>
         <div class="teamtype">
-          <img class="teamicon" src="@/assets/types/defImg.png">
+          <img class="teamicon" src="http://ymsjimg.deaso40.com/types/defImg.png">
           <div class="deftext">{{cardData.def}}</div>
           <div class="teamname">DP</div>
         </div>
         <div class="teamtype">
           <div class="attrs">
-            <img v-for="index in cardData.whiteSpyNum" :key="index" class="attr" src="@/assets/types/attr_eye_white.png">
-            <img v-for="index in cardData.whiteBattleNum" :key="index" class="attr" src="@/assets/types/attr_battle_white.png">
-            <img v-for="index in cardData.whitePowerNum" :key="index" class="attr" src="@/assets/types/attr_power_white.png">
-            <img v-for="index in cardData.blackSpyNum" :key="index" class="attr" src="@/assets/types/attr_eye.png">
-            <img v-for="index in cardData.blackBattleNum" :key="index" class="attr" src="@/assets/types/attr_battle.png">
-            <img v-for="index in cardData.blackPowerNum" :key="index" class="attr" src="@/assets/types/attr_power.png">
+            <img v-for="index in cardData.whiteSpyNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_eye_white.png">
+            <img v-for="index in cardData.whiteBattleNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_battle_white.png">
+            <img v-for="index in cardData.whitePowerNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_power_white.png">
+            <img v-for="index in cardData.blackSpyNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_eye.png">
+            <img v-for="index in cardData.blackBattleNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_battle.png">
+            <img v-for="index in cardData.blackPowerNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_power.png">
             <div class="attrbottom" />
             <div class="teamname">属性</div>
           </div>
         </div>
         <div class="description">
-          <img class="descriptionicon" src="../../assets/backpack_slices/skill.png">
+          <img class="descriptionicon" src="http://ymsjimg.deaso40.com/backpack_slices/skill.png">
           <div class="descriptionname">技能</div>
           <div class="descriptiontext">
             <vue-scroll>
@@ -74,7 +74,7 @@
           </div>
         </div>
         <div class="description">
-          <img class="descriptionicon" src="../../assets/backpack_slices/man.png">
+          <img class="descriptionicon" src="http://ymsjimg.deaso40.com/backpack_slices/man.png">
           <div class="descriptionname">简介</div>
           <div class="descriptiontext">
             <vue-scroll>
@@ -164,7 +164,7 @@ export default {
 <style scoped>
 .backpic{
   margin-top: 80px;
-  background-image: url("../../assets/allcards_slices/bgi7.png");
+  background-image: url("http://ymsjimg.deaso40.com/allcards_slices/bgi7.png");
   background-size: 100% auto;
   background-position: center;
 }

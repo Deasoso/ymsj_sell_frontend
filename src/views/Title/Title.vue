@@ -4,13 +4,13 @@
       <!-- <div class="hero-body"> -->
         <div class="container">
           <div class="logopos whiteborder">
-            <img class="ymsjlogo" src="../../assets/ymsjlogo.png">
+            <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
           </div>
           <div class="textpos whiteborder">
             <span class="subtitletext">超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！</span>
           </div>
           <div class="buttonpos" @click="$router.push('/Shop')">
-            <a><img class="goldbutton" src="@/assets/title_slices/button1.png"></a>
+            <a><img class="goldbutton" src="http://ymsjimg.deaso40.com/title_slices/button1.png"></a>
             <a><div class="buttontext">立即领取</div></a>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .backpic{
   margin-top: 80px;
-  background-image: url("../../assets/title_slices/bgi1.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/bgi1.png");
   background-size: cover;
   background-position: center;
 }

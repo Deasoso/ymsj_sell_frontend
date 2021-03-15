@@ -8,7 +8,7 @@
             </div>
             <div class="level-right" @click="$router.push('/Backpack')" style="cursor: pointer;">
               查看更多
-              <img class="arrowlogo" src="@/assets/allcards_slices/goto.png">
+              <img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
             </div>
           </nav>
         </div>
@@ -39,7 +39,7 @@
           </div>
           <div class="level-right" @click="$router.push('/Backpack')">
             查看更多
-            <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
+            <img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
           </div>
         </nav>
       </div>
@@ -139,7 +139,7 @@ export default {
 <style scoped>
 .backpic{
   margin-top: 80px;
-  background-image: url("../../assets/allcards_slices/bgi7.png");
+  background-image: url("http://ymsjimg.deaso40.com/allcards_slices/bgi7.png");
   background-size: 100% auto;
   background-position: center;
 }

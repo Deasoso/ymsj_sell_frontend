@@ -28,7 +28,7 @@
           <p class="level-item">
             <a class="button pricebutton" @click="$emit('ClickBuy')">
               <span class="icon">
-                <img src="../../assets/sellcards_slices/编组.png">
+                <img src="http://ymsjimg.deaso40.com/sellcards_slices/编组.png">
               </span>
               <span class="price">
                 {{getPrice(cardData.price)}}

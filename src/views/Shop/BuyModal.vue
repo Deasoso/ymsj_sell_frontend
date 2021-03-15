@@ -12,38 +12,38 @@
             class="delete"
             @click="cancelHandler"/> -->
           <button class="button selectgem gembuttonleft1">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>100</span>
           </button>
           <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>200</span>
           </button>
 
           <button class="button selectgem gembuttonleft">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>500</span>
           </button>
           <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>1000</span>
           </button>
 
           <button class="button selectgem gembuttonleft">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>2000</span>
           </button>
           <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>5000</span>
           </button>
 
           <button class="button selectgem gembuttonleft">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>10000</span>
           </button>
           <button class="button selectgem gembuttonright">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <span>50000</span>
           </button>
         </div>

@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="buttonpos" @click="$router.push('/Shop')">
-            <a><img class="goldbutton" src="@/assets/title_slices/button1.png"></a>
+            <a><img class="goldbutton" src="http://ymsjimg.deaso40.com/title_slices/button1.png"></a>
             <a><div class="buttontext">立即前往</div></a>
             <!-- tip Deaso: 本来想全部按钮改成img，但是后来发现加个cursor就可以所以就没弄了。 -->
           </div>
@@ -27,7 +27,7 @@
 
 <style scoped>
 .backpic{
-  background-image: url("../../assets/title_slices/bgi3.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/bgi3.png");
   background-size: cover;
   background-position: left;
   margin-top: -32px;

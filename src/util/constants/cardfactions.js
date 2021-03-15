@@ -1,38 +1,38 @@
 module.exports = [{
   id: 0,//heavy
-  url: require('@/assets/types/heavy_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/heavy_img.png',
   name: '帷幕守望'
 },{
   id: 1,//hunter
-  url: require('@/assets/types/hunter_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/hunter_img.png',
   name: '猎魔人'
 },{
   id: 2,//throne
-  url: require('@/assets/types/throne_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/throne_img.png',
   name: '王座会'
 },{
   id: 3,//bell
-  url: require('@/assets/types/bell_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/bell_img.png',
   name: '鸣钟教派'
 },{
   id: 4,//country
-  url: require('@/assets/types/country_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/country_img.png',
   name: '国家机构'
 },{
   id: 5,//sages
-  url: require('@/assets/types/sages_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/sages_img.png',
   name: '圣贤'
 },{
   id: 6,//square
-  url: require('@/assets/types/square_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/square_img.png',
   name: '方碑序列'
 },{
   id: 7,//dream
-  url: require('@/assets/types/dream_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/dream_img.png',
   name: '梦境行者'
 },{
   id: 8,//neutral
-  url: require('@/assets/types/neutral_img.png'),
+  url: 'http://ymsjimg.deaso40.com/types/neutral_img.png',
   name: '中立'
 }]/**
  * 卡牌派系

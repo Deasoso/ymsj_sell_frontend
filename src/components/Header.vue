@@ -3,7 +3,7 @@
     <nav class="navbar is-fixed-top nav_shadow" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <img class="ymsjlogo" src="../assets/ymsjlogo.png">
+          <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav" style="height: 80px;">
           <span aria-hidden="true"></span>

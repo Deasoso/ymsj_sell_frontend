@@ -9,7 +9,7 @@
           <b-button type="is-dark" inverted outlined class="sharebutton" 
             style="border-color: #B2B2B2;color: #000000;"
             @click="share">
-            <img class="shareicon" src="../../assets/shop_slices/share.png">
+            <img class="shareicon" src="http://ymsjimg.deaso40.com/shop_slices/share.png">
             <span>分享主页</span>
           </b-button>
         </div>
@@ -20,12 +20,12 @@
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;">
         <div class="level-left" style="cursor: pointer;">
-          <img class="goodslogo" src="../../assets/mine_slices/card.png">
+          <img class="goodslogo" src="http://ymsjimg.deaso40.com/mine_slices/card.png">
           拥有的卡牌
         </div>
         <div class="level-right" @click="$router.push('/Backpack')" style="cursor: pointer;">
           查看更多
-          <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
+          <img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
         </div>
       </nav>
       <div class="teamcards">
@@ -37,19 +37,19 @@
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;cursor: pointer;">
         <div class="level-left">
-          <img class="shoplogo" src="../../assets/mine_slices/goods.png">
+          <img class="shoplogo" src="http://ymsjimg.deaso40.com/mine_slices/goods.png">
           在售的商品
         </div>
         <div class="level-right" @click="$router.push('/SellCards')" style="cursor: pointer;">
           查看更多
-          <img class="arrowlogo" src="../../assets/allcards_slices/goto.png">
+          <img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
         </div>
       </nav>
       <div class="shopgoods">
         <div v-for="(cardData, index) in showorders" :key="index" :class="index == 0 ? 'shopgood1' : 'shopgood'">
           <img class="shopcard" :src="drawablecards[cardData.id].url">
           <a class="button pricebutton" @click="$router.push('/SellCards')">
-            <img class="priceicon" src="../../assets/sellcards_slices/编组.png">
+            <img class="priceicon" src="http://ymsjimg.deaso40.com/sellcards_slices/编组.png">
             <span class="price">
               {{getPrice(cardData.price)}}
             </span>
@@ -58,7 +58,7 @@
       </div>
       <nav class="level haveheader" style="margin-bottom: 8px;">
         <div class="level-left">
-          <img class="shoplogo" src="../../assets/mine_slices/exchange.png">
+          <img class="shoplogo" src="http://ymsjimg.deaso40.com/mine_slices/exchange.png">
           交易记录
         </div>
       </nav>
@@ -199,7 +199,7 @@ export default {
 <style scoped>
 .backpic{
   margin-top: 80px;
-  background-image: url("../../assets/allcards_slices/bgi7.png");
+  background-image: url("http://ymsjimg.deaso40.com/allcards_slices/bgi7.png");
   background-size: cover;
   background-position: center;
 }

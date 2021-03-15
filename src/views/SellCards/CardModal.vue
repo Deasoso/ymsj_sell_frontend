@@ -63,7 +63,7 @@
                 <div class="level-right">
                   <button class="button sharebutton">
                     <span class="shareicon">
-                      <img src="../../assets/sellcards_slices/share2.png" />
+                      <img src="http://ymsjimg.deaso40.com/sellcards_slices/share2.png" />
                     </span>
                   </button>
                 </div>
@@ -112,7 +112,7 @@
                       {{Global.contract_address}}
                     </vue-scroll>
                   </div>
-                  <img class="addresslogo" src="../../assets/sellcards_slices/copy.png">
+                  <img class="addresslogo" src="http://ymsjimg.deaso40.com/sellcards_slices/copy.png">
                 </div>
               </nav>
               <div class="justaline"></div>
@@ -120,7 +120,7 @@
             <div class="buystage">
               <nav class="level" style="margin-bottom: 0px;">
                 <div class="level-left">
-                  <img class="ethlogo" src="../../assets/sellcards_slices/编组.png">
+                  <img class="ethlogo" src="http://ymsjimg.deaso40.com/sellcards_slices/编组.png">
                   <div class="ethtext">
                     {{getPrice(showCardData.price)}}
                   </div>
@@ -150,7 +150,7 @@ export default {
       randomavatars: randomavatars,
       isCardModalActive: false,
       showCardData: {
-        url: require("@/assets/cards/01联会禁音使.png"),
+        url: "http://ymsjimg.deaso40.com/cards/01联会禁音使.png",
         owner: 1,
         id: 0,
         amount: 1,

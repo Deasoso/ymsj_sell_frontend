@@ -2,10 +2,10 @@
   <div class="hello">
     <section class="is-cover allheight backpic">
       <div class="logopos1 whiteborder">
-        <img class="ymsjlogo" src="../../assets/title_slices/element3.png">
+        <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/title_slices/element3.png">
       </div>
       <div class="logopos2 whiteborder">
-        <img class="ymsjlogo" src="../../assets/title_slices/element3(1).png">
+        <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/title_slices/element3(1).png">
       </div>
       <div class="textpos whiteborder">
         <div class="subtitletext">「隐秘世界」</div>
@@ -20,7 +20,7 @@
 
 <style scoped>
 .backpic{
-  background-image: url("../../assets/title_slices/bgi6.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/bgi6.png");
   background-size: cover;
   background-position: center;
 }

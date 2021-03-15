@@ -13,7 +13,7 @@
         <div class="level-left"></div>
         <div class="level-right">
           <div class="goldbuttonback" @click="buymodalactive=true">
-            <img class="gemicon" src="../../assets/shop_slices/宝石15.png">
+            <img class="gemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
             <a class="goldbuttontext">购买宝石</a>
           </div>
         </div>
@@ -23,17 +23,17 @@
           <div class="titletext">卡牌召唤</div>
         </div>
         <div class="subtitlepos whiteborder">
-          <img class="treasurebox" src="../../assets/shop_slices/treasurebox.png">
+          <img class="treasurebox" src="http://ymsjimg.deaso40.com/shop_slices/treasurebox.png">
         </div>
         <div class="intextpos">
           <nav class="level buybuttons"><!-- 有level，按钮垂直居中 -->
             <div class="buybuttonback" @click="draw(1)">
-              <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
+              <img class="buygemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
               <a class="buybuttonvalue">0.010</a>
               <a class="buybuttontext">单次召唤</a>
             </div>
             <div class="buybuttonback" @click="draw(10)">
-              <img class="buygemicon" src="../../assets/shop_slices/宝石15.png">
+              <img class="buygemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
               <a class="buybuttonvalue">0.100</a>
               <a class="buybuttontext">十连召唤</a>
             </div>
@@ -49,7 +49,7 @@
           </p>
         </div>
       </nav>
-      <!-- <img class="fairy" src="../../assets/shop_slices/fair.png"> -->
+      <!-- <img class="fairy" src="http://ymsjimg.deaso40.com/shop_slices/fair.png"> -->
     </section>
     <buy-modal :buymodalactive.sync="buymodalactive" />
     <draw-modal 
@@ -162,7 +162,7 @@ export default {
 <style scoped>
 .backpic{
   margin-top: 80px;
-  background-image: url("../../assets/shop_slices/bgi8.png");
+  background-image: url("http://ymsjimg.deaso40.com/shop_slices/bgi8.png");
   background-size: cover;
   background-position: right;
   padding-top: 200px;
@@ -200,7 +200,7 @@ export default {
 }
 .goldbuttonback{
   background-size: 100% 100%;
-  background-image: url("../../assets/shop_slices/button2.png");
+  background-image: url("http://ymsjimg.deaso40.com/shop_slices/button2.png");
   width: 220px;
   height: 60px;
   padding-top: 16px;
@@ -258,7 +258,7 @@ export default {
 .buybuttonback{
   margin-left: 109px;
   background-size: 100% 100%;
-  background-image: url("../../assets/shop_slices/button1.png");
+  background-image: url("http://ymsjimg.deaso40.com/shop_slices/button1.png");
   width: 268px;
   height: 60px;
   padding-top: 16px;

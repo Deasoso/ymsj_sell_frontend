@@ -18,7 +18,7 @@
               <button class="button allgoods">
                 <span style="margin-right: 12px;">全部商品</span>
                 <span class="icon is-small">
-                  <img src="../../assets/sellcards_slices/paixu.png" />
+                  <img src="http://ymsjimg.deaso40.com/sellcards_slices/paixu.png" />
                 </span>
               </button>
             </template>
@@ -43,7 +43,7 @@
               </b-autocomplete>
               <button class="button searchbutton" @click="refreshCard">
                 <span class="icon searchicon">
-                  <img src="../../assets/sellcards_slices/search.png" />
+                  <img src="http://ymsjimg.deaso40.com/sellcards_slices/search.png" />
                 </span>
               </button>
             </div>
@@ -51,7 +51,7 @@
           <div class="level-item">
             <button class="button is-dark newexchange" @click="sellmodalactive=true">
               <span class="icon">
-                <img src="../../assets/sellcards_slices/trade.png">
+                <img src="http://ymsjimg.deaso40.com/sellcards_slices/trade.png">
               </span>
               <span>新建交易</span>
             </button>
@@ -201,7 +201,7 @@ export default {
 
 <style scoped>
 .backpic{
-  background-image: url("../../assets/allcards_slices/bgi7.png");
+  background-image: url("http://ymsjimg.deaso40.com/allcards_slices/bgi7.png");
   background-size: 100% auto;
   background-position: center;
   background-position-y: 0;

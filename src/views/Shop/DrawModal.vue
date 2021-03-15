@@ -93,7 +93,7 @@ export default {
 }
 .goldbuttonback{
   background-size: 100% 100%;
-  background-image: url("../../assets/shop_slices/button1.png");
+  background-image: url("http://ymsjimg.deaso40.com/shop_slices/button1.png");
   width: 268px;
   height: 60px;
   padding-top: 16px;

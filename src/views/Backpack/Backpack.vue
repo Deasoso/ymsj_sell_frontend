@@ -67,7 +67,7 @@
                 </b-autocomplete>
                 <button class="button searchbutton" @click="refreshCard">
                   <span class="icon searchicon">
-                    <img src="../../assets/sellcards_slices/search.png" />
+                    <img src="http://ymsjimg.deaso40.com/sellcards_slices/search.png" />
                   </span>
                 </button>
               </div>
@@ -86,7 +86,6 @@
 </template>
 
 <script>
-import usercards from '@/assets/fakedatas/usercards'
 import drawablecards from '@/util/constants/drawablecards'
 import cardfactions from '@/util/constants/cardfactions'
 
@@ -192,7 +191,7 @@ export default {
 
 <style scoped>
 .backpic{
-  background-image: url("../../assets/allcards_slices/bgi7.png");
+  background-image: url("http://ymsjimg.deaso40.com/allcards_slices/bgi7.png");
   background-size: 100% auto;
   background-position: center;
   margin-top: 80px;

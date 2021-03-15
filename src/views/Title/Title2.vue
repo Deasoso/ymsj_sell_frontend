@@ -4,7 +4,7 @@
       <!-- <div class="hero-body"> -->
         <div class="container">
           <h1 class="ypos1 whiteborder">
-            <img class="nextlogo" src="../../assets/title_slices/element1.png">
+            <img class="nextlogo" src="http://ymsjimg.deaso40.com/title_slices/element1.png">
           </h1>
           <h2 class="ypos2 whiteborder">
             <span class="subtitletext">即刻开始你的卡牌收藏之旅</span>
@@ -15,7 +15,7 @@
         </div>
         <div class="ypos4">
           <div class="card1 cardback">
-            <img class="cardlogo" src="../../assets/title_slices/battle.png">
+            <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/battle.png">
             <div class="cardtitle">
               战斗
             </div>
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="card2 cardback">
-            <img class="cardlogo" src="../../assets/title_slices/cards.png">
+            <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/cards.png">
             <div class="cardtitle">
               收藏
             </div>
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="card3 cardback">
-            <img class="cardlogo" src="../../assets/title_slices/coin.png">
+            <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/coin.png">
             <div class="cardtitle">
               交易
             </div>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="card4 cardback">
-            <img class="cardlogo" src="../../assets/title_slices/crown.png">
+            <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/crown.png">
             <div class="cardtitle">
               愿景
             </div>
@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <img class="ypos5" src="../../assets/title_slices/element2.png">
+        <img class="ypos5" src="http://ymsjimg.deaso40.com/title_slices/element2.png">
       <!-- </div> -->
     </section>
   </div>
@@ -59,7 +59,7 @@
 
 <style scoped>
 .backpic{
-  background-image: url("../../assets/title_slices/bgi2.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/bgi2.png");
   background-size: cover;
   background-position: center;
 }
@@ -99,7 +99,7 @@
 }
 .cardback{
   background-size: 100% 100%;
-  background-image: url("../../assets/title_slices/cardback.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/cardback.png");
   width: 266px;
   height: 384px;
 }

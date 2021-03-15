@@ -1,6 +1,6 @@
 module.exports =  [
   {
-    "url": require("@/assets/cards/0_1_通灵猫头鹰.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_1_通灵mty.png",
     "id": 1,
     "type": 1,
     "childType": [
@@ -41,7 +41,7 @@ module.exports =  [
     "modelId": 1
   },
   {
-    "url": require("@/assets/cards/0_2_巨石阵看护人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_2_巨石阵看护人.png",
     "id": 2,
     "type": 1,
     "childType": [
@@ -82,7 +82,7 @@ module.exports =  [
     "modelId": 2
   },
   {
-    "url": require("@/assets/cards/0_3_帷幕护卫.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_3_帷幕护卫.png",
     "id": 3,
     "type": 1,
     "childType": [
@@ -123,7 +123,7 @@ module.exports =  [
     "modelId": 3
   },
   {
-    "url": require("@/assets/cards/0_4_力场法师.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_4_力场法师.png",
     "id": 4,
     "type": 1,
     "childType": [
@@ -165,7 +165,7 @@ module.exports =  [
     "modelId": 4
   },
   {
-    "url": require("@/assets/cards/0_5_裂解术.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_5_裂解术.png",
     "id": 5,
     "type": 2,
     "childType": [
@@ -206,7 +206,7 @@ module.exports =  [
     "modelId": 5
   },
   {
-    "url": require("@/assets/cards/0_6_常春藤派学者.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_6_常春藤派学者.png",
     "id": 6,
     "type": 1,
     "childType": [
@@ -247,7 +247,7 @@ module.exports =  [
     "modelId": 6
   },
   {
-    "url": require("@/assets/cards/0_7_逆转异界之门.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_7_逆转异界之门.png",
     "id": 7,
     "type": 2,
     "childType": [
@@ -288,7 +288,7 @@ module.exports =  [
     "modelId": 7
   },
   {
-    "url": require("@/assets/cards/0_8_灵能激发.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_8_灵能激发.png",
     "id": 8,
     "type": 2,
     "childType": [
@@ -370,7 +370,7 @@ module.exports =  [
   //   "modelId": 9
   // },
   {
-    "url": require("@/assets/cards/0_10_青手，费南迪尔.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_10_青手，费南迪尔.png",
     "id": 10,
     "type": 1,
     "childType": [
@@ -412,7 +412,7 @@ module.exports =  [
     "modelId": 10
   },
   {
-    "url": require("@/assets/cards/0_11_德莫斯提尼·，大魔法师.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_11_德莫斯提尼·，大魔法师.png",
     "id": 11,
     "type": 1,
     "childType": [
@@ -498,7 +498,7 @@ module.exports =  [
   //   "modelId": 12
   // },
   {
-    "url": require("@/assets/cards/0_13_公路骑士.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_13_公路骑士.png",
     "id": 13,
     "type": 1,
     "childType": [
@@ -537,7 +537,7 @@ module.exports =  [
     "modelId": 13
   },
   {
-    "url": require("@/assets/cards/0_14_驱魔人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_14_驱魔人.png",
     "id": 14,
     "type": 1,
     "childType": [
@@ -578,7 +578,7 @@ module.exports =  [
     "modelId": 14
   },
   {
-    "url": require("@/assets/cards/0_15_执行部精锐.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_15_执行部精锐.png",
     "id": 15,
     "type": 1,
     "childType": [
@@ -617,7 +617,7 @@ module.exports =  [
     "modelId": 15
   },
   {
-    "url": require("@/assets/cards/0_16_除咒师.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_16_除咒师.png",
     "id": 16,
     "type": 1,
     "childType": [
@@ -658,7 +658,7 @@ module.exports =  [
     "modelId": 16
   },
   {
-    "url": require("@/assets/cards/0_17_弥尔顿的镇魔枪.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_17_弥尔顿的镇魔枪.png",
     "id": 17,
     "type": 4,
     "childType": [
@@ -700,7 +700,7 @@ module.exports =  [
     "modelId": 17
   },
   {
-    "url": require("@/assets/cards/0_18_魔刃传人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_18_魔刃传人.png",
     "id": 18,
     "type": 1,
     "childType": [
@@ -741,7 +741,7 @@ module.exports =  [
     "modelId": 18
   },
   {
-    "url": require("@/assets/cards/0_19_引路仙子.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_19_引路仙子.png",
     "id": 19,
     "type": 1,
     "childType": [
@@ -782,7 +782,7 @@ module.exports =  [
     "modelId": 19
   },
   {
-    "url": require("@/assets/cards/0_20_隐蔽的飞刀.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_20_隐蔽的飞刀.png",
     "id": 20,
     "type": 4,
     "childType": [
@@ -824,7 +824,7 @@ module.exports =  [
     "modelId": 20
   },
   {
-    "url": require("@/assets/cards/0_21_狭路相逢.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_21_狭路相逢.png",
     "id": 21,
     "type": 2,
     "childType": [
@@ -865,7 +865,7 @@ module.exports =  [
     "modelId": 21
   },
   {
-    "url": require("@/assets/cards/0_22_范·弥尔顿，.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_22_范·弥尔顿，.png",
     "id": 22,
     "type": 1,
     "childType": [
@@ -906,7 +906,7 @@ module.exports =  [
     "modelId": 22
   },
   {
-    "url": require("@/assets/cards/0_23_S.P.T董事局，.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_23_S.P.T董事局，.png",
     "id": 23,
     "type": 1,
     "childType": [
@@ -990,7 +990,7 @@ module.exports =  [
   //   "modelId": 24
   // },
   {
-    "url": require("@/assets/cards/0_25_鲜血奴仆.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_25_鲜血奴仆.png",
     "id": 25,
     "type": 1,
     "childType": [
@@ -1031,7 +1031,7 @@ module.exports =  [
     "modelId": 25
   },
   {
-    "url": require("@/assets/cards/0_26_新生血族.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_26_新生血族.png",
     "id": 26,
     "type": 1,
     "childType": [
@@ -1070,7 +1070,7 @@ module.exports =  [
     "modelId": 26
   },
   {
-    "url": require("@/assets/cards/0_27_巨型蝙蝠.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_27_巨型蝙蝠.png",
     "id": 27,
     "type": 1,
     "childType": [
@@ -1111,7 +1111,7 @@ module.exports =  [
     "modelId": 27
   },
   {
-    "url": require("@/assets/cards/0_28_唤灵师.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_28_唤灵师.png",
     "id": 28,
     "type": 1,
     "childType": [
@@ -1152,7 +1152,7 @@ module.exports =  [
     "modelId": 28
   },
   {
-    "url": require("@/assets/cards/0_29_初拥.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_29_初拥.png",
     "id": 29,
     "type": 4,
     "childType": [
@@ -1194,7 +1194,7 @@ module.exports =  [
     "modelId": 29
   },
   {
-    "url": require("@/assets/cards/0_30_血族长老.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_30_血族长老.png",
     "id": 30,
     "type": 1,
     "childType": [
@@ -1279,7 +1279,7 @@ module.exports =  [
   //   "modelId": 31
   // },
   {
-    "url": require("@/assets/cards/0_32_传媒魔咒.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_32_传媒魔咒.png",
     "id": 32,
     "type": 4,
     "childType": [
@@ -1365,7 +1365,7 @@ module.exports =  [
   //   "modelId": 33
   // },
   {
-    "url": require("@/assets/cards/0_34_克里斯蒂娜·，爱弗罗德.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_34_克里斯蒂娜·，爱弗罗德.png",
     "id": 34,
     "type": 1,
     "childType": [
@@ -1406,7 +1406,7 @@ module.exports =  [
     "modelId": 34
   },
   {
-    "url": require("@/assets/cards/0_35_列恩，·爱弗罗德.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_35_列恩，·爱弗罗德.png",
     "id": 35,
     "type": 1,
     "childType": [
@@ -2001,7 +2001,7 @@ module.exports =  [
   //   "modelId": 48
   // },
   {
-    "url": require("@/assets/cards/0_49_地区警员.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_49_地区警员.png",
     "id": 49,
     "type": 1,
     "childType": [
@@ -2042,7 +2042,7 @@ module.exports =  [
     "modelId": 49
   },
   {
-    "url": require("@/assets/cards/0_50_监控员.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_50_监控员.png",
     "id": 50,
     "type": 1,
     "childType": [
@@ -2083,7 +2083,7 @@ module.exports =  [
     "modelId": 50
   },
   {
-    "url": require("@/assets/cards/0_51_坚毅的刑警.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_51_坚毅的刑警.png",
     "id": 51,
     "type": 1,
     "childType": [
@@ -2124,7 +2124,7 @@ module.exports =  [
     "modelId": 51
   },
   {
-    "url": require("@/assets/cards/0_52_安全保卫部门.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_52_安全保卫部门.png",
     "id": 52,
     "type": 1,
     "childType": [
@@ -2165,7 +2165,7 @@ module.exports =  [
     "modelId": 52
   },
   {
-    "url": require("@/assets/cards/0_53_神秘学顾问.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_53_神秘学顾问.png",
     "id": 53,
     "type": 1,
     "childType": [
@@ -2206,7 +2206,7 @@ module.exports =  [
     "modelId": 53
   },
   {
-    "url": require("@/assets/cards/0_54_危机处理特派小组.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_54_危机处理特派小组.png",
     "id": 54,
     "type": 1,
     "childType": [
@@ -2247,7 +2247,7 @@ module.exports =  [
     "modelId": 54
   },
   {
-    "url": require("@/assets/cards/0_55_档案调查.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_55_档案调查.png",
     "id": 55,
     "type": 2,
     "childType": [
@@ -2288,7 +2288,7 @@ module.exports =  [
     "modelId": 55
   },
   {
-    "url": require("@/assets/cards/0_56_警车追捕.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_56_警车追捕.png",
     "id": 56,
     "type": 2,
     "childType": [
@@ -2329,7 +2329,7 @@ module.exports =  [
     "modelId": 56
   },
   {
-    "url": require("@/assets/cards/0_57_戒严.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_57_戒严.png",
     "id": 57,
     "type": 4,
     "childType": [
@@ -2372,7 +2372,7 @@ module.exports =  [
     "modelId": 57
   },
   {
-    "url": require("@/assets/cards/0_58_审问嫌疑人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_58_审问嫌疑人.png",
     "id": 58,
     "type": 2,
     "childType": [
@@ -2413,7 +2413,7 @@ module.exports =  [
     "modelId": 58
   },
   {
-    "url": require("@/assets/cards/0_59_封魔瓶，瑟琳娜.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_59_封魔瓶，瑟琳娜.png",
     "id": 59,
     "type": 1,
     "childType": [
@@ -2454,7 +2454,7 @@ module.exports =  [
     "modelId": 59
   },
   {
-    "url": require("@/assets/cards/0_60_约翰·F·纳特里，.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/0_60_约翰·F·纳特里，.png",
     "id": 60,
     "type": 1,
     "childType": [
@@ -2496,7 +2496,7 @@ module.exports =  [
   },
   ,
   {
-    "url": require("@/assets/cards/01联会禁音使.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/01联会禁音使.png",
     "id": 107,
     "type": 1,
     "childType": [
@@ -2538,7 +2538,7 @@ module.exports =  [
     "modelId": 107
   },
   {
-    "url": require("@/assets/cards/02轮回秘仪.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/02轮回秘仪.png",
     "id": 108,
     "type": 4,
     "childType": [
@@ -2580,7 +2580,7 @@ module.exports =  [
     "modelId": 108
   },
   {
-    "url": require("@/assets/cards/03力场束缚.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/03力场束缚.png",
     "id": 109,
     "type": 4,
     "childType": [
@@ -2622,7 +2622,7 @@ module.exports =  [
     "modelId": 109
   },
   {
-    "url": require("@/assets/cards/04抹除现实.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/04抹除现实.png",
     "id": 110,
     "type": 4,
     "childType": [
@@ -2664,7 +2664,7 @@ module.exports =  [
     "modelId": 110
   },
   {
-    "url": require("@/assets/cards/05天火的捷列娃.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/05天火的捷列娃.png",
     "id": 111,
     "type": 1,
     "childType": [
@@ -2706,7 +2706,7 @@ module.exports =  [
     "modelId": 111
   },
   {
-    "url": require("@/assets/cards/06入梦的费南迪尔.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/06入梦的费南迪尔.png",
     "id": 112,
     "type": 1,
     "childType": [
@@ -2749,7 +2749,7 @@ module.exports =  [
     "modelId": 112
   },
   {
-    "url": require("@/assets/cards/07圣水.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/07圣水.png",
     "id": 113,
     "type": 4,
     "childType": [
@@ -2791,7 +2791,7 @@ module.exports =  [
     "modelId": 113
   },
   {
-    "url": require("@/assets/cards/08银弹爆头.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/08银弹爆头.png",
     "id": 114,
     "type": 2,
     "childType": [
@@ -2832,7 +2832,7 @@ module.exports =  [
     "modelId": 114
   },
   {
-    "url": require("@/assets/cards/09临时征召.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/09临时征召.png",
     "id": 115,
     "type": 2,
     "childType": [
@@ -2873,7 +2873,7 @@ module.exports =  [
     "modelId": 115
   },
   {
-    "url": require("@/assets/cards/10邪物克星.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/10邪物克星.png",
     "id": 116,
     "type": 1,
     "childType": [
@@ -2916,7 +2916,7 @@ module.exports =  [
     "modelId": 116
   },
   {
-    "url": require("@/assets/cards/11伊丽莎白.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/11伊丽莎白.png",
     "id": 117,
     "type": 1,
     "childType": [
@@ -2960,7 +2960,7 @@ module.exports =  [
     "modelId": 117
   },
   {
-    "url": require("@/assets/cards/12暴躁血仆.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/12暴躁血仆.png",
     "id": 118,
     "type": 1,
     "childType": [
@@ -3002,7 +3002,7 @@ module.exports =  [
     "modelId": 118
   },
   {
-    "url": require("@/assets/cards/13焚血之道.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/13焚血之道.png",
     "id": 119,
     "type": 4,
     "childType": [
@@ -3045,7 +3045,7 @@ module.exports =  [
     "modelId": 119
   },
   {
-    "url": require("@/assets/cards/14鲜血.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/14鲜血.png",
     "id": 120,
     "type": 4,
     "childType": [
@@ -3087,7 +3087,7 @@ module.exports =  [
     "modelId": 120
   },
   {
-    "url": require("@/assets/cards/15爱弗罗德庄园.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/15爱弗罗德庄园.png",
     "id": 121,
     "type": 4,
     "childType": [
@@ -3129,7 +3129,7 @@ module.exports =  [
     "modelId": 121
   },
   {
-    "url": require("@/assets/cards/16法务部律师团.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/16法务部律师团.png",
     "id": 122,
     "type": 1,
     "childType": [
@@ -3172,7 +3172,7 @@ module.exports =  [
     "modelId": 122
   },
   {
-    "url": require("@/assets/cards/17祭品.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/17祭品.png",
     "id": 123,
     "type": 1,
     "childType": [
@@ -3213,7 +3213,7 @@ module.exports =  [
     "modelId": 123
   },
   {
-    "url": require("@/assets/cards/18计时人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/18计时人.png",
     "id": 124,
     "type": 1,
     "childType": [
@@ -3256,7 +3256,7 @@ module.exports =  [
     "modelId": 124
   },
   {
-    "url": require("@/assets/cards/19熵力化身.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/19熵力化身.png",
     "id": 125,
     "type": 1,
     "childType": [
@@ -3299,7 +3299,7 @@ module.exports =  [
     "modelId": 125
   },
   {
-    "url": require("@/assets/cards/20灵魂通道.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/20灵魂通道.png",
     "id": 126,
     "type": 2,
     "childType": [
@@ -3341,7 +3341,7 @@ module.exports =  [
     "modelId": 126
   },
   {
-    "url": require("@/assets/cards/21臣服于命运.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/21臣服于命运.png",
     "id": 127,
     "type": 2,
     "childType": [
@@ -3382,7 +3382,7 @@ module.exports =  [
     "modelId": 127
   },
   {
-    "url": require("@/assets/cards/22州议员.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/22州议员.png",
     "id": 128,
     "type": 1,
     "childType": [
@@ -3425,7 +3425,7 @@ module.exports =  [
     "modelId": 128
   },
   {
-    "url": require("@/assets/cards/23谨慎的办事员.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/23谨慎的办事员.png",
     "id": 129,
     "type": 1,
     "childType": [
@@ -3469,7 +3469,7 @@ module.exports =  [
     "modelId": 129
   },
   {
-    "url": require("@/assets/cards/24防暴警察.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/24防暴警察.png",
     "id": 130,
     "type": 1,
     "childType": [
@@ -3512,7 +3512,7 @@ module.exports =  [
     "modelId": 130
   },
   {
-    "url": require("@/assets/cards/25监控探头.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/25监控探头.png",
     "id": 131,
     "type": 4,
     "childType": [
@@ -3554,7 +3554,7 @@ module.exports =  [
     "modelId": 131
   },
   {
-    "url": require("@/assets/cards/26通缉令.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/26通缉令.png",
     "id": 132,
     "type": 4,
     "childType": [
@@ -3597,7 +3597,7 @@ module.exports =  [
     "modelId": 132
   },
   {
-    "url": require("@/assets/cards/27定点清除行动.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/27定点清除行动.png",
     "id": 133,
     "type": 2,
     "childType": [
@@ -3638,7 +3638,7 @@ module.exports =  [
     "modelId": 133
   },
   {
-    "url": require("@/assets/cards/28冥想者.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/28冥想者.png",
     "id": 134,
     "type": 1,
     "childType": [
@@ -3680,7 +3680,7 @@ module.exports =  [
     "modelId": 134
   },
   {
-    "url": require("@/assets/cards/29安魂师.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/29安魂师.png",
     "id": 135,
     "type": 1,
     "childType": [
@@ -3722,7 +3722,7 @@ module.exports =  [
     "modelId": 135
   },
   {
-    "url": require("@/assets/cards/30阿瓦隆岛的迷雾.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/30阿瓦隆岛的迷雾.png",
     "id": 136,
     "type": 4,
     "childType": [
@@ -3764,7 +3764,7 @@ module.exports =  [
     "modelId": 136
   },
   {
-    "url": require("@/assets/cards/32面壁苦修.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/32面壁苦修.png",
     "id": 137,
     "type": 4,
     "childType": [
@@ -3807,7 +3807,7 @@ module.exports =  [
     "modelId": 137
   },
   {
-    "url": require("@/assets/cards/33慈悲.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/33慈悲.png",
     "id": 138,
     "type": 2,
     "childType": [
@@ -3849,7 +3849,7 @@ module.exports =  [
     "modelId": 138
   },
   {
-    "url": require("@/assets/cards/34灵感.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/34灵感.png",
     "id": 139,
     "type": 2,
     "childType": [
@@ -3891,7 +3891,7 @@ module.exports =  [
     "modelId": 139
   },
   {
-    "url": require("@/assets/cards/35白骨仆人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/35白骨仆人.png",
     "id": 140,
     "type": 1,
     "childType": [
@@ -3934,7 +3934,7 @@ module.exports =  [
     "modelId": 140
   },
   {
-    "url": require("@/assets/cards/36圣甲虫的清理员.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/36圣甲虫的清理员.png",
     "id": 141,
     "type": 1,
     "childType": [
@@ -3976,7 +3976,7 @@ module.exports =  [
     "modelId": 141
   },
   {
-    "url": require("@/assets/cards/37夜总会看门人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/37夜总会看门人.png",
     "id": 142,
     "type": 1,
     "childType": [
@@ -4018,7 +4018,7 @@ module.exports =  [
     "modelId": 142
   },
   {
-    "url": require("@/assets/cards/38金特易卜拉欣.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/38金特易卜拉欣.png",
     "id": 143,
     "type": 1,
     "childType": [
@@ -4061,7 +4061,7 @@ module.exports =  [
     "modelId": 143
   },
   {
-    "url": require("@/assets/cards/39方碑徽记.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/39方碑徽记.png",
     "id": 144,
     "type": 4,
     "childType": [
@@ -4104,7 +4104,7 @@ module.exports =  [
     "modelId": 144
   },
   {
-    "url": require("@/assets/cards/40催眠术表演者.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/40催眠术表演者.png",
     "id": 145,
     "type": 1,
     "childType": [
@@ -4146,7 +4146,7 @@ module.exports =  [
     "modelId": 145
   },
   {
-    "url": require("@/assets/cards/41启迪之梦.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/41启迪之梦.png",
     "id": 146,
     "type": 1,
     "childType": [
@@ -4188,7 +4188,7 @@ module.exports =  [
     "modelId": 146
   },
   {
-    "url": require("@/assets/cards/42幻华.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/42幻华.png",
     "id": 147,
     "type": 4,
     "childType": [
@@ -4231,7 +4231,7 @@ module.exports =  [
     "modelId": 147
   },
   {
-    "url": require("@/assets/cards/43具现化.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/43具现化.png",
     "id": 148,
     "type": 4,
     "childType": [
@@ -4273,7 +4273,7 @@ module.exports =  [
     "modelId": 148
   },
   {
-    "url": require("@/assets/cards/44随风入梦.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/44随风入梦.png",
     "id": 149,
     "type": 2,
     "childType": [
@@ -4315,7 +4315,7 @@ module.exports =  [
     "modelId": 149
   },
   {
-    "url": require("@/assets/cards/45破颅而出.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/45破颅而出.png",
     "id": 150,
     "type": 2,
     "childType": [
@@ -4357,7 +4357,7 @@ module.exports =  [
     "modelId": 150
   },
   {
-    "url": require("@/assets/cards/46无名尸体.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/46无名尸体.png",
     "id": 151,
     "type": 1,
     "childType": [
@@ -4396,7 +4396,7 @@ module.exports =  [
     "modelId": 151
   },
   {
-    "url": require("@/assets/cards/47防弹战术背心.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/47防弹战术背心.png",
     "id": 152,
     "type": 4,
     "childType": [
@@ -4440,7 +4440,7 @@ module.exports =  [
     "modelId": 152
   },
   {
-    "url": require("@/assets/cards/48街头演说家.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/48街头演说家.png",
     "id": 153,
     "type": 1,
     "childType": [
@@ -4484,7 +4484,7 @@ module.exports =  [
     "modelId": 153
   },
   {
-    "url": require("@/assets/cards/49葬礼.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/49葬礼.png",
     "id": 154,
     "type": 2,
     "childType": [
@@ -4525,7 +4525,7 @@ module.exports =  [
     "modelId": 154
   },
   {
-    "url": require("@/assets/cards/50电磁风暴.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/50电磁风暴.png",
     "id": 155,
     "type": 2,
     "childType": [
@@ -4567,7 +4567,7 @@ module.exports =  [
     "modelId": 155
   },
   {
-    "url": require("@/assets/cards/51秘社的使节.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/51秘社的使节.png",
     "id": 156,
     "type": 1,
     "childType": [
@@ -4611,7 +4611,7 @@ module.exports =  [
     "modelId": 156
   },
   {
-    "url": require("@/assets/cards/52瘦长鬼影.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/52瘦长鬼影.png",
     "id": 157,
     "type": 1,
     "childType": [
@@ -4654,7 +4654,7 @@ module.exports =  [
     "modelId": 157
   },
   {
-    "url": require("@/assets/cards/53裂口女.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/53裂口女.png",
     "id": 158,
     "type": 1,
     "childType": [
@@ -4696,7 +4696,7 @@ module.exports =  [
     "modelId": 158
   },
   {
-    "url": require("@/assets/cards/54无知路人.png"),
+    "url": "http://ymsjimg.deaso40.com/cards/54无知路人.png",
     "id": 159,
     "type": 1,
     "childType": [

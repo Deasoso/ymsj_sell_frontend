@@ -25,7 +25,7 @@
 
 <style scoped>
 .backpic{
-  background-image: url("../../assets/title_slices/bgi4.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/bgi4.png");
   background-size: cover;
   background-position: right;
   margin-top: -32px;
@@ -45,7 +45,7 @@
 }
 .goldbuttonback{
   background-size: 100% 100%;
-  background-image: url("../../assets/title_slices/button1.png");
+  background-image: url("http://ymsjimg.deaso40.com/title_slices/button1.png");
   width: 178px;
   height: 40px;
   padding-top: 8px;
