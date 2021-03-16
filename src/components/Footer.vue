@@ -9,14 +9,14 @@
                           :to="{ name: 'Home'}">
                 Home
               </router-link>
-              <router-link class="navbar-item"
+              <!-- <router-link class="navbar-item"
                           :to="{ name: 'FAQ'}">
                 FAQ
-              </router-link>
+              </router-link> -->
             </div>
           </div>
           <div class="column is-4">
-            <div class="content">
+            <!-- <div class="content">
               <router-link class="navbar-item"
                           :to="{ name: 'Term'}">
                 Terms of Service
@@ -25,20 +25,20 @@
                           :to="{ name: 'Privacy'}">
                 Privacy Policy
               </router-link>
-            </div>
+            </div> -->
           </div>
           <div class="column is-4">
             <div class="content">
               <span> Contact Us</span>
-              <p><a href="https://www.baidu.com/"
+              <!-- <p><a href="https://www.baidu.com/"
                 target="_blank">
                 @Telegram
               </a></p>
               <p><a href="https://www.baidu.com/"
                 target="_blank">
                 @Discord
-              </a></p>
-              <p>Wechat Group: add wechat friend "xxx"</p>
+              </a></p> -->
+              <p>Wechat Group: add wechat friend "guanchao71"</p>
             </div>
           </div>
         </div>
