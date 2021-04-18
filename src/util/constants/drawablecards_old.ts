@@ -1,4 +1,4 @@
-module.exports =  [
+module.exports = [
   {
     "url": "http://ymsjimg.deaso40.com/cards/0_1_通灵mty.png",
     "id": 1,

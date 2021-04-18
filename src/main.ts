@@ -4,15 +4,15 @@ import App from './App.vue'
 import router from "./router";
 import { store } from './store/'
 
+// @ts-ignore
 import Bulma from 'bulma'
 import 'bulma/css/bulma.min.css'
 Vue.use(Bulma)
 
-import Buefy from 'buefy'
+// @ts-ignore
+import Buefy, { Dialog } from 'buefy'
 import 'buefy/dist/buefy.css'
 Vue.use(Buefy)
-
-import { Dialog } from 'buefy'
 Vue.use(Dialog)
 
 import vuescroll from 'vuescroll';
