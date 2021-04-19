@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal class="modalbackpos" :active="isCardModalActive" 
+    <b-modal class="modalbackpos" :active="isCardModalActive"
       :on-cancel="cancelHandler"
       :width="1232"
       scroll="keep">
@@ -10,44 +10,42 @@
             <div class="cardstage">
               <img class="cardpos" :src="drawablecards[showCardData.id].url">
             </div>
-            <div class="exchangestage" 
-              v-infinite-scroll="loadTransaction" 
-              infinite-scroll-distance="20" 
+            <div class="exchangestage"
+              v-infinite-scroll="loadTransaction"
+              infinite-scroll-distance="20"
               style="overflow:auto">
               <b-table :data="showtransactions">
                 <b-table-column field="orderid" label="ID" width="60" centered v-slot="props">
                   {{ props.row.orderid }}
                 </b-table-column>
-                <b-table-column field="id" label="名称" centered v-slot="props">
+                <b-table-column field="id" :label="$t('名称')" centered v-slot="props">
                   {{drawablecards[props.row.id].name}}
                 </b-table-column>
-                <b-table-column field="seller" label="买方" width="140" centered v-slot="props">
+                <b-table-column field="seller" :label="$t('买方')" width="140" centered v-slot="props">
                   <div class="table-owner-name">
                     <vue-scroll :ops="ops">
                       {{props.row.buyer}}
                     </vue-scroll>
                   </div>
                 </b-table-column>
-                <b-table-column field="buyer" label="卖方" width="140" centered v-slot="props">
+                <b-table-column field="buyer" :label="$t('卖方')" width="140" centered v-slot="props">
                   <div class="table-owner-name">
                     <vue-scroll :ops="ops">
                       {{props.row.seller}}
                     </vue-scroll>
                   </div>
                 </b-table-column>
-                <b-table-column field="amount" label="数量" centered v-slot="props">
+                <b-table-column field="amount" :label="$t('数量')" centered v-slot="props">
                   {{ props.row.amount }}
                 </b-table-column>
-                <b-table-column field="price" label="价格" centered v-slot="props">
+                <b-table-column field="price" :label="$t('价格')" centered v-slot="props">
                   {{ props.row.price / 1e18 }}
                 </b-table-column>
               </b-table>
-              <div v-if="transactionisall">
-                没有更多内容了
-              </div>
+              <div v-if="transactionisall">{{$t('没有更多内容了')}}</div>
               <div v-else style="width: 100px;margin: 0 auto;">
                 <div class="loading"></div>
-                <div class="loadingtext">加载中</div>
+                <div class="loadingtext">{{$t('加载中')}}</div>
               </div>
             </div>
           </div>
@@ -74,9 +72,7 @@
                 </vue-scroll>
               </div>
               <div class="justaline"></div>
-              <div class="creatortext">
-                创建者
-              </div>
+              <div class="creatortext">{{$t('创建者')}}</div>
               <nav class="ownerpos" style="margin-bottom: 0px;">
                 <div class="level-left">
                   <img class="ownerlogo" :src="randomavatars[parseInt('0x8c01d8cd287470a4597d4b10cd4c5c7dbe711125') % randomavatars.length].url">
@@ -88,9 +84,7 @@
                 </div>
               </nav>
               <div class="justaline"></div>
-              <div class="creatortext">
-                拥有者
-              </div>
+              <div class="creatortext">{{$t('拥有者')}}</div>
               <nav class="ownerpos" style="margin-bottom: 0px;">
                 <div class="level-left">
                   <img class="ownerlogo" :src="randomavatars[parseInt(showCardData.owner) % randomavatars.length].url">
@@ -102,9 +96,7 @@
                 </div>
               </nav>
               <div class="justaline"></div>
-              <div class="creatortext">
-                合约地址
-              </div>
+              <div class="creatortext">{{$t('合约地址')}}</div>
               <nav class="level addresspos" style="margin-bottom: 0px;">
                 <div class="level-left">
                   <div class="addresstext">
@@ -127,7 +119,7 @@
                 </div>
               </nav>
               <button class="button buybutton" @click="buyCard">
-                <span>购买该商品</span>
+                <span>{{$t('购买该商品')}}</span>
               </button>
             </div>
           </div>
@@ -140,17 +132,17 @@
 <script>
 import drawablecards from '@/util/constants/drawablecards'
 import randomavatars from '@/util/constants/randomavatars'
-import nft_abi from "@/contracts/NFT_abi.json"
+import nft_abi from '@/contracts/NFT_abi.json'
 import orderapi from '@/util/getOrders'
 
 export default {
-  data() {
+  data () {
     return {
       drawablecards: drawablecards,
       randomavatars: randomavatars,
       isCardModalActive: false,
       showCardData: {
-        url: "http://ymsjimg.deaso40.com/cards/01联会禁音使.png",
+        url: 'http://ymsjimg.deaso40.com/cards/01联会禁音使.png',
         owner: 1,
         id: 0,
         amount: 1,
@@ -159,7 +151,7 @@ export default {
       ops: {
         scrollPanel: {
           scrollingX: true,
-          scrollingY: false,
+          scrollingY: false
         }
       },
       showtransactions: [],
@@ -169,80 +161,80 @@ export default {
       transactionStart: 0
     }
   },
-  props:['modalactive', 'cardData'],
+  props: ['modalactive', 'cardData'],
   computed: {
-    web3(){
-      return this.$store.state.web3;
+    web3 () {
+      return this.$store.state.web3
     },
-    contract(){
-      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
-      return contract_in.at(this.Global.contract_address);
+    contract () {
+      const contract_in = this.web3.web3Instance().eth.contract(nft_abi)
+      return contract_in.at(this.Global.contract_address)
     }
   },
-  watch:{
-    modalactive: function(val){
-      if(val == true){ 
-        this.transactionisall = false;
-        this.showtransactions = [];
-        this.transactions = [];
-        this.transactionStart = 0;
+  watch: {
+    modalactive: function (val) {
+      if (val == true) {
+        this.transactionisall = false
+        this.showtransactions = []
+        this.transactions = []
+        this.transactionStart = 0
       }
-      this.isCardModalActive = val;
+      this.isCardModalActive = val
     },
-    cardData: function(val){
-      this.showCardData = val;
+    cardData: function (val) {
+      this.showCardData = val
     }
   },
   methods: {
-    cancelHandler(){
-      this.isCardModalActive = false;
-      this.$emit('update:modalactive', this.isCardModalActive);
+    cancelHandler () {
+      this.isCardModalActive = false
+      this.$emit('update:modalactive', this.isCardModalActive)
     },
-    getPrice(input){
+    getPrice (input) {
       // if(input < 1e9) return '< 0.000000001';
       // if(input > 1e27) return '> 1000000000.000';
-      return input / 1e18;
+      return input / 1e18
     },
-    async buyCard(){
-      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
-      console.log(this.contract);
-      var that = this;
+    async buyCard () {
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase
+      console.log(this.contract)
+      var that = this
       await new Promise(
         (resolve, reject) => {
           that.contract.buy_card(
             that.showCardData.orderid,
-            {value: this.showCardData.price},
-            function(error, result){
-            if(!error){
-              resolve(result);
-            }else{
-              reject(error);
-            }
-          })
+            { value: this.showCardData.price },
+            function (error, result) {
+              if (!error) {
+                resolve(result)
+              } else {
+                reject(error)
+              }
+            })
         }
-      );
+      )
     },
-    loadTransaction(){
-      if(this.transactionisall) return;
-      if(this.searchingTransaction) return;
-      this.searchingTransaction = true;
+    loadTransaction () {
+      if (this.transactionisall) return
+      if (this.searchingTransaction) return
+      this.searchingTransaction = true
       setTimeout(async () => {
-        await this.getTransaction();
-        this.searchingTransaction = false;
-      },1000);
-      console.log('loading...');
+        await this.getTransaction()
+        this.searchingTransaction = false
+      }, 1000)
+      console.log('loading...')
     },
-    async getTransaction(){
-      console.log(this.showCardData.id);
-      const transactionorders = await orderapi.getOrders(this.transactionStart, this.transactionStart + 16, true, false, 0, 0, this.showCardData.owner, (parseInt(this.showCardData.id) + 1));
-      const transactions = await orderapi.getTransactions(transactionorders);
-      this.showtransactions = this.showtransactions.concat(transactions);
-      this.transactionStart += transactions.length;
-      if (transactions.length < 16){// 不足16个，算找完了
-        this.transactionisall = true;
+    async getTransaction () {
+      console.log(this.showCardData.id)
+      const transactionorders = await orderapi.getOrders(this.transactionStart, this.transactionStart + 16, true, false, 0, 0, this.showCardData.owner, (parseInt(this.showCardData.id) + 1))
+      const transactions = await orderapi.getTransactions(transactionorders)
+      this.showtransactions = this.showtransactions.concat(transactions)
+      this.transactionStart += transactions.length
+      if (transactions.length < 16) { // 不足16个，算找完了
+        this.transactionisall = true
       }
     }
-  }	
+  }
 }
 </script>
 

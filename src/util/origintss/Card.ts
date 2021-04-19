@@ -1,3 +1,4 @@
+// @ts-noCheck
 /**
  * 卡牌
  */
@@ -5,7 +6,7 @@ class Card {
     /**
      * 计数
      */
-    static idCount: number = 0;
+    static idCount = 0;
     /**
      * 卡牌模型：全卡牌资料
      */
@@ -66,27 +67,27 @@ class Card {
     /**
      * 战斗标记：白-侦查
      */
-    whiteSpyNum: number = 0;
+    whiteSpyNum = 0;
     /**
      * 战斗标记：白-战斗
      */
-    whiteBattleNum: number = 0;
+    whiteBattleNum = 0;
     /**
      * 战斗标记：白-势力
      */
-    whitePowerNum: number = 0;
+    whitePowerNum = 0;
     /**
      * 战斗标记：黑-侦查
      */
-    blackSpyNum: number = 0;
+    blackSpyNum = 0;
     /**
      * 战斗标记：黑-战斗
      */
-    blackBattleNum: number = 0;
+    blackBattleNum = 0;
     /**
      * 战斗标记：黑-势力
      */
-    blackPowerNum: number = 0;
+    blackPowerNum = 0;
     /**
      * 防御力
      */
@@ -94,7 +95,7 @@ class Card {
     /**
      * 魔法领域 对应 ConstCartMagicArea.ts的值
      * 心灵/神圣/星辰/死亡/血脉
-     * 
+     *
      */
     magicAreaID: number;
     /**
@@ -133,7 +134,7 @@ class Card {
     /**
      * 可以被装备卡牌结附次数 -1 无数次 0 不可以被结附
      */
-    beEquipped: number = -1;
+    beEquipped = -1;
     /**
      * 锁定次数(锁定后无法被敌方选择为目标 <= 0 未锁定)
      */

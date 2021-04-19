@@ -8,11 +8,11 @@
         <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/title_slices/element3(1).png">
       </div>
       <div class="textpos whiteborder">
-        <div class="subtitletext">「隐秘世界」</div>
-        <div class="subtitletext">引领卡牌游戏新潮流</div>
+        <div class="subtitletext">{{$t('「隐秘世界」')}}</div>
+        <div class="subtitletext">{{$t('引领卡牌游戏新潮流')}}</div>
       </div>
       <div class="buttonpos goldbuttonback" @click="$router.push('/Shop')">
-        <a class="buttontext">立即游玩</a>
+        <a class="buttontext">{{$t('立即游玩')}}</a>
       </div>
     </section>
   </div>

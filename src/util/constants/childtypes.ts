@@ -1,367 +1,457 @@
-module.exports = 
-[{name:'普通',NORMAL: 0},{
- 
-  name: "装备",
- 
-  EQUIE: 1},{
+module.exports =
+[{ name: '普通', NORMAL: 0 }, {
 
-  name: "武器",
+  name: '装备',
 
-  WEAPON: 2},{
+  EQUIE: 1
+}, {
 
-  name: "人类",
+  name: '武器',
 
-  HUMAN: 3},{
+  WEAPON: 2
+}, {
 
-  name: "法师",
+  name: '人类',
 
-  MASTER: 4},{
+  HUMAN: 3
+}, {
 
-  name: "罪犯",
+  name: '法师',
 
-  CRIMINAL: 5},{
+  MASTER: 4
+}, {
 
-  name: "鸟",
+  name: '罪犯',
 
-  BIRD: 6},{
+  CRIMINAL: 5
+}, {
 
-  name: "魔宠",
+  name: '鸟',
 
-  FAMILIAR: 7},{
+  BIRD: 6
+}, {
 
-  name: "法术",
+  name: '魔宠',
 
-  MAGICARTS: 8},{
+  FAMILIAR: 7
+}, {
 
-  name: "空间",
+  name: '法术',
 
-  SPACE: 9},{
+  MAGICARTS: 8
+}, {
 
-  name: "幽灵",
+  name: '空间',
 
-  GHOST: 10},{
+  SPACE: 9
+}, {
 
-  name: "异界",
+  name: '幽灵',
 
-  OTHERWORLD: 11},{
+  GHOST: 10
+}, {
 
-  name: "梦魇",
+  name: '异界',
 
-  INCUBUS: 12},{
+  OTHERWORLD: 11
+}, {
 
-  name: "梦境",
+  name: '梦魇',
 
-  DREAMWORLD: 13},{
+  INCUBUS: 12
+}, {
 
-  name: "机构",
+  name: '梦境',
 
-  MECHANISM: 14},{
+  DREAMWORLD: 13
+}, {
 
-  name: "状态",
+  name: '机构',
 
-  STATUS: 15},{
+  MECHANISM: 14
+}, {
 
-  name: "诅咒",
+  name: '状态',
 
-  CURSE: 16},{
+  STATUS: 15
+}, {
 
-  name: "学者",
+  name: '诅咒',
 
-  SCHOLAR: 17},{
+  CURSE: 16
+}, {
 
-  name: "阴",
+  name: '学者',
 
-  SHADE: 18},{
+  SCHOLAR: 17
+}, {
 
-  name: "猎手",
+  name: '阴',
 
-  HUNTER: 19},{
+  SHADE: 18
+}, {
 
-  name: "艺术家",
+  name: '猎手',
 
-  ARTIST: 20},{
+  HUNTER: 19
+}, {
 
-  name: "特工",
+  name: '艺术家',
 
-  SPY: 21},{
+  ARTIST: 20
+}, {
 
-  name: "仙灵",
+  name: '特工',
 
-  FAERIES: 22},{
+  SPY: 21
+}, {
 
-  name: "精魂",
+  name: '仙灵',
 
-  SPIRIT: 23},{
+  FAERIES: 22
+}, {
 
-  name: "策略",
+  name: '精魂',
 
-  STRATEGY: 24},{
+  SPIRIT: 23
+}, {
 
-  name: "灾难",
+  name: '策略',
 
-  DISATER: 25},{
+  STRATEGY: 24
+}, {
 
-  name: "超能力者",
+  name: '灾难',
 
-  SUPERNATURAL: 26},{
+  DISATER: 25
+}, {
 
-  name: "吸血鬼",
+  name: '超能力者',
 
-  VAMPIRE: 27},{
+  SUPERNATURAL: 26
+}, {
 
-  name: "奴仆",
+  name: '吸血鬼',
 
-  SERVANT: 28},{
+  VAMPIRE: 27
+}, {
 
-  name: "蝙蝠",
+  name: '奴仆',
 
-  BAT: 29},{
+  SERVANT: 28
+}, {
 
-  name: "猫",
+  name: '蝙蝠',
 
-  CAT: 30},{
+  BAT: 29
+}, {
 
-  name: "道途",
+  name: '猫',
 
-  ROAD: 31},{
+  CAT: 30
+}, {
 
-  name: "工程师",
+  name: '道途',
 
-  ENGINEER: 32},{
+  ROAD: 31
+}, {
 
-  name: "仪式",
+  name: '工程师',
 
-  CEREMONY: 33},{
+  ENGINEER: 32
+}, {
 
-  name: "资源",
+  name: '仪式',
 
-  RESOURCE: 34},{
+  CEREMONY: 33
+}, {
 
-  name: "邪教徒",
+  name: '资源',
 
-  GIAOUR: 35},{
+  RESOURCE: 34
+}, {
 
-  name: "交通工具",
+  name: '邪教徒',
 
-  VEHICLE: 36},{
+  GIAOUR: 35
+}, {
 
-  name: "法器",
+  name: '交通工具',
 
-  TAOISTMASS: 37},{
+  VEHICLE: 36
+}, {
 
-  name: "雕像",
+  name: '法器',
 
-  STATUARY: 38},{
+  TAOISTMASS: 37
+}, {
 
-  name: "圣者",
+  name: '雕像',
 
-  SAINT: 39},{
+  STATUARY: 38
+}, {
 
-  name: "警察",
+  name: '圣者',
 
-  POLICE: 40},{
+  SAINT: 39
+}, {
 
-  name: "遗迹",
+  name: '警察',
 
-  RELIC: 41},{
+  POLICE: 40
+}, {
 
-  name: "水域",
+  name: '遗迹',
 
-  WATERS: 42},{
+  RELIC: 41
+}, {
 
-  name: "城市",
+  name: '水域',
 
-  CITY: 43},{
+  WATERS: 42
+}, {
 
-  name: "局势",
+  name: '城市',
 
-  SITUATION: 44},{
+  CITY: 43
+}, {
 
-  name: "僧侣",
+  name: '局势',
 
-  MONK: 45},{
+  SITUATION: 44
+}, {
 
-  name: "预言",
+  name: '僧侣',
 
-  PROPHECY: 46},{
+  MONK: 45
+}, {
 
-  name: "能量",
+  name: '预言',
 
-  ENERGY: 47},{
+  PROPHECY: 46
+}, {
 
-  name: "心灵",
+  name: '能量',
 
-  CLEVER: 48},{
+  ENERGY: 47
+}, {
 
-  name: "研究",
+  name: '心灵',
 
-  RESEARCH: 49},{
+  CLEVER: 48
+}, {
 
-  name: "召唤",
+  name: '研究',
 
-  SUMMON: 50},{
+  RESEARCH: 49
+}, {
 
-  name: "徽章",
+  name: '召唤',
 
-  INSIGNIA: 51},{
+  SUMMON: 50
+}, {
 
-  name: "式神",
+  name: '徽章',
 
-  SHIKIGAMI: 52},{
+  INSIGNIA: 51
+}, {
 
-  name: "女妖",
+  name: '式神',
 
-  SUCCUBUS: 53},{
+  SHIKIGAMI: 52
+}, {
 
-  name: "结界",
+  name: '女妖',
 
-  ENCHANTMENT: 54},{
+  SUCCUBUS: 53
+}, {
 
-  name: "书籍",
+  name: '结界',
 
-  BOOKS: 55},{
+  ENCHANTMENT: 54
+}, {
 
-  name: "狗",
+  name: '书籍',
 
-  DOG: 56},{
+  BOOKS: 55
+}, {
 
-  name: "恶魔",
+  name: '狗',
 
-  DEVIL: 57},{
+  DOG: 56
+}, {
 
-  name: "貘",
+  name: '恶魔',
 
-  TAPIR: 58},{
+  DEVIL: 57
+}, {
 
-  name: "不死生物",
+  name: '貘',
 
-  UNDEAD: 59},{
+  TAPIR: 58
+}, {
 
-  name: "尸鬼",
+  name: '不死生物',
 
-  SHIKI: 60},{
+  UNDEAD: 59
+}, {
 
-  name: "蠕虫s",
+  name: '尸鬼',
 
-  WORM: 61},{
+  SHIKI: 60
+}, {
 
-  name: "政治家",
+  name: '蠕虫s',
 
-  POLITICIAN: 62},{
+  WORM: 61
+}, {
 
-  name: "护身符",
+  name: '政治家',
 
-  AMULET: 63},{
+  POLITICIAN: 62
+}, {
 
-  name: "斯芬克司",
+  name: '护身符',
 
-  SPHINX: 64},{
+  AMULET: 63
+}, {
 
-  name: "食尸鬼",
+  name: '斯芬克司',
 
-  GHOUL: 65},{
+  SPHINX: 64
+}, {
 
-  name: "天使",
+  name: '食尸鬼',
 
-  ANGEL: 66},{
+  GHOUL: 65
+}, {
 
-  name: "昆虫",
+  name: '天使',
 
-  INSECT: 67},{
+  ANGEL: 66
+}, {
 
-  name: "法师结社",
+  name: '昆虫',
 
-  MASTERASSOCIATION: 68},{
+  INSECT: 67
+}, {
 
-  name: "阴谋",
+  name: '法师结社',
 
-  CONSPIRACY: 69},{
+  MASTERASSOCIATION: 68
+}, {
 
-  name: "群体",
+  name: '阴谋',
 
-  COLONY: 70},{
+  CONSPIRACY: 69
+}, {
 
-  name: "秘密教派",
+  name: '群体',
 
-  MYSTERYRELIGION: 71},{
+  COLONY: 70
+}, {
 
-  name: "分支",
+  name: '秘密教派',
 
-  BRANCH: 72},{
+  MYSTERYRELIGION: 71
+}, {
 
-  name: "企业",
+  name: '分支',
 
-  ENTERPRISE: 73},{
+  BRANCH: 72
+}, {
 
-  name: "部门",
+  name: '企业',
 
-  DEPARTMENT: 74},{
+  ENTERPRISE: 73
+}, {
 
-  name: "家族",
+  name: '部门',
 
-  FAMILY: 75},{
+  DEPARTMENT: 74
+}, {
 
-  name: "行尸",
+  name: '家族',
 
-  WALKER: 76},{
+  FAMILY: 75
+}, {
 
-  name: "德鲁伊",
+  name: '行尸',
 
-  DRUID: 77},{
+  WALKER: 76
+}, {
 
-  name: "医疗员",
+  name: '德鲁伊',
 
-  MEDICALSTAFF: 78},{
+  DRUID: 77
+}, {
 
-  name: "命运",
+  name: '医疗员',
 
-  FATE: 79},{
+  MEDICALSTAFF: 78
+}, {
 
-  name: "物品",
+  name: '命运',
 
-  GOODS: 80},{
+  FATE: 79
+}, {
 
-  name: "战术",
+  name: '物品',
 
-  TACTICS: 81},{
+  GOODS: 80
+}, {
 
-  name: "领地",
+  name: '战术',
 
-  MANOR: 82},{
+  TACTICS: 81
+}, {
 
-  name: "律师",
+  name: '领地',
 
-  LAWYER: 83},{
+  MANOR: 82
+}, {
 
-  name: "生命",
+  name: '律师',
 
-  LIFE: 84},{
+  LAWYER: 83
+}, {
 
-  name: "文员",
+  name: '生命',
 
-  CLERK: 85},{
+  LIFE: 84
+}, {
 
-  name: "设施",
+  name: '文员',
 
-  FACILITIES: 86},{
+  CLERK: 85
+}, {
 
-  name: "修行",
+  name: '设施',
 
-  PRACTICE: 87},{
+  FACILITIES: 86
+}, {
 
-  name: "骷髅",
+  name: '修行',
 
-  HUMANSKELETON: 88},{
+  PRACTICE: 87
+}, {
 
-  name: "雇员",
+  name: '骷髅',
 
-  EMPLOYEE: 89},{
+  HUMANSKELETON: 88
+}, {
 
-  name: "防具",
+  name: '雇员',
 
-  ARMOR: 90},{
+  EMPLOYEE: 89
+}, {
 
-  name: "未知",
+  name: '防具',
+
+  ARMOR: 90
+}, {
+
+  name: '未知',
 
   UNKNOWN: 91
 

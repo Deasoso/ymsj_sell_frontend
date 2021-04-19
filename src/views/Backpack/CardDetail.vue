@@ -6,30 +6,26 @@
           <!-- 左边没有东西 -->
         </div>
         <div class="level-right">
-          <b-button type="is-dark" inverted outlined class="sharebutton" 
+          <b-button type="is-dark" inverted outlined class="sharebutton"
             style="border-color: #B2B2B2;color: #000000;"
             @click="share">
             <img class="shareicon" src="http://ymsjimg.deaso40.com/shop_slices/share.png">
-            <span>分享卡牌</span>
+            <span>{{$t('分享卡牌')}}</span>
           </b-button>
           <button v-if="havecard" class="button is-dark newexchange" @click="modalactive=true">
             <span class="icon">
               <img src="http://ymsjimg.deaso40.com/sellcards_slices/trade.png">
             </span>
-            <span>新建交易</span>
+            <span>{{$t('新建交易')}}</span>
           </button>
         </div>
       </nav>
       <img class="cardimg" :src="cardData.url">
       <div v-if="havecard">
-        <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #44D7B6;color: #15AD8B;">
-          已拥有
-        </b-button>
+        <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #44D7B6;color: #15AD8B;">{{$t('已拥有')}}</b-button>
       </div>
       <div v-else>
-        <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #bbbbbb;color: #bbbbbb;">
-          未拥有
-        </b-button>
+        <b-button type="is-dark" inverted outlined class="havebutton" style="border-color: #bbbbbb;color: #bbbbbb;">{{$t('未拥有')}}</b-button>
       </div>
       <div class="cardname">
         {{cardData.name}}
@@ -40,7 +36,7 @@
       <div class="teamtypes">
         <div class="teamtype">
           <img class="teamicon" :src="cardfactions[cardData.factions].url">
-          <div class="teamname">阵营</div>
+          <div class="teamname">{{$t('阵营')}}</div>
         </div>
         <div class="teamtype">
           <img class="teamicon" src="http://ymsjimg.deaso40.com/types/费用背景.png">
@@ -61,24 +57,24 @@
             <img v-for="index in cardData.blackBattleNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_battle.png">
             <img v-for="index in cardData.blackPowerNum" :key="index" class="attr" src="http://ymsjimg.deaso40.com/types/attr_power.png">
             <div class="attrbottom" />
-            <div class="teamname">属性</div>
+            <div class="teamname">{{$t('属性')}}</div>
           </div>
         </div>
         <div class="description">
           <img class="descriptionicon" src="http://ymsjimg.deaso40.com/backpack_slices/skill.png">
-          <div class="descriptionname">技能</div>
+          <div class="descriptionname">{{$t('技能')}}</div>
           <div class="descriptiontext">
             <vue-scroll>
-              {{cardData.skillInfo || "无"}}
+              {{cardData.skillInfo || $t('无')}}
             </vue-scroll>
           </div>
         </div>
         <div class="description">
           <img class="descriptionicon" src="http://ymsjimg.deaso40.com/backpack_slices/man.png">
-          <div class="descriptionname">简介</div>
+          <div class="descriptionname">{{$t('简介')}}</div>
           <div class="descriptiontext">
             <vue-scroll>
-              {{cardData.bgStory || "无"}}
+              {{cardData.bgStory || $t('无')}}
             </vue-scroll>
           </div>
         </div>
@@ -90,33 +86,33 @@
 
 <script>
 import SellModal from './SellModal'
-import drawablecards from '@/util/constants/drawablecards';
-import cardfactions from '@/util/constants/cardfactions';
-import childtypes from '@/util/constants/childtypes';
+import drawablecards from '@/util/constants/drawablecards'
+import cardfactions from '@/util/constants/cardfactions'
+import childtypes from '@/util/constants/childtypes'
 
 export default {
-	data(){
-		return{
+  data () {
+    return {
       modalactive: false,
       cardData: drawablecards[0],
-      cardfactions: cardfactions,
-		}
+      cardfactions: cardfactions
+    }
   },
-  computed:{
-    havecard(){
+  computed: {
+    havecard () {
       const arr = this.$store.state.cards.filter(item => {
         return item.id == this.cardData.id
       })
       return arr.length > 0
     }
   },
-  components:{
+  components: {
     SellModal
   },
-  mounted(){
-    this.cardData = drawablecards[this.$route.query.id];
+  mounted () {
+    this.cardData = drawablecards[this.$route.query.id]
   },
-  methods:{
+  methods: {
     // getCardType:
     // ConstCartType.AREA = 0;
     // ConstCartType.ACTOR = 1;
@@ -124,41 +120,41 @@ export default {
     // ConstCartType.SECRET_CIRCLE = 3;
     // ConstCartType.SECRET_ADD = 4;
     // 地区牌/角色牌/事务牌/秘社牌/附属牌
-    getCartType(index){
-      return index == 0 ? '地区' : index == 1 ? '角色' : index == 2 ? '事务' : index == 3 ? '秘社' : '附属';
+    getCartType (index) {
+      return index == 0 ? this.$t('地区') : index == 1 ? this.$t('角色') : index == 2 ? this.$t('事务') : index == 3 ? this.$t('秘社') : this.$t('附属')
     },
-    getChildTypes(inputtypes){
-      var str = '';
-      for(var i in inputtypes){
-        if(i == 0){
-          str += childtypes[inputtypes[i]].name;
-        }else{
-          str += ('/' + childtypes[inputtypes[i]].name);
+    getChildTypes (inputtypes) {
+      var str = ''
+      for (var i in inputtypes) {
+        if (i == 0) {
+          str += childtypes[inputtypes[i]].name
+        } else {
+          str += ('/' + childtypes[inputtypes[i]].name)
         }
       }
-      return str;
+      return str
     },
-    share(){
-      const _this = this;
+    share () {
+      const _this = this
       this.$copyText(location.href).then(
-        function(e) {
+        function (e) {
           _this.$buefy.dialog.alert({
-            title: '已复制',
-            message: '邀请链接已复制到剪切板！',
-            confirmText: '确认'
+            title: this.$t('已复制'),
+            message: this.$t('邀请链接已复制到剪切板！'),
+            confirmText: this.$t('确认')
           })
         },
-        function(e) {
+        function (e) {
           _this.$buefy.dialog.alert({
-            title: '复制失败',
-            message: '邀请链接复制失败，尝试手动复制？',
-            confirmText: '确认'
+            title: this.$t('复制失败'),
+            message: this.$t('邀请链接复制失败，尝试手动复制？'),
+            confirmText: this.$t('确认')
           })
         }
       )
     }
   }
-};
+}
 </script>
 
 <style scoped>

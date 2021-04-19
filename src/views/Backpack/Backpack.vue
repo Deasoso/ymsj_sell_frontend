@@ -8,9 +8,9 @@
           <!-- Left side -->
           <div class="level-left">
             <div class="level-item">
-              <span class="teamtext">阵营</span>
+              <span class="teamtext">{{$t('阵营')}}</span>
               <b-select v-model="selectteam" style="margin-left: 12px;" @input="refreshCard">
-                <option 
+                <option
                   v-for="data in teamoptions"
                   :value="data.value"
                   :key="data.value">
@@ -21,7 +21,7 @@
             <div class="level-item">
               <span class="teamtext2">AP</span>
               <b-select v-model="selectap" style="margin-left: 12px;" @input="refreshCard">
-                <option 
+                <option
                   v-for="data in apoptions"
                   :value="data.value"
                   :key="data.value">
@@ -32,7 +32,7 @@
             <div class="level-item">
               <span class="teamtext3">DP</span>
               <b-select v-model="selectdp" style="margin-left: 12px;" @input="refreshCard">
-                <option 
+                <option
                   v-for="data in dpoptions"
                   :value="data.value"
                   :key="data.value">
@@ -46,7 +46,7 @@
           <div class="level-right">
             <div class="level-item">
               <b-select v-model="selecttype" style="margin-left: 12px;" @input="refreshCard">
-                <option 
+                <option
                   v-for="data in typeoptions"
                   :value="data.value"
                   :key="data.value">
@@ -60,7 +60,7 @@
                   rounded
                   v-model="searchname"
                   :data="filteredDataArray"
-                  placeholder="输入要搜索的卡牌名称"
+                  :placeholder="$t('输入要搜索的卡牌名称')"
                   clearable
                   @select="option => {searchedname=option;refreshCard()}">
                     <template #empty>No results found</template>
@@ -90,8 +90,8 @@ import drawablecards from '@/util/constants/drawablecards'
 import cardfactions from '@/util/constants/cardfactions'
 
 export default {
-	data(){
-		return{
+  data () {
+    return {
       cards: [],
       showcards: [],
       drawablecards: drawablecards,
@@ -99,18 +99,18 @@ export default {
       searchnames: [],
       searchname: '',
       searchedname: '',
-      teamoptions: [{label: '全部阵营', value: 'all'}],
-      apoptions: [{label: '全部费用', value: 'all'}],
-      dpoptions: [{label: '全部防御', value: 'all'}],
-      typeoptions: [{label: '全部类型', value: 'all'}],
+      teamoptions: [{ label: this.$t('全部阵营'), value: 'all' }],
+      apoptions: [{ label: this.$t('全部费用'), value: 'all' }],
+      dpoptions: [{ label: this.$t('全部防御'), value: 'all' }],
+      typeoptions: [{ label: this.$t('全部类型'), value: 'all' }],
       selectteam: 'all',
       selectap: 'all',
       selectdp: 'all',
-      selecttype: 'all',
-		}
+      selecttype: 'all'
+    }
   },
   computed: {
-    filteredDataArray() {
+    filteredDataArray () {
       return this.searchnames.filter((option) => {
         return option
           .toString()
@@ -119,48 +119,48 @@ export default {
       })
     }
   },
-  watch:{
-    '$store.state.cards': function(newValue, oldValue){
-      this.cards = newValue;
-      this.refreshCard();
-		}
+  watch: {
+    '$store.state.cards': function (newValue, oldValue) {
+      this.cards = newValue
+      this.refreshCard()
+    }
   },
-  methods:{
-    getCartType(index){
-      return index == 0 ? '地区' : index == 1 ? '角色' : index == 2 ? '事务' : index == 3 ? '秘社' : '附属';
+  methods: {
+    getCartType (index) {
+      return index == 0 ? this.$t('地区') : index == 1 ? this.$t('角色') : index == 2 ? this.$t('事务') : index == 3 ? this.$t('秘社') : this.$t('附属')
     },
-    getSearchNames(){
+    getSearchNames () {
       var names = []
       drawablecards.filter(item => {
         names.push(item.name)
       })
-      this.searchnames = names;
+      this.searchnames = names
     },
-    refreshOption(){
-      this.teamoptions = [{label: '全部阵营', value: 'all'}];
-      this.apoptions = [{label: '全部费用', value: 'all'}];
-      this.dpoptions = [{label: '全部防御', value: 'all'}];
-      this.typeoptions = [{label: '全部类型', value: 'all'}];
-      for(var i in drawablecards){
-        if((this.teamoptions.filter(item => item.value == drawablecards[i].factions)).length <= 0){
+    refreshOption () {
+      this.teamoptions = [{ label: this.$t('全部阵营'), value: 'all' }]
+      this.apoptions = [{ label: this.$t('全部费用'), value: 'all' }]
+      this.dpoptions = [{ label: this.$t('全部防御'), value: 'all' }]
+      this.typeoptions = [{ label: this.$t('全部类型'), value: 'all' }]
+      for (var i in drawablecards) {
+        if ((this.teamoptions.filter(item => item.value == drawablecards[i].factions)).length <= 0) {
           this.teamoptions.push({
             label: cardfactions[drawablecards[i].factions].name,
             value: drawablecards[i].factions
           })
         }
-        if((this.apoptions.filter(item => item.value == drawablecards[i].cost)).length <= 0){
+        if ((this.apoptions.filter(item => item.value == drawablecards[i].cost)).length <= 0) {
           this.apoptions.push({
             label: drawablecards[i].cost,
             value: drawablecards[i].cost
           })
         }
-        if((this.dpoptions.filter(item => item.value == drawablecards[i].def)).length <= 0){
+        if ((this.dpoptions.filter(item => item.value == drawablecards[i].def)).length <= 0) {
           this.dpoptions.push({
             label: drawablecards[i].def,
             value: drawablecards[i].def
           })
         }
-        if((this.typeoptions.filter(item => item.value == drawablecards[i].type)).length <= 0){
+        if ((this.typeoptions.filter(item => item.value == drawablecards[i].type)).length <= 0) {
           this.typeoptions.push({
             label: this.getCartType(drawablecards[i].type),
             value: drawablecards[i].type
@@ -168,25 +168,25 @@ export default {
         }
       }
     },
-    refreshCard(){
+    refreshCard () {
       this.showcards = this.cards.filter(item => {
-        if (this.searchname && this.searchname != '' && drawablecards[item.id].name.indexOf(this.searchname) == -1) return false;
-        if (this.searchedname && this.searchedname != '' && drawablecards[item.id].name != this.searchedname) return false;
-        if (this.selectteam != 'all' && this.selectteam != drawablecards[item.id].factions) return false;
-        if (this.selectap != 'all' && this.selectap != drawablecards[item.id].cost) return false;
-        if (this.selectdp != 'all' && this.selectdp != drawablecards[item.id].def) return false;
-        if (this.selecttype != 'all' && this.selecttype != drawablecards[item.id].type) return false;
-        return true;
+        if (this.searchname && this.searchname != '' && drawablecards[item.id].name.indexOf(this.searchname) == -1) return false
+        if (this.searchedname && this.searchedname != '' && drawablecards[item.id].name != this.searchedname) return false
+        if (this.selectteam != 'all' && this.selectteam != drawablecards[item.id].factions) return false
+        if (this.selectap != 'all' && this.selectap != drawablecards[item.id].cost) return false
+        if (this.selectdp != 'all' && this.selectdp != drawablecards[item.id].def) return false
+        if (this.selecttype != 'all' && this.selecttype != drawablecards[item.id].type) return false
+        return true
       })
-    },
+    }
   },
-  mounted(){
-    this.getSearchNames();
-    this.refreshOption();
-    this.cards = this.$store.state.cards;
-    this.refreshCard();
+  mounted () {
+    this.getSearchNames()
+    this.refreshOption()
+    this.cards = this.$store.state.cards
+    this.refreshCard()
   }
-};
+}
 </script>
 
 <style scoped>

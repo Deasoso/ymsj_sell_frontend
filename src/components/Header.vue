@@ -13,11 +13,11 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-      
+
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
           <router-link v-for="(item, index) in headeritems" :key="index"
-            :class="'navbar-item ' + ((activeItem == item.to) ? 'yellowfont' : 'whitefont')" 
+            :class="'navbar-item ' + ((activeItem == item.to) ? 'yellowfont' : 'whitefont')"
             :to="{name: item.to}">
             <span>
               <img class="pagelogo" :src="(activeItem == item.to) ? item.active_url : item.url">
@@ -32,9 +32,9 @@
               <strong>登录钱包</strong>
             </button>
           </div>
-          <img class="speakerlogo" 
-            v-if="islogin" 
-            @click="$router.push('/Mine')" 
+          <img class="speakerlogo"
+            v-if="islogin"
+            @click="$router.push('/Mine')"
             :src="randomavatars[parseInt(account) % randomavatars.length].url">
         </div>
       </div>
@@ -43,71 +43,71 @@
 </template>
 
 <script>
-import headeritems from "@/util/constants/headeritems"
-import randomavatars from '@/util/constants/randomavatars';
+import headeritems from '@/util/constants/headeritems'
+import randomavatars from '@/util/constants/randomavatars'
 
 export default {
-  data() {
+  data () {
     return {
-      selected: "",
-      title: "",
+      selected: '',
+      title: '',
       islogin: false,
       headeritems: headeritems,
       account: 1,
-      randomavatars: randomavatars,
+      randomavatars: randomavatars
     }
   },
-  watch:{
-    '$store.state.web3.isInjected': function(val){
-      if(val){
-        this.account = this.$store.state.web3.coinbase;
-        this.islogin = true;
-      }else{
-        this.account = 1;
-        this.islogin = false;
+  watch: {
+    '$store.state.web3.isInjected': function (val) {
+      if (val) {
+        this.account = this.$store.state.web3.coinbase
+        this.islogin = true
+      } else {
+        this.account = 1
+        this.islogin = false
       }
     }
   },
-  methods:{
-    clicknav(){
-      this.$refs.nav.classList.toggle("is-active");
-      this.$refs.navitem.classList.toggle("is-active");
+  methods: {
+    clicknav () {
+      this.$refs.nav.classList.toggle('is-active')
+      this.$refs.navitem.classList.toggle('is-active')
     },
-    async login(){
-      if(!this.$store.state.web3.isInjected){
+    async login () {
+      if (!this.$store.state.web3.isInjected) {
         try {
-          if(!window.web3){
+          if (!window.web3) {
             this.$buefy.dialog.alert({
               title: '未检测到钱包',
               message: '请先安装Metamask钱包并解锁。',
               confirmText: '确认'
             })
-            this.islogin = false;
-            return;
+            this.islogin = false
+            return
           }
-          const accounts = await window.ethereum.send('eth_requestAccounts');
-          this.$router.go(0);
-          this.account = accounts[0];
-          this.islogin = true;
+          const accounts = await window.ethereum.send('eth_requestAccounts')
+          this.$router.go(0)
+          this.account = accounts[0]
+          this.islogin = true
         } catch (error) {
-          this.islogin = false;
-            // User denied account access
+          this.islogin = false
+          // User denied account access
         }
-      }else{
-        this.account = this.$store.state.web3.coinbase;
-        this.islogin = false;
+      } else {
+        this.account = this.$store.state.web3.coinbase
+        this.islogin = false
       }
     }
   },
   computed: {
-    activeItem(){
-      return this.$route.path.split('/')[1] || 'Home';
+    activeItem () {
+      return this.$route.path.split('/')[1] || 'Home'
     }
   },
-  mounted(){
-    if(this.$store.state.web3.isInjected){
-      this.account = this.$store.state.web3.coinbase;
-      this.islogin = true;
+  mounted () {
+    if (this.$store.state.web3.isInjected) {
+      this.account = this.$store.state.web3.coinbase
+      this.islogin = true
     }
   }
 }
@@ -165,4 +165,3 @@ strong {
   background-color: #666666;
 }
 </style>
-

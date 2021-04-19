@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Web3 from 'web3'
 
 /*
@@ -8,11 +9,11 @@ import Web3 from 'web3'
 * 5. Get user balance
 */
 
-let getWeb3 = new Promise(function (resolve, reject) {
+const getWeb3 = new Promise(function (resolve, reject) {
   // Check for injected web3 (mist/metamask)
-  var web3js = window.web3
+  const web3js = window.web3
   if (typeof web3js !== 'undefined') {
-    var web3 = new Web3(web3js.currentProvider)
+    const web3 = new Web3(web3js.currentProvider)
     resolve({
       injectedWeb3: web3.isConnected(),
       web3 () {
@@ -33,7 +34,7 @@ let getWeb3 = new Promise(function (resolve, reject) {
           reject(new Error('Unable to retrieve network ID'))
         } else {
           // Assign the networkId property to our result and resolve promise
-          result = Object.assign({}, result, {networkId})
+          result = Object.assign({}, result, { networkId })
           resolve(result)
         }
       })

@@ -1,39 +1,41 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import router from "./router";
+import router from './router'
 import { store } from './store/'
 
 // @ts-ignore
 import Bulma from 'bulma'
 import 'bulma/css/bulma.min.css'
-Vue.use(Bulma)
 
 // @ts-ignore
 import Buefy, { Dialog } from 'buefy'
 import 'buefy/dist/buefy.css'
-Vue.use(Buefy)
-Vue.use(Dialog)
 
-import vuescroll from 'vuescroll';
-Vue.use(vuescroll)
+import vuescroll from 'vuescroll'
 
-import { InfiniteScroll } from 'element-ui';
-Vue.use(InfiniteScroll)
+import { InfiniteScroll } from 'element-ui'
 
 import VueClipboard from 'vue-clipboard2'
+import { i18n } from '@/i18n'
+Vue.use(Bulma)
+Vue.use(Buefy)
+Vue.use(Dialog)
+Vue.use(vuescroll)
+Vue.use(InfiniteScroll)
 Vue.use(VueClipboard)
 
 Vue.config.productionTip = false
 
 Vue.prototype.Global = {
-  contract_address: "0xA124938ECE6A4aD35e624abF65139C62236dD672"
+  contract_address: '0xA124938ECE6A4aD35e624abF65139C62236dD672'
 }
 
 new Vue({
+  i18n,
   router,
   store,
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app')
 
-export default Vue;
+export default Vue
