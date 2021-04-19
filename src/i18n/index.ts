@@ -15,9 +15,14 @@ export const setLang = (lang: Lang) => {
   location.reload()
 }
 
+console.log(Object.fromEntries(map({
+  'zh-CN': Object.fromEntries(map(zhCN, (_: string, key: string) => [key, key])),
+  'en-US': enUS
+}, (el: Record<string, unknown>, key: Lang) => ([key, { message: el }])) as any[]))
+
 // Create VueI18n instance with options
 export const i18n = new VueI18n({
-  locale: currentLang, // set locale
+  locale: 'zh-CN', // set locale
   messages: Object.fromEntries(map({
     'zh-CN': Object.fromEntries(map(zhCN, (_: string, key: string) => [key, key])),
     'en-US': enUS

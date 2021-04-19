@@ -6,9 +6,15 @@
           <div class="column is-4">
             <div class="content">
               <router-link class="navbar-item"
-                          :to="{ name: 'Home'}">
+                           :to="{ name: 'Home'}">
                 Home
               </router-link>
+              <div class="navbar-item" @click="setLang('zh-CN')">
+                简体中文（中国）
+              </div>
+              <div class="navbar-item" @click="setLang('en-US')">
+                English (United State)
+              </div>
               <!-- <router-link class="navbar-item"
                           :to="{ name: 'FAQ'}">
                 FAQ
@@ -55,6 +61,19 @@
     </footer>
   </div>
 </template>
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
+import { setLang } from '@/i18n'
+
+export default defineComponent({
+  name: 'Footer',
+  setup () {
+    return {
+      setLang
+    }
+  }
+})
+</script>
 <style scoped>
 .footer{
   background-color: #333333;
@@ -66,5 +85,10 @@ strong {
 }
 .navbar-item{
   color: #ffffff;
+  cursor: pointer;
+}
+.navbar-item:hover{
+  color: black;
+  background: white;
 }
 </style>

@@ -7,6 +7,7 @@ import { store } from './store/'
 // @ts-ignore
 import Bulma from 'bulma'
 import 'bulma/css/bulma.min.css'
+import VueCompositionAPI from '@vue/composition-api'
 
 // @ts-ignore
 import Buefy, { Dialog } from 'buefy'
@@ -18,6 +19,7 @@ import { InfiniteScroll } from 'element-ui'
 
 import VueClipboard from 'vue-clipboard2'
 import { i18n } from '@/i18n'
+Vue.use(VueCompositionAPI)
 Vue.use(Bulma)
 Vue.use(Buefy)
 Vue.use(Dialog)
