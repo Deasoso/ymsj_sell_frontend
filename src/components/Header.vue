@@ -48,6 +48,7 @@ import randomavatars from '@/util/constants/randomavatars'
 import { defineComponent, ref, watch, onMounted, computed } from '@vue/composition-api'
 import { useRouter, useStore } from '@/util/composition'
 import { t } from '@/i18n'
+import { selectCase, selectData } from '@/util/lang'
 
 export default defineComponent({
   name: 'Header',
@@ -88,9 +89,23 @@ export default defineComponent({
           account.value = accounts[0]
           hasLoggedIn.value = true
         } catch (error) {
+          const info = selectData([error.code === '-30002', {
+            title: t('登录已在进行中'),
+            message: t('一个或多个登录已在进行中。请至 Metamask 钱包确认登录状态。')
+          }], [
+            true, {
+              title: t('登录时发生错误'),
+              message: t('登录时发生未知错误。')
+            }
+          ])
+          self.root.$buefy.dialog.alert({
+            ...info,
+            confirmText: t('确认')
+          })
           hasLoggedIn.value = false
         }
       } else {
+        console.log('user cancelled')
         account.value = store.state.web3.coinbase
         hasLoggedIn.value = false
       }
