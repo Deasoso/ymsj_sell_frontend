@@ -28,3 +28,5 @@ export const i18n = new VueI18n({
     'en-US': enUS
   }, (el: Record<string, unknown>, key: Lang) => ([key, { message: el }])) as any[])
 })
+
+export const t = i18n.t
