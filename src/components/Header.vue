@@ -5,7 +5,7 @@
         <a class="navbar-item" href="/">
           <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
         </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav" style="height: 80px;">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clickNav" style="height: 80px;">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -47,12 +47,13 @@ import headeritems from '@/util/constants/headeritems'
 import randomavatars from '@/util/constants/randomavatars'
 import { defineComponent, ref, watch, onMounted, computed } from '@vue/composition-api'
 import { useRouter, useStore } from '@/util/composition'
-import { t } from '@/i18n'
+import { i18n, t } from '@/i18n'
 import { selectCase, selectData } from '@/util/lang'
 
 export default defineComponent({
   name: 'Header',
   setup (_, self) {
+    const t = self.root.$t
     const store = useStore(self)
     const { route, router } = useRouter(self)
     const selected = ref('')
@@ -89,7 +90,7 @@ export default defineComponent({
           account.value = accounts[0]
           hasLoggedIn.value = true
         } catch (error) {
-          const info = selectData([error.code === '-30002', {
+          const info = selectData([error.code === '-32002', {
             title: t('登录已在进行中'),
             message: t('一个或多个登录已在进行中。请至 Metamask 钱包确认登录状态。')
           }], [

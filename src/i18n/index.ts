@@ -17,12 +17,9 @@ export const setLang = (lang: Lang) => {
 
 // Create VueI18n instance with options
 export const i18n = new VueI18n({
-  locale: 'zh-CN', // set locale
+  locale: currentLang, // set locale
   messages: Object.fromEntries(map({
     'zh-CN': Object.fromEntries(map(zhCN, (_: string, key: string) => [key, key])),
     'en-US': enUS
   }, (el: Record<string, unknown>, key: Lang) => ([key, { message: el }])) as any[])
 })
-
-// @ts-ignore
-export const t = i18n._vm.$t

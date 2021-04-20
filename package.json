@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "updateI18n": "vue-i18n-extract -v './src/views/**/*.?(ts|vue)' -l './src/i18n/*.json' --add"
+    "updateI18n": "vue-i18n-extract -v './src/{views,components}/**/*.?(ts|vue)' -l './src/i18n/*.json' --add"
   },
   "dependencies": {
     "@vue/composition-api": "^1.0.0-rc.7",
