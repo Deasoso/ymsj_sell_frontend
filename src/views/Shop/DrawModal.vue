@@ -1,21 +1,21 @@
 <template>
   <div>
-    <b-modal class="modalbackpos" :active="isCardModalActive" 
+    <b-modal class="modalbackpos" :active="isCardModalActive"
       :on-cancel="cancelHandler"
       :width="1920"
       scroll="keep">
       <div class="modalpos">
         <div class="sellcards">
-          <img 
-            v-for="(item, index) in drawedcards" :key="index" 
-            class="onecard" 
+          <img
+            v-for="(item, index) in drawedcards" :key="index"
+            class="onecard"
             :src="drawablecards[item.id].url">
           <div class="bottombuttons">
           <div class="buttonpos goldbuttonback" @click="$router.push('/Backpack')">
-            <a class="buttontext">我的背包</a>
+            <a class="buttontext">{{$t('我的背包')}}</a>
           </div>
           <div class="buttonpos goldbuttonback" @click="cancelHandler">
-            <a class="buttontext">返回商店</a>
+            <a class="buttontext">{{$t('返回商店')}}</a>
           </div>
         </div>
         </div>
@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import drawablecards from '@/util/constants/drawablecards';
+import drawablecards from '@/util/constants/drawablecards'
 
 export default {
-  data() {
+  data () {
     return {
       isCardModalActive: false,
       ops: {
@@ -37,20 +37,20 @@ export default {
       drawablecards: drawablecards
     }
   },
-  props:['modalactive', 'drawedcards'],
-  watch:{
-    modalactive: function(val){
-      this.isCardModalActive = val;
+  props: ['modalactive', 'drawedcards'],
+  watch: {
+    modalactive: function (val) {
+      this.isCardModalActive = val
     }
   },
   methods: {
-    cancelHandler(){
-      this.isCardModalActive = false;
-      this.$emit('update:modalactive', this.isCardModalActive);
-    },
+    cancelHandler () {
+      this.isCardModalActive = false
+      this.$emit('update:modalactive', this.isCardModalActive)
+    }
   },
-  mounted(){
-    this.isCardModalActive = this.modalactive;
+  mounted () {
+    this.isCardModalActive = this.modalactive
   }
 }
 </script>

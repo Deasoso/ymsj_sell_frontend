@@ -6,9 +6,7 @@
           <nav class="level" style="margin-bottom: 0px;">
             <div class="level-left">
             </div>
-            <div class="level-right" @click="$router.push('/Backpack')" style="cursor: pointer;">
-              查看更多
-              <img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
+            <div class="level-right" @click="$router.push('/Backpack')" style="cursor: pointer;">{{$t('查看更多')}}<img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
             </div>
           </nav>
         </div>
@@ -37,9 +35,7 @@
         <nav class="level">
           <div class="level-left">
           </div>
-          <div class="level-right" @click="$router.push('/Backpack')">
-            查看更多
-            <img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
+          <div class="level-right" @click="$router.push('/Backpack')">{{$t('查看更多')}}<img class="arrowlogo" src="http://ymsjimg.deaso40.com/allcards_slices/goto.png">
           </div>
         </nav>
       </div>
@@ -49,22 +45,22 @@
 
 <script>
 // import allcards from '@/util/constants/allcards'
-import drawablecards from '@/util/constants/drawablecards';
-import cardfactions from '@/util/constants/cardfactions';
+import drawablecards from '@/util/constants/drawablecards'
+import cardfactions from '@/util/constants/cardfactions'
 
 export default {
-  data() {
+  data () {
     return {
       ops: {
         scrollPanel: {
           scrollingX: true,
-          scrollingY: false,
+          scrollingY: false
         }
       },
       cardfactions: cardfactions
     }
   },
-  mounted(){
+  mounted () {
     // for (var i = 0; i < drawablecards.length; i++) {
     //   console.log(i);
     //   console.log(drawablecards[i])
@@ -116,21 +112,21 @@ export default {
     // }
     // console.log(allcards)
   },
-  methods:{
-    getCardsWidth(cards){
-      return "width:" + ((cards.length * 256) + ((cards.length - 1) * 24)) + "px;";
+  methods: {
+    getCardsWidth (cards) {
+      return 'width:' + ((cards.length * 256) + ((cards.length - 1) * 24)) + 'px;'
     },
-    getCardsByType(id){
+    getCardsByType (id) {
       var typecards = []
-      for(var index in drawablecards){
-        if(drawablecards[index].factions == id){
+      for (var index in drawablecards) {
+        if (drawablecards[index].factions == id) {
           typecards.push(drawablecards[index])
         }
       }
-      return typecards;
+      return typecards
     },
-    enterDetail(index){
-      this.$router.push('/CardDetail?id=' + index);
+    enterDetail (index) {
+      this.$router.push('/CardDetail?id=' + index)
     }
   }
 }

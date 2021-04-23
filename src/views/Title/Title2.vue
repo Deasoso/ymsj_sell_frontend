@@ -7,48 +7,32 @@
             <img class="nextlogo" src="http://ymsjimg.deaso40.com/title_slices/element1.png">
           </h1>
           <h2 class="ypos2 whiteborder">
-            <span class="subtitletext">即刻开始你的卡牌收藏之旅</span>
+            <span class="subtitletext">{{$t('即刻开始你的卡牌收藏之旅')}}</span>
           </h2>
           <h2 class="ypos3 whiteborder">
-            <span class="normaltext">《隐秘世界Online》改编自热门原创桌游《隐秘世界》，是一款基于区块链的集换式卡牌对战游戏。</span>
+            <span class="normaltext">{{$t('《隐秘世界Online》改编自热门原创桌游《隐秘世界》，是一款基于区块链的集换式卡牌对战游戏。')}}</span>
           </h2>
         </div>
         <div class="ypos4">
           <div class="card1 cardback">
             <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/battle.png">
-            <div class="cardtitle">
-              战斗
-            </div>
-            <div class="cardtext">
-              在对战中，玩家可以切换到远景模式，查看三个地区的总体情况，做出战略性的布局。
-            </div>
+            <div class="cardtitle">{{$t('战斗')}}</div>
+            <div class="cardtext">{{$t('在对战中，玩家可以切换到远景模式，查看三个地区的总体情况，做出战略性的布局。')}}</div>
           </div>
           <div class="card2 cardback">
             <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/cards.png">
-            <div class="cardtitle">
-              收藏
-            </div>
-            <div class="cardtext">
-              少量发放的卡牌，可能只有十几张、几张甚至唯一一张，具有极高的收藏价值。
-            </div>
+            <div class="cardtitle">{{$t('收藏')}}</div>
+            <div class="cardtext">{{$t('少量发放的卡牌，可能只有十几张、几张甚至唯一一张，具有极高的收藏价值。')}}</div>
           </div>
           <div class="card3 cardback">
             <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/coin.png">
-            <div class="cardtitle">
-              交易
-            </div>
-            <div class="cardtext">
-              玩家可以将链上的资产转移到交易行上进行寄售，也可以拍下别人寄售的资产。
-            </div>
+            <div class="cardtitle">{{$t('交易')}}</div>
+            <div class="cardtext">{{$t('玩家可以将链上的资产转移到交易行上进行寄售，也可以拍下别人寄售的资产。')}}</div>
           </div>
           <div class="card4 cardback">
             <img class="cardlogo" src="http://ymsjimg.deaso40.com/title_slices/crown.png">
-            <div class="cardtitle">
-              愿景
-            </div>
-            <div class="cardtext">
-              除了核心的对战玩法外，好友互动、卡组分析、背景图鉴等功能也会持续更新上线，形成一个完整的隐秘世界。
-            </div>
+            <div class="cardtitle">{{$t('愿景')}}</div>
+            <div class="cardtext">{{$t('除了核心的对战玩法外，好友互动、卡组分析、背景图鉴等功能也会持续更新上线，形成一个完整的隐秘世界。')}}</div>
           </div>
         </div>
         <img class="ypos5" src="http://ymsjimg.deaso40.com/title_slices/element2.png">

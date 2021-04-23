@@ -1,4 +1,4 @@
-let state = {
+const state = {
   web3: {
     isInjected: false,
     web3Instance: null,

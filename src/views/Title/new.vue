@@ -7,10 +7,10 @@
             <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
           </div>
           <div class="textpos whiteborder">
-            <span class="subtitletext">超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！</span>
+            <span class="subtitletext">{{$t('超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！')}}</span>
           </div>
           <div class="buttonpos goldbuttonback">
-            <a class="buttontext">立即领取</a>
+            <a class="buttontext">{{$t('立即领取')}}</a>
           </div>
         </div>
       <!-- </div> -->

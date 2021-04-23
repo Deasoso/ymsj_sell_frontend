@@ -4,18 +4,16 @@
       <!-- <div class="hero-body"> -->
         <div class="container toleft">
           <div class="titlepos whiteborder">
-            <div class="titletext">众多超高价值卡牌，等你来收藏 !</div>
+            <div class="titletext">{{$t('众多超高价值卡牌，等你来收藏！')}}</div>
           </div>
           <div class="subtitlepos whiteborder">
-            <div class="subtitletext">随着卡池的不断丰富，每一张旧卡被抽到的概率会越来越低，甚至永久退出卡池，以此保障卡牌价值。</div>
+            <div class="subtitletext">{{$t('随着卡池的不断丰富，每一张旧卡被抽到的概率会越来越低，甚至永久退出卡池，以此保障卡牌价值。')}}</div>
           </div>
           <div class="textbackpos">
-            <div class="intext">
-              《隐秘世界OL》中，抽取的卡牌和道具都是同步上链的。玩家可以在游戏中通过交易行功能进行非绑定卡牌和道具的拍卖、收购，也可以进行自由交易，保障了玩家资产的保值。如果玩家想脱坑了，随时可以卖掉全部的卡牌，变成虚拟货币。
-            </div>
+            <div class="intext">{{$t('《隐秘世界OL》中，抽取的卡牌和道具都是同步上链的。玩家可以在游戏中通过交易行功能进行非绑定卡牌和道具的拍卖、收购，也可以进行自由交易，保障了玩家资产的保值。如果玩家想脱坑了，随时可以卖掉全部的卡牌，变成虚拟货币。')}}</div>
           </div>
           <div class="goldbuttonback" @click="$router.push('/Shop')">
-            <a class="buttontext">立即前往</a>
+            <a class="buttontext">{{$t('立即前往')}}</a>
           </div>
         </div>
       <!-- </div> -->
@@ -95,6 +93,6 @@
 .intext{
   color: #000000;
   font-size: 14px;
-  
+
 }
 </style>

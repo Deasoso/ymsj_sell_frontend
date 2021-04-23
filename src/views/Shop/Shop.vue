@@ -20,7 +20,7 @@
       </nav> -->
       <div class="textback">
         <div class="titlepos whiteborder" style="display:relative;">
-          <div class="titletext">卡牌召唤</div>
+          <div class="titletext">{{$t('卡牌召唤')}}</div>
         </div>
         <div class="subtitlepos whiteborder">
           <img class="treasurebox" src="http://ymsjimg.deaso40.com/shop_slices/treasurebox.png">
@@ -30,12 +30,12 @@
             <div class="buybuttonback" @click="draw(1)">
               <img class="buygemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
               <a class="buybuttonvalue">0.010</a>
-              <a class="buybuttontext">单次召唤</a>
+              <a class="buybuttontext">{{$t('单次召唤')}}</a>
             </div>
             <div class="buybuttonback" @click="draw(10)">
               <img class="buygemicon" src="http://ymsjimg.deaso40.com/shop_slices/宝石15.png">
               <a class="buybuttonvalue">0.100</a>
-              <a class="buybuttontext">十连召唤</a>
+              <a class="buybuttontext">{{$t('十连召唤')}}</a>
             </div>
           </nav>
         </div>
@@ -52,8 +52,8 @@
       <!-- <img class="fairy" src="http://ymsjimg.deaso40.com/shop_slices/fair.png"> -->
     </section>
     <buy-modal :buymodalactive.sync="buymodalactive" />
-    <draw-modal 
-      v-for="(item,index) in newcards" 
+    <draw-modal
+      v-for="(item,index) in newcards"
       :key="index"
       :modalactive.sync="cardwindowshow[index]"
       :drawedcards="newcards[index]" />
@@ -61,102 +61,102 @@
 </template>
 
 <script>
-import nft_abi from "@/contracts/NFT_abi.json"
+import nft_abi from '@/contracts/NFT_abi.json'
 import DrawModal from './DrawModal'
 import BuyModal from './BuyModal'
 
 export default {
-	data(){
-		return{
+  data () {
+    return {
       modalactive: true,
       buymodalactive: false,
       ymsjvalue: 0,
       nftid: '',
       newcards: [],
       cardwindowshow: [],
-      loadingtext: '抽卡中...'
-		}
+      loadingtext: this.$t('抽卡中...')
+    }
   },
-  components:{
+  components: {
     DrawModal,
     BuyModal
   },
   computed: {
-    web3(){
-      return this.$store.state.web3;
+    web3 () {
+      return this.$store.state.web3
     },
-    contract(){
-      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
-      return contract_in.at(this.Global.contract_address);
+    contract () {
+      const contract_in = this.web3.web3Instance().eth.contract(nft_abi)
+      return contract_in.at(this.Global.contract_address)
     }
   },
-  methods:{
-    openModal(){
-      this.modalactive = true;
+  methods: {
+    openModal () {
+      this.modalactive = true
     },
-    async draw(times){
-      if(!this.$store.state.web3.isInjected){
+    async draw (times) {
+      if (!this.$store.state.web3.isInjected) {
         this.$buefy.dialog.alert({
-          title: '用户未登录',
-          message: '请先用Metamask钱包登录！',
-          confirmText: '确认'
+          title: this.$t('用户未登录'),
+          message: this.$t('请先用 Metamask 钱包登录！'),
+          confirmText: this.$t('确认')
         })
-        return;
-      };
-      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
-      var that = this;
+        return
+      }
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase
+      var that = this
       await new Promise(
         (resolve, reject) => {
           that.contract.join(
             times,
-            {value: times * 1e16},
-            function(error, result){
-            if(!error){
-              that.$buefy.dialog.alert({
-                title: '支付成功',
-                message: '您的卡牌正在铸造，请稍后到此页面查看。<div>注：在此期间请不要刷新页面。</div>',
-                confirmText: '确认'
-              })
-              that.$store.dispatch('drawCards', times);
-              resolve(result);
-            }else{
-              that.$buefy.dialog.alert({
-                title: '支付失败',
-                message: '用户取消了订单。',
-                type: 'is-danger',
-                confirmText: '确认'
-              })
-              console.log('failed')
-              that.$buefy.dialog.error('支付失败');
-              reject(error);
-            }
-          })
+            { value: times * 1e16 },
+            function (error, result) {
+              if (!error) {
+                that.$buefy.dialog.alert({
+                  title: this.$t('支付成功'),
+                  message: this.$t('您的卡牌正在铸造，请稍后到此页面查看。在此期间请不要刷新页面。'),
+                  confirmText: this.$t('确认')
+                })
+                that.$store.dispatch('drawCards', times)
+                resolve(result)
+              } else {
+                that.$buefy.dialog.alert({
+                  title: this.$t('支付失败'),
+                  message: this.$t('用户取消了订单。'),
+                  type: 'is-danger',
+                  confirmText: this.$t('确认')
+                })
+                console.log('failed')
+                that.$buefy.dialog.error(this.$t('支付失败'))
+                reject(error)
+              }
+            })
         }
-      );
-    },
-  },
-  watch:{
-    '$store.state.newCards': function(newValue, oldValue){
-      if (!newValue || newValue.length == 0) return;
-      for(var i=0;i<newValue.length;i++){
-        this.cardwindowshow.push(true);
-        this.newcards.push(newValue[i]);
-      }
-      this.$store.state.newCards = [];
-		}
-  },
-  mounted(){
-    console.log(this.$store.state.newCards)
-    for(var i=0;i<this.$store.state.newCards.length;i++){
-      this.cardwindowshow.push(true);
-      this.newcards.push(this.$store.state.newCards[i]);
+      )
     }
-    this.$store.state.newCards = [];
-    console.log(this.newcards);
-    console.log(this.cardwindowshow);
-    console.log('mounted');
+  },
+  watch: {
+    '$store.state.newCards': function (newValue, oldValue) {
+      if (!newValue || newValue.length == 0) return
+      for (var i = 0; i < newValue.length; i++) {
+        this.cardwindowshow.push(true)
+        this.newcards.push(newValue[i])
+      }
+      this.$store.state.newCards = []
+    }
+  },
+  mounted () {
+    console.log(this.$store.state.newCards)
+    for (var i = 0; i < this.$store.state.newCards.length; i++) {
+      this.cardwindowshow.push(true)
+      this.newcards.push(this.$store.state.newCards[i])
+    }
+    this.$store.state.newCards = []
+    console.log(this.newcards)
+    console.log(this.cardwindowshow)
+    console.log('mounted')
   }
-};
+}
 </script>
 
 <style scoped>
@@ -249,7 +249,7 @@ export default {
 }
 .treasurebox{
   width: 240px;
-  height: 242px; 
+  height: 242px;
 }
 .buybuttons{
   margin-left: 85px;

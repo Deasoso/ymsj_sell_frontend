@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <Header />
-      <router-view />
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'app',
@@ -20,7 +20,7 @@ export default {
     // eslint-disable-next-line
     console.log('registerWeb3 Action dispatched from casino-dapp.vue')
     this.$store.dispatch('registerWeb3')
-  },
+  }
 }
 </script>
 

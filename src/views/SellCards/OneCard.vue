@@ -42,27 +42,26 @@
 </template>
 
 <script>
-import drawablecards from '@/util/constants/drawablecards';
-import randomavatars from '@/util/constants/randomavatars';
+import drawablecards from '@/util/constants/drawablecards'
+import randomavatars from '@/util/constants/randomavatars'
 
 export default {
-	data(){
-		return{
+  data () {
+    return {
       drawablecards: drawablecards,
       randomavatars: randomavatars
-		}
-  },
-  props:['cardData'],
-	methods:{
-    getPrice(input){
-      if(input < 1e15) return '< 0.001';
-      if(input > 1e21) return '> 1000.000';
-      return (input / 1e18).toFixed(3);
     }
   },
-};
+  props: ['cardData'],
+  methods: {
+    getPrice (input) {
+      if (input < 1e15) return '< 0.001'
+      if (input > 1e21) return '> 1000.000'
+      return (input / 1e18).toFixed(3)
+    }
+  }
+}
 </script>
-
 
 <style scoped>
 .box-card{
@@ -120,4 +119,3 @@ export default {
   margin-top: 1px;
 }
 </style>
-

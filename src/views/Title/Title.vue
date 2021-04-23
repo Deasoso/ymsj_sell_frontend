@@ -7,11 +7,11 @@
             <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
           </div>
           <div class="textpos whiteborder">
-            <span class="subtitletext">超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！</span>
+            <span class="subtitletext">{{$t('超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！')}}</span>
           </div>
           <div class="buttonpos" @click="$router.push('/Shop')">
             <a><img class="goldbutton" src="http://ymsjimg.deaso40.com/title_slices/button1.png"></a>
-            <a><div class="buttontext">立即领取</div></a>
+            <a><div class="buttontext">{{$t('立即领取')}}</div></a>
           </div>
         </div>
       <!-- </div> -->
@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import Title2 from './Title2';
-import Title3 from './Title3';
-import Title4 from './Title4';
-import Title5 from './Title5';
-import Title6 from './Title6';
+import Title2 from './Title2'
+import Title3 from './Title3'
+import Title4 from './Title4'
+import Title5 from './Title5'
+import Title6 from './Title6'
 
 export default {
   components: {

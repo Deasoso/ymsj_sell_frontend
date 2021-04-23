@@ -1,20 +1,20 @@
 <template>
   <div>
-    <b-modal class="modalbackpos" :active="isCardModalActive" 
+    <b-modal class="modalbackpos" :active="isCardModalActive"
       :on-cancel="cancelHandler"
       :width="480"
       scroll="keep">
       <div class="modalpos">
         <div class="upcontents">
-          <div class="titletext">新建交易</div>
+          <div class="titletext">{{$t('新建交易')}}</div>
           <!-- <button
             type="button"
             class="delete"
             @click="cancelHandler"/> -->
-          <div class="selecttext">交易对象</div>
-          <b-select 
-            placeholder="选择交易对象" 
-            class="selectpos" 
+          <div class="selecttext">{{$t('交易对象')}}</div>
+          <b-select
+            :placeholder="$t('选择交易对象')"
+            class="selectpos"
             style="width: 240px;height: 40px;"
             v-model="selectedCard">
             <option
@@ -25,16 +25,16 @@
             </option>
           </b-select>
 
-          <div class="selecttext">售卖数量（拥有：{{selectedCard.amount || 0}}）</div>
-          <b-input placeholder="输入你想卖的数量" class="inputwidth" v-model="amount"></b-input>
+          <div class="selecttext">{{$t('售卖数量（拥有：{amount}）', {amount: selectedCard.amount || 0})}}</div>
+          <b-input :placeholder="$t('输入你想卖的数量')" class="inputwidth" v-model="amount"></b-input>
 
-          <div class="selecttext">商品价格（单位：ether）</div>
-          <b-input placeholder="输入你想卖的价格" class="inputwidth" v-model="price"></b-input>
+          <div class="selecttext">{{$t('商品价格（单位：ether）')}}</div>
+          <b-input :placeholder="$t('输入你想卖的价格')" class="inputwidth" v-model="price"></b-input>
 
           <!-- <div class="selecttext">货币种类</div>
-          <b-select 
-            placeholder="选择货币种类" 
-            class="selectpos" 
+          <b-select
+            placeholder="选择货币种类"
+            class="selectpos"
             style="width: 240px;height: 40px;">
             <option
               v-for="option in [{'id':'1'},{'id':'2'},{'id':'3'},{'id':'4'}]"
@@ -44,25 +44,25 @@
             </option>
           </b-select> -->
 
-          <div class="selecttext">商品简介</div>
-          <b-input placeholder="输入商品简介" class="introducewidth" v-model="introduce" type="textarea"></b-input>
+          <div class="selecttext">{{$t('商品简介')}}</div>
+          <b-input :placeholder="$t('输入商品简介')" class="introducewidth" v-model="introduce" type="textarea"></b-input>
         </div>
 
         <button class="button is-dark enterbuy" @click="sellCard">
-          <span>发布商品</span>
+          <span>{{$t('发布商品')}}</span>
         </button>
-        
+
       </div>
     </b-modal>
   </div>
 </template>
 
 <script>
-import drawablecards from '@/util/constants/drawablecards';
-import nft_abi from "@/contracts/NFT_abi.json"
+import drawablecards from '@/util/constants/drawablecards'
+import nft_abi from '@/contracts/NFT_abi.json'
 
 export default {
-  data() {
+  data () {
     return {
       isCardModalActive: false,
       drawablecards: drawablecards,
@@ -75,47 +75,47 @@ export default {
       introduce: ''
     }
   },
-  props:['modalactive'],
+  props: ['modalactive'],
   computed: {
-    web3(){
-      return this.$store.state.web3;
+    web3 () {
+      return this.$store.state.web3
     },
-    contract(){
-      const contract_in = this.web3.web3Instance().eth.contract(nft_abi);
-      return contract_in.at(this.Global.contract_address);
+    contract () {
+      const contract_in = this.web3.web3Instance().eth.contract(nft_abi)
+      return contract_in.at(this.Global.contract_address)
     }
   },
-  watch:{
-    modalactive: function(val){
-      this.isCardModalActive = val;
+  watch: {
+    modalactive: function (val) {
+      this.isCardModalActive = val
     }
   },
   methods: {
-    cancelHandler(){
-      this.isCardModalActive = false;
-      this.$emit('update:modalactive', this.isCardModalActive);
+    cancelHandler () {
+      this.isCardModalActive = false
+      this.$emit('update:modalactive', this.isCardModalActive)
     },
-    async sellCard(){
-      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase;
-      console.log(this.contract);
-      var that = this;
+    async sellCard () {
+      this.web3.web3Instance().eth.defaultAccount = this.web3.web3Instance().eth.coinbase
+      console.log(this.contract)
+      var that = this
       await new Promise(
         (resolve, reject) => {
           that.contract.sell_card(
-            that.selectedCard.id + 1, //链上卡片的id为前端或后端的id+1
+            that.selectedCard.id + 1, // 链上卡片的id为前端或后端的id+1
             that.amount,
             that.web3.web3Instance().toWei(that.price, 'ether'),
-            function(error, result){
-            if(!error){
-              resolve(result);
-            }else{
-              reject(error);
-            }
-          })
+            function (error, result) {
+              if (!error) {
+                resolve(result)
+              } else {
+                reject(error)
+              }
+            })
         }
-      );
+      )
     }
-  }	
+  }
 }
 </script>
 

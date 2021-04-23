@@ -5,7 +5,7 @@
         <a class="navbar-item" href="/">
           <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
         </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clicknav" style="height: 80px;">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="nav" @click="clickNav" style="height: 80px;">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -13,11 +13,11 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-      
+
       <div id="navbarBasicExample" class="navbar-menu" ref="navitem">
         <div class="navbar-start">
           <router-link v-for="(item, index) in headeritems" :key="index"
-            :class="'navbar-item ' + ((activeItem == item.to) ? 'yellowfont' : 'whitefont')" 
+            :class="'navbar-item ' + ((activeItem == item.to) ? 'yellowfont' : 'whitefont')"
             :to="{name: item.to}">
             <span>
               <img class="pagelogo" :src="(activeItem == item.to) ? item.active_url : item.url">
@@ -27,14 +27,14 @@
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item" v-if="!islogin" >
+          <div class="navbar-item" v-if="!hasLoggedIn" >
             <button class="button is-outlined loginbutton" @click="login">
-              <strong>登录钱包</strong>
+              <strong>{{$t('登录钱包')}}</strong>
             </button>
           </div>
-          <img class="speakerlogo" 
-            v-if="islogin" 
-            @click="$router.push('/Mine')" 
+          <img class="speakerlogo"
+            v-if="hasLoggedIn"
+            @click="$router.push('/Mine')"
             :src="randomavatars[parseInt(account) % randomavatars.length].url">
         </div>
       </div>
@@ -43,74 +43,94 @@
 </template>
 
 <script>
-import headeritems from "@/util/constants/headeritems"
-import randomavatars from '@/util/constants/randomavatars';
+import headeritems from '@/util/constants/headeritems'
+import randomavatars from '@/util/constants/randomavatars'
+import { defineComponent, ref, watch, onMounted, computed } from '@vue/composition-api'
+import { useRouter, useStore } from '@/util/composition'
+import { i18n, t } from '@/i18n'
+import { selectCase, selectData } from '@/util/lang'
 
-export default {
-  data() {
-    return {
-      selected: "",
-      title: "",
-      islogin: false,
-      headeritems: headeritems,
-      account: 1,
-      randomavatars: randomavatars,
-    }
-  },
-  watch:{
-    '$store.state.web3.isInjected': function(val){
-      if(val){
-        this.account = this.$store.state.web3.coinbase;
-        this.islogin = true;
-      }else{
-        this.account = 1;
-        this.islogin = false;
+export default defineComponent({
+  name: 'Header',
+  setup (_, self) {
+    const t = self.root.$t
+    const store = useStore(self)
+    const { route, router } = useRouter(self)
+    const selected = ref('')
+    const title = ref('')
+    const hasLoggedIn = ref(false)
+    const account = ref(1)
+    watch(() => store.state.web3.isInjected, (val) => {
+      if (val) {
+        account.value = store.state.web3.coinbase
+        hasLoggedIn.value = true
+      } else {
+        account.value = 1
+        hasLoggedIn.value = false
       }
+    })
+    const clickNav = () => {
+      self.refs.nav.classList.toggle('is-active')
+      self.refs.navitem.classList.toggle('is-active')
     }
-  },
-  methods:{
-    clicknav(){
-      this.$refs.nav.classList.toggle("is-active");
-      this.$refs.navitem.classList.toggle("is-active");
-    },
-    async login(){
-      if(!this.$store.state.web3.isInjected){
+    const login = async () => {
+      if (!store.state.web3.isInjected) {
         try {
-          if(!window.web3){
-            this.$buefy.dialog.alert({
-              title: '未检测到钱包',
-              message: '请先安装Metamask钱包并解锁。',
-              confirmText: '确认'
+          if (!window.web3) {
+            self.root.$buefy.dialog.alert({
+              title: t('未检测到钱包'),
+              message: t('请先安装Metamask钱包并解锁。'),
+              confirmText: t('确认')
             })
-            this.islogin = false;
-            return;
+            hasLoggedIn.value = false
+            return
           }
-          const accounts = await window.ethereum.send('eth_requestAccounts');
-          this.$router.go(0);
-          this.account = accounts[0];
-          this.islogin = true;
+          const accounts = await window.ethereum.send('eth_requestAccounts')
+          router.go(0)
+          account.value = accounts[0]
+          hasLoggedIn.value = true
         } catch (error) {
-          this.islogin = false;
-            // User denied account access
+          const info = selectData([error.code === '-32002', {
+            title: t('登录已在进行中'),
+            message: t('一个或多个登录已在进行中。请至 Metamask 钱包确认登录状态。')
+          }], [
+            true, {
+              title: t('登录时发生错误'),
+              message: t('登录时发生未知错误。')
+            }
+          ])
+          self.root.$buefy.dialog.alert({
+            ...info,
+            confirmText: t('确认')
+          })
+          hasLoggedIn.value = false
         }
-      }else{
-        this.account = this.$store.state.web3.coinbase;
-        this.islogin = false;
+      } else {
+        console.log('user cancelled')
+        account.value = store.state.web3.coinbase
+        hasLoggedIn.value = false
       }
     }
-  },
-  computed: {
-    activeItem(){
-      return this.$route.path.split('/')[1] || 'Home';
-    }
-  },
-  mounted(){
-    if(this.$store.state.web3.isInjected){
-      this.account = this.$store.state.web3.coinbase;
-      this.islogin = true;
+    const activeItem = computed(() => route.path.split('/')[1] || 'Home')
+    onMounted(() => {
+      if (store.state.web3.isInjected) {
+        account.value = store.state.web3.coinbase
+        hasLoggedIn.value = true
+      }
+    })
+    return {
+      login,
+      clickNav,
+      selected,
+      title,
+      hasLoggedIn,
+      headeritems,
+      account,
+      randomavatars,
+      activeItem
     }
   }
-}
+})
 </script>
 <style scoped>
 .navbar.is-fixed-top {
@@ -121,7 +141,7 @@ export default {
   color: #E7CE8A !important;
   font-size: 16px;
 }
-.whitefont{
+.whitefont, a.navbar-item:hover{
   color: #b2b2b2;
   font-size: 16px;
 }
@@ -165,4 +185,3 @@ strong {
   background-color: #666666;
 }
 </style>
-

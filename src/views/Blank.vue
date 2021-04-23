@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="is-cover allheight backpic">
-      
+
     </section>
   </div>
 </template>

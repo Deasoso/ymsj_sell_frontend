@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal class="modalbackpos" :active="isCardModalActive" 
+    <b-modal class="modalbackpos" :active="isCardModalActive"
       :on-cancel="cancelHandler"
       :width="480"
       scroll="keep">
@@ -52,32 +52,32 @@
         <button class="button is-dark enterbuy">
           <span>确认购买</span>
         </button>
-        
+
       </div>
     </b-modal>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        isCardModalActive: false
-      }
-    },
-    props:['buymodalactive'],
-    watch:{
-      buymodalactive: function(val){
-        this.isCardModalActive = val;
-      }
-    },
-    methods: {
-      cancelHandler(){
-        this.isCardModalActive = false;
-        this.$emit('update:buymodalactive', this.isCardModalActive);
-      },
-    }	
+export default {
+  data () {
+    return {
+      isCardModalActive: false
+    }
+  },
+  props: ['buymodalactive'],
+  watch: {
+    buymodalactive: function (val) {
+      this.isCardModalActive = val
+    }
+  },
+  methods: {
+    cancelHandler () {
+      this.isCardModalActive = false
+      this.$emit('update:buymodalactive', this.isCardModalActive)
+    }
   }
+}
 </script>
 
 <style scoped>
