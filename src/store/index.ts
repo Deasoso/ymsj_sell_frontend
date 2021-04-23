@@ -10,16 +10,17 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state,
   mutations: {
+    updateInjected (state, payload) {
+      console.log(payload.isConnected())
+      state.web3.isInjected = payload.isConnected()
+    },
     registerWeb3Instance (state, payload) {
       console.log('registerWeb3instance Mutation being executed', payload)
       const result = payload
-      const web3Copy = state.web3
-      web3Copy.coinbase = result.coinbase
-      web3Copy.networkId = result.networkId
-      web3Copy.balance = parseInt(result.balance, 10)
-      web3Copy.isInjected = result.injectedWeb3
-      web3Copy.web3Instance = result.web3
-      state.web3 = web3Copy
+      state.web3.coinbase = result.coinbase
+      state.web3.networkId = result.networkId
+      state.web3.balance = parseInt(result.balance, 10)
+      state.web3.web3Instance = result.web3
     },
     saveCards (state, input) {
       state.cards = input
@@ -65,6 +66,7 @@ export const store = new Vuex.Store({
         console.log(result)
         console.log('committing result to registerWeb3Instance mutation')
         commit('registerWeb3Instance', result)
+        setInterval(() => commit('updateInjected', result.web3()), 500)
         if (result.coinbase) {
           result.web3Instance = result.web3
           const usercards = await cardapi.getCards(result)

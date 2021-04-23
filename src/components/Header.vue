@@ -47,13 +47,12 @@ import headeritems from '@/util/constants/headeritems'
 import randomavatars from '@/util/constants/randomavatars'
 import { defineComponent, ref, watch, onMounted, computed } from '@vue/composition-api'
 import { useRouter, useStore } from '@/util/composition'
-import { i18n, t } from '@/i18n'
-import { selectCase, selectData } from '@/util/lang'
+import { selectData } from '@/util/lang'
+import { i18n } from '@/i18n'
 
 export default defineComponent({
   name: 'Header',
   setup (_, self) {
-    const t = self.root.$t
     const store = useStore(self)
     const { route, router } = useRouter(self)
     const selected = ref('')
@@ -78,9 +77,9 @@ export default defineComponent({
         try {
           if (!window.web3) {
             self.root.$buefy.dialog.alert({
-              title: t('未检测到钱包'),
-              message: t('请先安装Metamask钱包并解锁。'),
-              confirmText: t('确认')
+              title: i18n.t('未检测到钱包'),
+              message: i18n.t('请先安装 Metamask 钱包并解锁。'),
+              confirmText: i18n.t('确认')
             })
             hasLoggedIn.value = false
             return
@@ -90,20 +89,26 @@ export default defineComponent({
           account.value = accounts[0]
           hasLoggedIn.value = true
         } catch (error) {
-          const info = selectData([error.code === '-32002', {
-            title: t('登录已在进行中'),
-            message: t('一个或多个登录已在进行中。请至 Metamask 钱包确认登录状态。')
-          }], [
+          const info = selectData([error.code === -32002, {
+            title: i18n.t('登录已在进行中'),
+            message: i18n.t('一个登录已在进行中。请至 Metamask 钱包确认登录状态。')
+          }],
+          [error.code === 4001, {
+            title: i18n.t('用户取消了请求'),
+            message: i18n.t('用户取消了登录请求。')
+          }],
+          [
             true, {
-              title: t('登录时发生错误'),
-              message: t('登录时发生未知错误。')
+              title: i18n.t('登录时发生错误'),
+              message: i18n.t('登录时发生未知错误。')
             }
           ])
           self.root.$buefy.dialog.alert({
             ...info,
-            confirmText: t('确认')
+            confirmText: i18n.t('确认')
           })
           hasLoggedIn.value = false
+          console.error(error)
         }
       } else {
         console.log('user cancelled')
@@ -116,6 +121,9 @@ export default defineComponent({
       if (store.state.web3.isInjected) {
         account.value = store.state.web3.coinbase
         hasLoggedIn.value = true
+        // connected/disconnected handler
+        window.ethereum.on('connect', (connectInfo) => console.log(connectInfo))
+        window.ethereum.on('disconnect', (error) => console.log(error))
       }
     })
     return {
