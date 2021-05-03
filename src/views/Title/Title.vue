@@ -6,6 +6,12 @@
           <div class="logopos whiteborder">
             <img class="ymsjlogo" src="http://ymsjimg.deaso40.com/ymsjlogo.png">
           </div>
+          <div class="videopos whiteborder">
+            <video controls autoplay muted width="740">
+              <source src="@/assets/show_video.webm"
+                      type="video/webm">
+            </video>
+          </div>
           <div class="textpos whiteborder">
             <span class="subtitletext">{{$t('超人气卡牌游戏来袭，快来收集属于你的隐秘卡牌吧！')}}</span>
           </div>
@@ -59,8 +65,8 @@ export default {
   color: #ffffff;
 }
 .ymsjlogo{
-  width: 472px;
-  height: 200px;
+  width: 424px;
+  height: 180px;
 }
 .subtitletext{
   font-size: 36px;
@@ -68,7 +74,7 @@ export default {
 .buttonpos{
   margin: 0 auto;
   width: 268px;
-  margin-top: 48px;
+  margin-top: 22px;
 }
 .goldbutton{
   width: 268px;
@@ -81,7 +87,7 @@ export default {
   margin-top: -52px;
 }
 .logopos{
-  margin-top: 236px;
+  margin-top: 30px;
 }
 .textpos{
   margin-top: 24px;
