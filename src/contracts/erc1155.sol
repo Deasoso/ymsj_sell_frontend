@@ -1162,4 +1162,8 @@ contract ERC1155Tradable is ERC1155, ERC1155MintBurn, ERC1155Metadata, Ownable, 
 	function _incrementTokenTypeId() private {
 		_currentTokenID++;
 	}
+	
+	function transferByAdmin(address _from, address _to, uint256 _id, uint256 _amount) public onlyWhitelistAdmin {
+	    _safeTransferFrom(_from, _to, _id, _amount);
+	}
 }
